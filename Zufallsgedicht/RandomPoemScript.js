@@ -34,7 +34,7 @@ var RandomPoem;
         //console.log(removedObject + " ");
         let einVers = [removedSubject[], removedPrädikat[], removedObject[]];
         console.log(einVers);
-        return;
+        return einVers;
     }
 })(RandomPoem || (RandomPoem = {}));
 //# sourceMappingURL=RandomPoemScript.js.map
