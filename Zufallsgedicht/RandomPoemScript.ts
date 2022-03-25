@@ -60,7 +60,7 @@ namespace RandomPoem {
 
 
 
-    let einVers: string = [removedSubject[], removedPrädikat[], removedObject[]];
+    let einVers: string = removedSubject[0], removedPrädikat[0], removedObject[0];
     console.log(einVers);
     return einVers;
     }

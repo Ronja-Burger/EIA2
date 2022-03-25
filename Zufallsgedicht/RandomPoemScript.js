@@ -32,7 +32,9 @@ var RandomPoem;
         // Zufallswert aus den Objekten
         let removedObject = objekte.splice(objZahl, 1);
         //console.log(removedObject + " ");
-        let einVers = [removedSubject[], removedPrädikat[], removedObject[]];
+        let einVers = removedSubject[0], removedPrädikat, [];
+        0;
+        removedObject[0];
         console.log(einVers);
         return einVers;
     }
