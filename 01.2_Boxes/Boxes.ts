@@ -1,7 +1,7 @@
-namespace Boxes {
+76namespace Boxes {
     let n: number = 5;
     let color: string;
-    let x: number = 0;
+    let x: number = 0; 
     let y: number = 0;
 
     for (let i: number = 0; i < n; i++) {
