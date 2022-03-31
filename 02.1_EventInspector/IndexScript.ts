@@ -1,22 +1,41 @@
-namespace Greet {
-    window.addEventListener("load", hndLoad);
-    function hndLoad(_event: Event): void {
-      let input: HTMLInputElement | null = document.querySelector("input");
-      if (!input)
-        return;
-      console.log(input);
-      input.addEventListener("change", hndChange);
-      document.addEventListener("greet", hndGreet);
-    }
-    function hndChange(_event: Event): void {
-      console.log(_event);
-      // test if value == "Hello"
-      let customEvent: CustomEvent = new CustomEvent("greet", { bubbles: true });
-      _event.target?.dispatchEvent(customEvent);
-    }
-    function hndGreet(_event: Event) {
-      let target: HTMLInputElement = <HTMLInputElement>_event.target;
-      console.log("Greeted with", target.value);
-    }
-  }
-  
+window.addEventListener ("load", hndLoad);
+
+let div0: HTMLDivElement;
+
+function hndLoad (): void {
+let div0: HTMLDivElement = <HTMLDivElement>document.querySelector(".div0");
+let div1: HTMLDivElement = <HTMLDivElement>document.querySelector(".div1");
+
+    // mouse move listener on document
+document.addEventListener ("mousemove", setInfoBox);
+    // click listener on document ...
+document.addEventListener ("click", logInfo);
+    // ... body ...
+document.body.addEventListener ("click", logInfo);
+    // ... div0 ...
+div0.addEventListener ("click", logInfo);
+    // ... and div1.
+div1.addEventListener ("click", logInfo);
+    // key-up Listener on document ...
+document.addEventListener ("keyup", logInfo);
+    // ... body ...
+document.body.addEventListener ("keyup", logInfo);
+    // ... div0 ...
+div0.addEventListener ("keyup", logInfo);
+    // ... and div1.
+div1.addEventListener ("keyup", logInfo);
+}
+
+function setInfoBox (_event: MouseEvent): void {
+    //diplay mouse position - clientX und clientY ist Position, span bekommt die Werte 
+let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector(".span");
+span.style.top = _event.clientY + "px";
+span.style.left = _event.clientX + "px";
+    //event's target in span
+    // + style Attribute top & left of span to mouseposition + offset
+    //console.log(_event.clientY);
+}
+
+function logInfo (_event: Event): void {
+    // in der Konsole ausgeben: Event Typ, Target, currentTarget, whole EventObject
+}
