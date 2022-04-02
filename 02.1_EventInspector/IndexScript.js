@@ -28,8 +28,9 @@ function setInfoBox(_event) {
     let span = document.querySelector(".span");
     span.style.top = _event.clientY + 20 + "px";
     span.style.left = _event.clientX + 20 + "px";
-    let info = document.createElement("p");
-    span.appendChild(info);
+    span.innerHTML = _event.target + "<p>";
+    //let info: HTMLParagraphElement = document.createElement("p");
+    //span.appendChild(info);
 }
 function logInfo(_event) {
     // in der Konsole ausgeben: Event Typ, Target, currentTarget, whole EventObject
