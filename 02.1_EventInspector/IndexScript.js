@@ -24,15 +24,13 @@ function hndLoad() {
     div1.addEventListener("keyup", logInfo);
 }
 function setInfoBox(_event) {
-    //diplay mouse position - clientX und clientY ist Position, span bekommt die Werte 
+    //diplay mouse position - clientX und clientY ist Position, span bekommt die Werte + offset
     let span = document.querySelector(".span");
-    span.style.top = _event.clientY + "px";
-    span.style.left = _event.clientX + "px";
-    //event's target in span
-    // + style Attribute top & left of span to mouseposition + offset
-    //console.log(_event.clientY);
+    span.style.top = _event.clientY + 20 + "px";
+    span.style.left = _event.clientX + 20 + "px";
 }
 function logInfo(_event) {
     // in der Konsole ausgeben: Event Typ, Target, currentTarget, whole EventObject
+    console.log(_event.type, _event.target, _event.currentTarget, _event);
 }
 //# sourceMappingURL=IndexScript.js.map

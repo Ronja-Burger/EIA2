@@ -1,15 +1,16 @@
-span {
+h1 {
+    font-family: sans-serif;
+    color: brown;
+}
+.span {
     position: fixed;
     background-color: brown;
     height: 50px;
-    width: 20px;
-    z-index: 1000;
+    width: 80px;
 }
-.div0 {
-    height: 300 px;
+div {
+    display: inline-flex;
+    height: 600px;
+    width: 700px;
     background-color: rosybrown;
-}
-.div1 {
-    height: 300 px;
-    background-color: aquamarine;
 }
