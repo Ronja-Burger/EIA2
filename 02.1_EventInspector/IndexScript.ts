@@ -31,6 +31,8 @@ function setInfoBox (_event: MouseEvent): void {
 let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector(".span");
 span.style.top = _event.clientY + 20 + "px";
 span.style.left = _event.clientX + 20 + "px";
+let info: HTMLParagraphElement = document.createElement("p");
+span.appendChild(info);
 }
 
 function logInfo (_event: Event): void {

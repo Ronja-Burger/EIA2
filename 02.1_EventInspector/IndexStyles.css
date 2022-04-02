@@ -4,6 +4,8 @@ h1 {
 }
 .span {
     position: fixed;
+    color: antiquewhite;
+    font-family: sans-serif;
     background-color: brown;
     height: 50px;
     width: 80px;
