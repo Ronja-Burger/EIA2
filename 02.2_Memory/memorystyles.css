@@ -1,0 +1,24 @@
+#carddeck {
+    margin: 100px;
+    background-color: bisque;
+    width: 1000px; /*wie mache ich das responsiv?*/
+    height: 500px;
+}
+input{
+    margin: 10px; /*wie platziere ich das mittig?*/
+}
+#span { /*warums ehe ich das nicht?!*/
+    margin: 10px;
+    background-color: aquamarine;
+    width: 50px;
+    height: 20px;
+}
+#infos {
+    margin-left: 1200px;
+    padding: 5px; /*warum gikt das offensichtlich nur für oben?!*/
+    font-family: sans-serif;
+    color: blanchedalmond;
+    background-color: brown;
+    height: 500px;
+    width: 300px;
+}
