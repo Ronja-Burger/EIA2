@@ -7,11 +7,15 @@
 input{
     margin: 10px; /*wie platziere ich das mittig?*/
 }
-#span { /*warums ehe ich das nicht?!*/
+.card {
+    height: 50px;
+    width: 20px;
+    background-color: brown;
     margin: 10px;
-    background-color: aquamarine;
-    width: 50px;
-    height: 20px;
+}
+#Karten {
+    display: flex;
+    flex-direction: row;
 }
 #infos {
     margin-left: 1200px;

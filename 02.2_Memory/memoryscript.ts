@@ -5,31 +5,42 @@ function hndLoad(): void {
     //console.log(cards);
     let input: HTMLInputElement = <HTMLInputElement>document.querySelector("#input");
     //input.value splice
+    input.addEventListener("change", newArray);
 
     function newArray(): void {
-        let thisArray: string[] = cards.splice(Number(input.value), 1);
+        let thisArray: string[] = cards.splice(0, Number(input.value));
+        input.style.display = "none";
+        for (let index: number = 0; index < thisArray.length; index++) {
+            let element: string = thisArray[index];
+            createDeck(element);
+            createDeck(element);
+        }
+        console.log(thisArray);
         // push thisArray in globalArray
-        createDeck();
-        createDeck();
+        //createDeck();
+        //createDeck();
     }
 
-    function createDeck(): void {
-        let card1: HTMLDivElement = document.createElement("div");
-        while input.value >= 0;
-        div0.classList.add("class" + input.value);
-        appendChild(body); //add EventListener
+    function createDeck(_value: string): void {
+        let card1: HTMLDivElement = <HTMLDivElement>document.createElement("div");
+        card1.classList.add("" + _value);
+        card1.classList.add("card");
+        let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
+        karten.appendChild(card1); //add EventListener
+        card1.addEventListener("click", turnAround);
     }
-    function turnAround(): void {
-        innerhtml.style: display;
-        push in global Array;
-        if globalArray.length == 1 {
-            compare;
-        }
+
+    function turnAround(_event: MouseEvent): void {
+        let eventTarget: HTMLDivElement = <HTMLDivElement>_event.target;
+        let wert: string = eventTarget.classList[0];
+        eventTarget.innerHTML = wert;
+        console.log(eventTarget.classList[0]);
     }
-    function compare(): void {
-        if div1.class == div2.class {
-            display: none;
+}
+function compare(): void {
+    if div1.class == div2.class {
+        display: none;
             else innerHTML.style: plane;
-        }
     }
+}
 }
