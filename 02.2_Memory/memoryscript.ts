@@ -38,7 +38,7 @@ function hndLoad(): void {
     }
 }
 function compare(): void {
-    if div1.class == div2.class {
+    if (card1.classlist == card1.classlist) {
         display: none;
             else innerHTML.style: plane;
     }

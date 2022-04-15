@@ -8,10 +8,14 @@ input{
     margin: 10px; /*wie platziere ich das mittig?*/
 }
 .card {
-    height: 50px;
-    width: 20px;
+    height: 70px;
+    width: 60px;
     background-color: brown;
     margin: 10px;
+    padding: 20px; /*wie platziere ich die Buchstaben mittig?*/
+    color: antiquewhite;
+    font-family: sans-serif; 
+    font-size: large;
 }
 #Karten {
     display: flex;
