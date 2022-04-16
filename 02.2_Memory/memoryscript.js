@@ -15,9 +15,11 @@ function hndLoad() {
             let element = thisArray[index];
             createDeck(element); //Deck soll nicht erstellt werden, bevor alle inputs ausgelesen wurden
             createDeck(element);
+            console.log(thisArray);
+            // push thisArray in globalArray
+            let compareArray = globalArray.push(thisArray[index]); //von was für einem Typ ist das denn?
+            console.log(compareArray); //wird nicht ausgegeben
         }
-        console.log(thisArray);
-        // push thisArray in globalArray
     }
     function createDeck(_value) {
         let card1 = document.createElement("div");
