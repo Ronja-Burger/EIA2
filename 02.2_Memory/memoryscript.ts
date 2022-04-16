@@ -6,7 +6,7 @@ function hndLoad(): void {
     let input: HTMLInputElement = <HTMLInputElement>document.querySelector("#input");
     let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     //input.value splice
-    spielstart.addEventListener("change", newArray); //funktioniert nicht
+    spielstart.addEventListener("click", newArray); //funktioniert kurz, dann springt es zurück
 
     function newArray(): void {
         let thisArray: string[] = cards.splice(0, Number(input.value)); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
@@ -17,8 +17,8 @@ function hndLoad(): void {
             createDeck(element);
             console.log(thisArray);
             // push thisArray in globalArray
-            let compareArray = globalArray.push(thisArray[index]); //von was für einem Typ ist das denn?
-            console.log(compareArray); //wird nicht ausgegeben
+            //let compareArray = globalArray.push(thisArray[index]); //von was für einem Typ ist das denn?
+            //console.log(compareArray); //wird nicht ausgegeben
         }
     }
 
