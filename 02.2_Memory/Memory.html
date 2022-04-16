@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,34 +9,35 @@
     <link rel="stylesheet" href="memorystyles.css">
     <script src="memoryscript.js"></script>
 </head>
+
 <body>
     <div id="carddeck">
-        <form action="">
+        <form id="form">
             <p>How many pairs do you want?</p>
-        <input id="input" type="number" name="Datalist" list="options" placeholder="how many pairs?"/>
-        <hr />
-        <p>What size shall your cards have?</p>
-        <input type="range" name="Slider" min="0" max="1" step="0.1" value="0" />
-		<hr />
-        <div id="colorpicker">
-            <p>Which color shall the background have?</p>
-            <input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
-            <p>And your cards?</p>
-            <input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
-            <p>And the font?</p>
-            <input type="color" name="Color" placeholder="red" id="color" value="#ff0000">
-        </div>
-        <hr />
-        <p>Which font do you want?</p>
-        <input type="radio" name="Radiogroup" value="radio1" id="radio1" />
-		<label for="radio1">Font 1</label>
-		<input type="radio" name="Radiogroup" value="radio2" id="radio2" />
-		<label for="radio2">Font 2</label>
-		<input type="radio" name="Radiogroup" value="radio3" id="radio3" />
-		<label for="radio3">Font 3</label>
-		<hr />
-        <button id="Startbutton">Start</button>
-        <hr />
+            <input id="input" type="number" name="cardpairs" list="options" placeholder="how many pairs?" />
+            <hr />
+            <p>What size shall your cards have?</p>
+            <input type="range" name="cardsize" min="50" max="100" step="1" value="50" />
+            <hr />
+            <div id="colorpicker">
+                <p>Which color shall the background have?</p>
+                <input type="color" name="backgroundcolor" placeholder="red" id="color" value="#ff0000">
+                <p>And your cards?</p>
+                <input type="color" name="cardcolor" placeholder="red" id="color" value="#ff0000">
+                <p>And the font?</p>
+                <input type="color" name="fontcolor" placeholder="red" id="color" value="#ff0000">
+            </div>
+            <hr />
+            <p>Which font do you want?</p>
+            <input type="radio" name="font" value="sans-serif" id="radio1" />
+            <label for="radio1">sans-serif</label>
+            <input type="radio" name="font" value="serif" id="radio2" />
+            <label for="radio2">serif</label>
+            <input type="radio" name="font" value="monospace" id="radio3" />
+            <label for="radio3">monospace</label>
+            <hr />
+            <button type="button" id="Startbutton">Start</button>
+            <hr />
         </form>
         <div id="Karten"></div>
     </div>
@@ -43,4 +45,5 @@
         <h1>Memory</h1>
     </div>
 </body>
+
 </html>
