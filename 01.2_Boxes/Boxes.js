@@ -1,8 +1,6 @@
 "use strict";
-76n;
-amespace;
-Boxes;
-{
+var Boxes;
+(function (Boxes) {
     let n = 5;
     let color;
     let x = 0;
@@ -37,5 +35,5 @@ Boxes;
         div.style.left = _x + "px";
         div.style.top = _y + "px";
     }
-}
+})(Boxes || (Boxes = {}));
 //# sourceMappingURL=Boxes.js.map

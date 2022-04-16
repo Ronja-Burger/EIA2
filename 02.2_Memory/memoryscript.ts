@@ -4,21 +4,20 @@ function hndLoad(): void {
     let globalArray: string[] = [];
     //console.log(cards);
     let input: HTMLInputElement = <HTMLInputElement>document.querySelector("#input");
+    let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     //input.value splice
-    input.addEventListener("change", newArray);
+    spielstart.addEventListener("change", newArray); //funktioniert nicht
 
     function newArray(): void {
-        let thisArray: string[] = cards.splice(0, Number(input.value));
+        let thisArray: string[] = cards.splice(0, Number(input.value)); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
         input.style.display = "none";
         for (let index: number = 0; index < thisArray.length; index++) {
             let element: string = thisArray[index];
-            createDeck(element);
+            createDeck(element); //Deck soll nicht erstellt werden, bevor alle inputs ausgelesen wurden
             createDeck(element);
         }
         console.log(thisArray);
         // push thisArray in globalArray
-        //createDeck();
-        //createDeck();
     }
 
     function createDeck(_value: string): void {
@@ -26,21 +25,22 @@ function hndLoad(): void {
         card1.classList.add("" + _value);
         card1.classList.add("card");
         let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
-        karten.appendChild(card1); //add EventListener
+        karten.appendChild(card1);
         card1.addEventListener("click", turnAround);
     }
 
     function turnAround(_event: MouseEvent): void {
         let eventTarget: HTMLDivElement = <HTMLDivElement>_event.target;
         let wert: string = eventTarget.classList[0];
-        eventTarget.innerHTML = wert;
+        eventTarget.innerHTML = wert; //und wie lasse ich den wieder verschwinden?
         console.log(eventTarget.classList[0]);
     }
 }
+/*
 function compare(): void {
     if (card1.classlist == card1.classlist) {
         display: none;
             else innerHTML.style: plane;
     }
 }
-}
+}*/

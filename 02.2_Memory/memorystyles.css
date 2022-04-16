@@ -1,18 +1,33 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
 #carddeck {
     margin: 100px;
     background-color: bisque;
+    font-family: sans-serif;
     width: 1000px; /*wie mache ich das responsiv?*/
     height: 500px;
+    flex-wrap: wrap;
 }
 input{
     margin: 10px; /*wie platziere ich das mittig?*/
 }
+#colorpicker {
+    display: flex;
+    flex-direction: row;
+}
+/*#Startbutton {
+    position: absolute;
+    text-align: center;
+}*/
 .card {
     height: 70px;
     width: 60px;
     background-color: brown;
     margin: 10px;
-    padding: 20px; /*wie platziere ich die Buchstaben mittig?*/
+    text-align: center;
+    line-height: 70px;
     color: antiquewhite;
     font-family: sans-serif; 
     font-size: large;
@@ -22,7 +37,7 @@ input{
     flex-direction: row;
 }
 #infos {
-    margin-left: 1200px;
+    margin: 100px;
     padding: 5px; /*warum gikt das offensichtlich nur für oben?!*/
     font-family: sans-serif;
     color: blanchedalmond;
