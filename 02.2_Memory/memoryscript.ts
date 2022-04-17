@@ -23,13 +23,13 @@ function outputs(): void {
             case "cardsize":
                 cardsize = Number(entry[1]);
             case "backgroundcolor":
-                backgroundcolor = entry[1];
+                backgroundcolor = entry[1].toString();
             case "cardcolor":
-                cardcolor = entry[1];
+                cardcolor = entry[1] + ""; 
             case "fontcolor":
-                fontcolor = entry[1];
+                fontcolor = String(entry[1]);
             case "font":
-                font = entry[1];
+                font = entry[1].toString();
             default:
                 break;
         }
