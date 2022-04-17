@@ -12,8 +12,6 @@ let cardcolor: string;
 let fontcolor: string;
 let font: string;
 
-//let input: HTMLInputElement = <HTMLInputElement>document.querySelector("#input");
-
 
 function outputs(): void {
     let formdata: FormData = new FormData(document.forms[0]);
@@ -24,7 +22,14 @@ function outputs(): void {
                 break;
             case "cardsize":
                 cardsize = Number(entry[1]);
-
+            case "backgroundcolor":
+                backgroundcolor = entry[1];
+            case "cardcolor":
+                cardcolor = entry[1];
+            case "fontcolor":
+                fontcolor = entry[1];
+            case "font":
+                font = entry[1];
             default:
                 break;
         }
@@ -33,7 +38,7 @@ function outputs(): void {
     newArray();
 }
 
-
+// hier werden die Werte der Karten festgelegt
 function newArray(): void {
     let thisArray: string[] = cards.splice(0, cardpairs); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
     let form: HTMLDivElement = <HTMLDivElement>document.querySelector("#form");
@@ -45,18 +50,45 @@ function newArray(): void {
     }
 }
 
+// hier werden die Karten erstellt
 function createDeck(_value: string): void {
     let card1: HTMLDivElement = <HTMLDivElement>document.createElement("div");
+
+    // hier kriegt die Karte eine Klasse, damit sie verglichen werden können
     card1.classList.add("" + _value);
+
+    // hier wird die eingestellte Kartengröße übernommen
     card1.classList.add("card");
     card1.style.width = cardsize + "px";
     card1.style.height = cardsize + "px";
     card1.style.lineHeight = cardsize + "px";
+
+    // hier wird die eingestellte Hintergrundfarbe übernommen
+    let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("#carddeck");
+    carddeck.style.backgroundColor = backgroundcolor; // warum tut das nicht?
+
+    // hier wird die eingestellte Kartenfarbe übernommen
+    card1.style.backgroundColor = cardcolor; // tut auch nicht
+
+    // hier wird die eingestellte Schriftfarbe übernommen
+    card1.style.color = fontcolor; // tut auch nicht
+
+    //hier wird die eingestellte Schriftart übernommen
+    card1.style.fontFamily = font;
+
+    // hier wird noch die Sidebar angepasst
+    let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("#infos");
+    sidebar.style.backgroundColor = cardcolor;
+    sidebar.style.color = backgroundcolor;
+
+    // hier werden die Karten auf das Spielfeld geschickt
     let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
     karten.appendChild(card1);
     card1.addEventListener("click", turnAround);
 }
 
+
+// hier wird der Wert auf den Karten angezeigt
 function turnAround(_event: MouseEvent): void {
     let eventTarget: HTMLDivElement = <HTMLDivElement>_event.target;
     let wert: string = eventTarget.classList[0];
@@ -82,14 +114,4 @@ function turnAround(_event: MouseEvent): void {
         }, 1000);
     }
     console.log(eventTarget.classList[0]);
-    //card1.addEventListener("click", turnBack);
 }
-//function turnBack(): void { }
-/*
-function compare(): void {
-    if (card1.classlist == card1.classlist) {
-        display: none;
-            else innerHTML.style: plane;
-    }
-}
-}*/
