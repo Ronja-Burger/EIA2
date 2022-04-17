@@ -4,7 +4,7 @@ function hndLoad() {
     let spielstart = document.querySelector("#Startbutton");
     spielstart.addEventListener("click", outputs);
 }
-let cards = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N", "Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N"];
+let cards = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N"];
 let globalArray = [];
 let cardpairs;
 let cardsize;
@@ -43,14 +43,28 @@ function outputs() {
 }
 // hier werden die Werte der Karten festgelegt
 function newArray() {
-    let thisArray = cards.splice(0, cardpairs * 2); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
+    let thisArray = cards.splice(0, cardpairs * 2);
     let form = document.querySelector("#form");
     form.style.display = "none";
     for (let index = 0; index < thisArray.length; index++) {
         let element = thisArray[index];
-        createDeck(element);
-        //createDeck(element);
     }
+    // shuffle Array
+    let ctr = thisArray.length;
+    while (ctr > 0) {
+        //Zufällige Stelle im Array auswählen
+        let index = Math.floor(Math.random() * ctr);
+        // Die Variable eins runterzählen, die letzte Position des Arrays ist eins kleiner als die Länge, weil wir bei  anfangen zu zählen
+        ctr--;
+        // Temporäre Variable für das Letzte Element im Array
+        let temp = thisArray[ctr];
+        // Dem Letzten Element die zufällig ausgesuchte Stelle geben
+        thisArray[ctr] = thisArray[index];
+        // Das Element von der zufälligen Stelle wird ans Ende des Arrays geschoben
+        thisArray[index] = temp;
+    }
+    createDeck(element);
+    createDeck(element);
 }
 // hier werden die Karten erstellt
 function createDeck(_value) {
