@@ -3,7 +3,7 @@ function hndLoad(): void {
     let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     spielstart.addEventListener("click", outputs);
 }
-let cards: string[] = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N"];
+let cards: string[] = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N", "Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N"];
 let globalArray: HTMLDivElement[] = [];
 let cardpairs: number;
 let cardsize: number;
@@ -45,13 +45,13 @@ function outputs(): void {
 
 // hier werden die Werte der Karten festgelegt
 function newArray(): void {
-    let thisArray: string[] = cards.splice(0, cardpairs); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
+    let thisArray: string[] = cards.splice(0, cardpairs * 2); //kann ich hier auch an Stelle von 0 eine Variable einfügen, die eine zufällige Zahl ist?
     let form: HTMLDivElement = <HTMLDivElement>document.querySelector("#form");
     form.style.display = "none";
     for (let index: number = 0; index < thisArray.length; index++) {
         let element: string = thisArray[index];
         createDeck(element);
-        createDeck(element);
+        //createDeck(element);
     }
 }
 
@@ -69,7 +69,7 @@ function createDeck(_value: string): void {
     card1.style.lineHeight = cardsize + "px";
 
     // hier wird die eingestellte Hintergrundfarbe übernommen
-    let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("#carddeck");
+    let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("carddeck");
     carddeck.style.backgroundColor = backgroundcolor; // warum tut das nicht?
 
     // hier wird die eingestellte Kartenfarbe übernommen
@@ -82,9 +82,9 @@ function createDeck(_value: string): void {
     card1.style.fontFamily = font;
 
     // hier wird noch die Sidebar angepasst
-    let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("#infos");
+    let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("infos");
     sidebar.style.backgroundColor = cardcolor;
-    sidebar.style.color = backgroundcolor;
+    sidebar.style.color = fontcolor;
 
     // hier werden die Karten auf das Spielfeld geschickt
     let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
@@ -119,4 +119,12 @@ function turnAround(_event: MouseEvent): void {
         }, 1000);
     }
     console.log(eventTarget.classList[0]);
+}
+
+// Timer
+function timer(): void {
+    for (let timerindex = 0; timerindex < thisArray.length; timerindex++) {
+        let timer = array[timerindex];
+        
+    }
 }
