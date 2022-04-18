@@ -90,6 +90,7 @@ function createDeck(_value) {
     let sidebar = document.getElementById("infos");
     sidebar.style.backgroundColor = cardcolor;
     sidebar.style.color = fontcolor;
+    sidebar.style.fontFamily = font;
     // hier werden die Karten auf das Spielfeld geschickt
     let karten = document.querySelector("#Karten");
     karten.appendChild(card);

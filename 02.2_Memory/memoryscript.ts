@@ -104,6 +104,7 @@ function createDeck(_value: string): void {
     let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("infos");
     sidebar.style.backgroundColor = cardcolor;
     sidebar.style.color = fontcolor;
+    sidebar.style.fontFamily = font;
 
     // hier werden die Karten auf das Spielfeld geschickt
     let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
