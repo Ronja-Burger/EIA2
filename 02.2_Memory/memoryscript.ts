@@ -126,9 +126,9 @@ function turnAround(_event: MouseEvent): void {
     }
     else if (globalArray.length == 2) {
         eventTarget.innerHTML = wert;
-        let wertCard1: string = globalArray[0].classList[0];
+        let wertCard: string = globalArray[0].classList[0];
         setTimeout(function (): void {
-            if (wert == wertCard1) {
+            if (wert == wertCard) {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
@@ -142,17 +142,7 @@ function turnAround(_event: MouseEvent): void {
                 eventTarget.innerHTML = ""; //+Timeout
                 globalArray = [];
             }
-        }, 1000);
+        },         1000);
     }
     console.log(eventTarget.classList[0]);
 }
-
-// Timer
-/*
-setTimeout(function (): void {
-    if (x == y) {
-    }
-    else {
-    }
-},         1000);
-*/
