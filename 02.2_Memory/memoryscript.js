@@ -12,6 +12,8 @@ let backgroundcolor;
 let cardcolor;
 let fontcolor;
 let font;
+let timer = 0;
+let timerstop;
 function outputs() {
     let formdata = new FormData(document.forms[0]);
     for (let entry of formdata.entries()) {
@@ -67,31 +69,33 @@ function newArray() {
 }
 // hier werden die Karten erstellt
 function createDeck(_value) {
-    let card1 = document.createElement("div");
+    let card = document.createElement("div");
     // hier kriegt die Karte eine Klasse, damit sie verglichen werden können
-    card1.classList.add("" + _value);
+    card.classList.add("" + _value);
     // hier wird die eingestellte Kartengröße übernommen
-    card1.classList.add("card");
-    card1.style.width = cardsize + "px";
-    card1.style.height = cardsize + "px";
-    card1.style.lineHeight = cardsize + "px";
+    card.classList.add("card");
+    card.style.width = cardsize + "px";
+    card.style.height = cardsize + "px";
+    card.style.lineHeight = cardsize + "px";
     // hier wird die eingestellte Hintergrundfarbe übernommen
     let carddeck = document.getElementById("carddeck");
     carddeck.style.backgroundColor = backgroundcolor;
     // hier wird die eingestellte Kartenfarbe übernommen
-    card1.style.backgroundColor = cardcolor;
+    card.style.backgroundColor = cardcolor;
     // hier wird die eingestellte Schriftfarbe übernommen
-    card1.style.color = fontcolor;
+    card.style.color = fontcolor;
     //hier wird die eingestellte Schriftart übernommen
-    card1.style.fontFamily = font; // bei mir nicht, bei Alida schon
+    card.style.fontFamily = font; // bei mir nicht, bei Alida schon
     // hier wird noch die Sidebar angepasst
     let sidebar = document.getElementById("infos");
     sidebar.style.backgroundColor = cardcolor;
     sidebar.style.color = fontcolor;
     // hier werden die Karten auf das Spielfeld geschickt
     let karten = document.querySelector("#Karten");
-    karten.appendChild(card1);
-    card1.addEventListener("click", turnAround);
+    karten.appendChild(card);
+    card.addEventListener("click", turnAround);
+    // Timer start
+    timerstop = setInterval(function () { timer++; console.log(timer); }, 1000);
 }
 // hier wird der Wert auf den Karten angezeigt
 function turnAround(_event) {
@@ -110,6 +114,10 @@ function turnAround(_event) {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
+                cardpairs--;
+                if (cardpairs == 0) {
+                    alert(timer + " Sekunden");
+                }
             }
             else {
                 globalArray[0].innerHTML = ""; //globalArray[0] ist meine erste Karte, eventTarget meine zweite!
@@ -121,10 +129,12 @@ function turnAround(_event) {
     console.log(eventTarget.classList[0]);
 }
 // Timer
-setTimeout(function () {
+/*
+setTimeout(function (): void {
     if (x == y) {
     }
     else {
     }
-}, 1000);
+},         1000);
+*/ 
 //# sourceMappingURL=memoryscript.js.map

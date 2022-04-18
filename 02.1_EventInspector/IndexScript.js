@@ -1,7 +1,7 @@
 "use strict";
-window.addEventListener("load", hndLoad);
+window.addEventListener("load", hndThis);
 let div0;
-function hndLoad() {
+function hndThis() {
     let div0 = document.querySelector(".div0");
     let div1 = document.querySelector(".div1");
     // mouse move listener on document

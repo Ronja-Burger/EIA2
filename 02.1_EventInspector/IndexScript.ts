@@ -1,8 +1,8 @@
-window.addEventListener ("load", hndLoad);
+window.addEventListener ("load", hndThis);
 
 let div0: HTMLDivElement;
 
-function hndLoad (): void {
+function hndThis (): void {
 let div0: HTMLDivElement = <HTMLDivElement>document.querySelector(".div0");
 let div1: HTMLDivElement = <HTMLDivElement>document.querySelector(".div1");
     // mouse move listener on document

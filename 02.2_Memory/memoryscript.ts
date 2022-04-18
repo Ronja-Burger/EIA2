@@ -3,6 +3,8 @@ function hndLoad(): void {
     let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     spielstart.addEventListener("click", outputs);
 }
+
+
 let cards: string[] = ["Q", "Q", "W", "W", "E", "E", "R", "R", "T", "T", "Z", "Z", "U", "U", "I", "I", "O", "O", "P", "P", "A", "A", "S", "S", "D", "D", "F", "F", "G", "G", "H", "H", "J", "J", "K", "K", "L", "L", "M", "M", "X", "X", "C", "C", "V", "V", "B", "B", "N", "N"];
 let globalArray: HTMLDivElement[] = [];
 let cardpairs: number;
@@ -11,6 +13,8 @@ let backgroundcolor: string;
 let cardcolor: string;
 let fontcolor: string;
 let font: string;
+let timer: number = 0;
+let timerstop: number;
 
 
 function outputs(): void {
@@ -72,29 +76,29 @@ function newArray(): void {
 
 // hier werden die Karten erstellt
 function createDeck(_value: string): void {
-    let card1: HTMLDivElement = <HTMLDivElement>document.createElement("div");
+    let card: HTMLDivElement = <HTMLDivElement>document.createElement("div");
 
     // hier kriegt die Karte eine Klasse, damit sie verglichen werden können
-    card1.classList.add("" + _value);
+    card.classList.add("" + _value);
 
     // hier wird die eingestellte Kartengröße übernommen
-    card1.classList.add("card");
-    card1.style.width = cardsize + "px";
-    card1.style.height = cardsize + "px";
-    card1.style.lineHeight = cardsize + "px";
+    card.classList.add("card");
+    card.style.width = cardsize + "px";
+    card.style.height = cardsize + "px";
+    card.style.lineHeight = cardsize + "px";
 
     // hier wird die eingestellte Hintergrundfarbe übernommen
     let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("carddeck");
     carddeck.style.backgroundColor = backgroundcolor;
 
     // hier wird die eingestellte Kartenfarbe übernommen
-    card1.style.backgroundColor = cardcolor;
+    card.style.backgroundColor = cardcolor;
 
     // hier wird die eingestellte Schriftfarbe übernommen
-    card1.style.color = fontcolor;
+    card.style.color = fontcolor;
 
     //hier wird die eingestellte Schriftart übernommen
-    card1.style.fontFamily = font; // bei mir nicht, bei Alida schon
+    card.style.fontFamily = font; // bei mir nicht, bei Alida schon
 
     // hier wird noch die Sidebar angepasst
     let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("infos");
@@ -103,8 +107,11 @@ function createDeck(_value: string): void {
 
     // hier werden die Karten auf das Spielfeld geschickt
     let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
-    karten.appendChild(card1);
-    card1.addEventListener("click", turnAround);
+    karten.appendChild(card);
+    card.addEventListener("click", turnAround);
+
+    // Timer start
+    timerstop = setInterval(function (): void { timer++; console.log(timer); }, 1000);
 }
 
 
@@ -125,6 +132,10 @@ function turnAround(_event: MouseEvent): void {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
+                cardpairs--;
+                if (cardpairs == 0) {
+                    alert(timer + " Sekunden");
+                }
             }
             else {
                 globalArray[0].innerHTML = ""; //globalArray[0] ist meine erste Karte, eventTarget meine zweite!
@@ -137,9 +148,11 @@ function turnAround(_event: MouseEvent): void {
 }
 
 // Timer
+/*
 setTimeout(function (): void {
     if (x == y) {
     }
     else {
     }
 },         1000);
+*/
