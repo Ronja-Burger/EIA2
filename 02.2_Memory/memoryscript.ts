@@ -72,6 +72,8 @@ function newArray(): void {
         let element: string = thisArray[index];
         createDeck(element);
     }
+    // Timer start
+    timerstop = setInterval(function (): void { timer++; console.log(timer); }, 1000);
 }
 
 // hier werden die Karten erstellt
@@ -110,9 +112,6 @@ function createDeck(_value: string): void {
     let karten: HTMLDivElement = <HTMLDivElement>document.querySelector("#Karten");
     karten.appendChild(card);
     card.addEventListener("click", turnAround);
-
-    // Timer start
-    timerstop = setInterval(function (): void { timer++; console.log(timer); }, 1000);
 }
 
 
@@ -133,9 +132,9 @@ function turnAround(_event: MouseEvent): void {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
-                cardpairs--;
+                cardpairs--; // Timer Stop
                 if (cardpairs == 0) {
-                    alert(timer + " Sekunden");
+                    alert("gut gemacht! Deine Zeit: " + timer + " Sekunden");
                 }
             }
             else {
@@ -143,7 +142,7 @@ function turnAround(_event: MouseEvent): void {
                 eventTarget.innerHTML = ""; //+Timeout
                 globalArray = [];
             }
-        },         1000);
+        }, 1000);
     }
     console.log(eventTarget.classList[0]);
 }

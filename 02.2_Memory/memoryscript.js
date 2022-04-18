@@ -66,6 +66,8 @@ function newArray() {
         let element = thisArray[index];
         createDeck(element);
     }
+    // Timer start
+    timerstop = setInterval(function () { timer++; console.log(timer); }, 1000);
 }
 // hier werden die Karten erstellt
 function createDeck(_value) {
@@ -95,8 +97,6 @@ function createDeck(_value) {
     let karten = document.querySelector("#Karten");
     karten.appendChild(card);
     card.addEventListener("click", turnAround);
-    // Timer start
-    timerstop = setInterval(function () { timer++; console.log(timer); }, 1000);
 }
 // hier wird der Wert auf den Karten angezeigt
 function turnAround(_event) {
@@ -115,9 +115,9 @@ function turnAround(_event) {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
-                cardpairs--;
+                cardpairs--; // Timer Stop
                 if (cardpairs == 0) {
-                    alert(timer + " Sekunden");
+                    alert("gut gemacht! Deine Zeit: " + timer + " Sekunden");
                 }
             }
             else {
