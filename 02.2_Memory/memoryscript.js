@@ -78,7 +78,6 @@ function createDeck(_value) {
     // hier wird die eingestellte Hintergrundfarbe übernommen
     let carddeck = document.getElementById("carddeck");
     carddeck.style.backgroundColor = backgroundcolor;
-    carddeck.style.flex(flexwrap);
     // hier wird die eingestellte Kartenfarbe übernommen
     card1.style.backgroundColor = cardcolor;
     // hier wird die eingestellte Schriftfarbe übernommen
@@ -122,9 +121,10 @@ function turnAround(_event) {
     console.log(eventTarget.classList[0]);
 }
 // Timer
-function timer() {
-    for (let timerindex = 0; timerindex < thisArray.length; timerindex++) {
-        let timer = array[timerindex];
+setTimeout(function () {
+    if (x == y) {
     }
-}
+    else {
+    }
+}, 1000);
 //# sourceMappingURL=memoryscript.js.map

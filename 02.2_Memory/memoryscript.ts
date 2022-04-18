@@ -3,7 +3,7 @@ function hndLoad(): void {
     let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     spielstart.addEventListener("click", outputs);
 }
-let cards: string[] = ["Q", "Q", "W", "W", "E", "E", "R",  "R", "T",  "T", "Z", "Z", "U", "U", "I", "I", "O", "O", "P", "P", "A", "A", "S", "S", "D", "D", "F", "F", "G", "G", "H", "H", "J", "J", "K", "K", "L", "L", "M", "M", "X", "X", "C", "C", "V", "V", "B", "B", "N", "N"];
+let cards: string[] = ["Q", "Q", "W", "W", "E", "E", "R", "R", "T", "T", "Z", "Z", "U", "U", "I", "I", "O", "O", "P", "P", "A", "A", "S", "S", "D", "D", "F", "F", "G", "G", "H", "H", "J", "J", "K", "K", "L", "L", "M", "M", "X", "X", "C", "C", "V", "V", "B", "B", "N", "N"];
 let globalArray: HTMLDivElement[] = [];
 let cardpairs: number;
 let cardsize: number;
@@ -49,7 +49,7 @@ function newArray(): void {
     let thisArray: string[] = cards.splice(0, cardpairs * 2);
     let form: HTMLDivElement = <HTMLDivElement>document.querySelector("#form");
     form.style.display = "none";
-   
+
     // shuffle Array
     let ctr: number = thisArray.length;
     while (ctr > 0) {
@@ -86,13 +86,12 @@ function createDeck(_value: string): void {
     // hier wird die eingestellte Hintergrundfarbe übernommen
     let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("carddeck");
     carddeck.style.backgroundColor = backgroundcolor;
-    carddeck.style.flex(flexwrap);
 
     // hier wird die eingestellte Kartenfarbe übernommen
     card1.style.backgroundColor = cardcolor;
 
     // hier wird die eingestellte Schriftfarbe übernommen
-    card1.style.color = fontcolor; 
+    card1.style.color = fontcolor;
 
     //hier wird die eingestellte Schriftart übernommen
     card1.style.fontFamily = font; // bei mir nicht, bei Alida schon
@@ -132,15 +131,15 @@ function turnAround(_event: MouseEvent): void {
                 eventTarget.innerHTML = ""; //+Timeout
                 globalArray = [];
             }
-        }, 1000);
+        },         1000);
     }
     console.log(eventTarget.classList[0]);
 }
 
 // Timer
-function timer(): void {
-    for (let timerindex = 0; timerindex < thisArray.length; timerindex++) {
-        let timer = array[timerindex];
-
+setTimeout(function (): void {
+    if (x == y) {
     }
-}
+    else {
+    }
+},         1000);
