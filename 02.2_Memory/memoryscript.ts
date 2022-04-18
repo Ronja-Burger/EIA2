@@ -3,7 +3,7 @@ function hndLoad(): void {
     let spielstart: HTMLInputElement = <HTMLInputElement>document.querySelector("#Startbutton");
     spielstart.addEventListener("click", outputs);
 }
-let cards: string[] = ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "M", "X", "C", "V", "B", "N"];
+let cards: string[] = ["Q", "Q", "W", "W", "E", "E", "R",  "R", "T",  "T", "Z", "Z", "U", "U", "I", "I", "O", "O", "P", "P", "A", "A", "S", "S", "D", "D", "F", "F", "G", "G", "H", "H", "J", "J", "K", "K", "L", "L", "M", "M", "X", "X", "C", "C", "V", "V", "B", "B", "N", "N"];
 let globalArray: HTMLDivElement[] = [];
 let cardpairs: number;
 let cardsize: number;
@@ -49,26 +49,25 @@ function newArray(): void {
     let thisArray: string[] = cards.splice(0, cardpairs * 2);
     let form: HTMLDivElement = <HTMLDivElement>document.querySelector("#form");
     form.style.display = "none";
-    for (let index: number = 0; index < thisArray.length; index++) {
-        let element: string = thisArray[index];
-    }
-
+   
     // shuffle Array
     let ctr: number = thisArray.length;
     while (ctr > 0) {
         //Zufällige Stelle im Array auswählen
         let index: number = Math.floor(Math.random() * ctr);
-        // Die Variable eins runterzählen, die letzte Position des Arrays ist eins kleiner als die Länge, weil wir bei  anfangen zu zählen
+        // Die Variable eins runterzählen, die letzte Position des Arrays ist eins kleiner als die Länge, weil wir bei 0 anfangen zu zählen
         ctr--;
-        // Temporäre Variable für das Letzte Element im Array
+        // temporäre Variable für das letzte Element im Array
         let temp: string = thisArray[ctr];
-        // Dem Letzten Element die zufällig ausgesuchte Stelle geben
+        // Dem letzten Element die zufällig ausgesuchte Stelle geben
         thisArray[ctr] = thisArray[index];
         // Das Element von der zufälligen Stelle wird ans Ende des Arrays geschoben
         thisArray[index] = temp;
     }
-    createDeck(element);
-    createDeck(element);
+    for (let index: number = 0; index < thisArray.length; index++) {
+        let element: string = thisArray[index];
+        createDeck(element);
+    }
 }
 
 // hier werden die Karten erstellt
@@ -86,16 +85,17 @@ function createDeck(_value: string): void {
 
     // hier wird die eingestellte Hintergrundfarbe übernommen
     let carddeck: HTMLDivElement = <HTMLDivElement>document.getElementById("carddeck");
-    carddeck.style.backgroundColor = backgroundcolor; // warum tut das nicht?
+    carddeck.style.backgroundColor = backgroundcolor;
+    carddeck.style.flex(flexwrap);
 
     // hier wird die eingestellte Kartenfarbe übernommen
-    card1.style.backgroundColor = cardcolor; // tut auch nicht
+    card1.style.backgroundColor = cardcolor;
 
     // hier wird die eingestellte Schriftfarbe übernommen
-    card1.style.color = fontcolor; // tut auch nicht
+    card1.style.color = fontcolor; 
 
     //hier wird die eingestellte Schriftart übernommen
-    card1.style.fontFamily = font;
+    card1.style.fontFamily = font; // bei mir nicht, bei Alida schon
 
     // hier wird noch die Sidebar angepasst
     let sidebar: HTMLDivElement = <HTMLDivElement>document.getElementById("infos");
