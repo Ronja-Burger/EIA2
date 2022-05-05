@@ -109,9 +109,9 @@ function turnAround(_event) {
     }
     else if (globalArray.length == 2) {
         eventTarget.innerHTML = wert;
-        let wertCard1 = globalArray[0].classList[0];
+        let wertCard = globalArray[0].classList[0];
         setTimeout(function () {
-            if (wert == wertCard1) {
+            if (wert == wertCard) {
                 globalArray[0].style.visibility = "hidden";
                 globalArray[1].style.visibility = "hidden";
                 globalArray = [];
@@ -129,13 +129,4 @@ function turnAround(_event) {
     }
     console.log(eventTarget.classList[0]);
 }
-// Timer
-/*
-setTimeout(function (): void {
-    if (x == y) {
-    }
-    else {
-    }
-},         1000);
-*/ 
 //# sourceMappingURL=memoryscript.js.map
