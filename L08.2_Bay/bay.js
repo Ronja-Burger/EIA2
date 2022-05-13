@@ -156,7 +156,7 @@ var Canvas;
         crc2.lineTo(70, 610);
         crc2.lineTo(80, 630);
         crc2.lineTo(100, 650);
-        crc2.stroke();
+        crc2.fill();
         crc2.closePath();
     }
     //function drawShip(): void {}
