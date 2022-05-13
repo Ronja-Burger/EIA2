@@ -24,6 +24,15 @@ var Canvas;
         drawCloud();
         drawCloud();
         drawCloud();
+        drawCloud();
+        drawCloud();
+        drawCloud();
+        drawCloud();
+        drawCloud();
+        drawCloud();
+        drawCloud();
+        drawPalmLeaf();
+        //console.log(crc2.canvas.height, crc2.canvas.width);
     }
     function drawSky() {
         crc2.beginPath();
@@ -50,31 +59,26 @@ var Canvas;
     // Sonne
     function drawSun() {
         let r = 150;
-        let gradient = crc2.createRadialGradient(0, 0, 30, 0, 0, r);
+        let gradient = crc2.createRadialGradient(0, 0, 60, 0, 0, r);
         gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
         gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
         crc2.save();
-        crc2.translate(randomNumberSunX(), randomNumberSunY());
+        crc2.translate(randomNumberSun(), randomNumberSun());
         crc2.fillStyle = gradient;
         crc2.arc(0, 0, r, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
     }
-    // Zufallszahlen für die Position der Wolke
-    function randomNumberSunX() {
-        let number = Math.floor(Math.random() * 100 + 100);
+    // Zufallszahlen für die Position der Sonne
+    function randomNumberSun() {
+        let number = Math.floor(Math.random() * 150 + 150);
         return number;
     }
-    console.log(randomNumberSunX());
-    function randomNumberSunY() {
-        let number = Math.floor(Math.random() * 200);
-        return number;
-    }
-    console.log(randomNumberSunY());
+    console.log(randomNumberSun());
     // Wolke
     function drawCloud() {
         let r = 80;
-        let gradient = crc2.createRadialGradient(0, 0, 50, 0, 0, r);
+        let gradient = crc2.createRadialGradient(0, 0, 10, 0, 0, r);
         gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
         gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
         crc2.save();
@@ -87,17 +91,22 @@ var Canvas;
     }
     // Zufallszahlen für die Position der Wolke
     function randomNumberCloudX() {
-        let number = Math.floor(Math.random() * 300 + 800);
+        let number = Math.floor(Math.random() * 800 + 600);
         return number;
     }
     console.log(randomNumberCloudX());
     function randomNumberCloudY() {
-        let number = Math.floor(Math.random() * 200);
+        let number = Math.floor(Math.random() * 300);
         return number;
     }
     console.log(randomNumberCloudY());
-    function drawRocks() {
-        crc2.beginPath;
+    function drawPalmLeaf() {
+        crc2.beginPath();
+        crc2.strokeStyle = "rgb(0, 100, 0)";
+        let path = new Path2D();
+        path.arc(600, 800, 200, 180, 2 * Math.PI);
+        crc2.stroke(path);
+        crc2.closePath();
     }
 })(Canvas || (Canvas = {}));
 //# sourceMappingURL=bay.js.map
