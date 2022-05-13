@@ -13,7 +13,7 @@ namespace Canvas {
         drawSea();
         drawBeach();
         drawSun();
-        drawCloud();
+        drawCloud();    drawCloud();    drawCloud();    drawCloud();    drawCloud();    drawCloud();    drawCloud();    drawCloud();
     }
 
     function drawBackground(): void {
@@ -41,7 +41,7 @@ namespace Canvas {
         // kleine random Nummern noch
         crc2.stroke();
         crc2.closePath();
-        console.log(canvas.height);
+        //console.log(canvas.height);
     }
 
     function drawSun(): void {
@@ -60,17 +60,33 @@ namespace Canvas {
     }
 
     function drawCloud(): void {
-        let r: number = 150;
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 30, 0, 0, r);
+        let r: number = 80;
+        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 50, 0, 0, r);
 
-        gradient.addColorStop(0, "white");
-        gradient.addColorStop(1, "white"); // Farbe nachschauen
+        gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
+        gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
 
         crc2.save();
-        crc2.translate(500, 150); // kleine random Nummern noch
+        crc2.translate(randomNumberCloudY(), randomNumberCloudX());
         crc2.fillStyle = gradient;
         crc2.arc(0, 0, r, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
     }
+
+
+
+    // Zufallszahlen für die Position der Wolke
+    function randomNumberCloudY(): number {
+        let number: number = Math.floor(Math.random() * 300 + 800);
+        return number;
+    }
+    console.log(randomNumberCloudY());
+
+
+    function randomNumberCloudX(): number {
+        let number: number = Math.floor(Math.random() * 200);
+        return number;
+    }
+    console.log(randomNumberCloudX());
 }
