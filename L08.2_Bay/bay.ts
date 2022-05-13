@@ -141,9 +141,8 @@ namespace Canvas {
     function drawPalmLeaf(): void {
             crc2.beginPath();
             crc2.strokeStyle = "rgb(0, 100, 0)";
-            let path: Path2D = new Path2D();
-            path.arc(400, 800, 200, 180, 2 * Math.PI);
-            crc2.stroke(path);
+            crc2.arc(400, 800, 200, 180, 2 * Math.PI);
+            crc2.fill();
             crc2.closePath();
           }
     
