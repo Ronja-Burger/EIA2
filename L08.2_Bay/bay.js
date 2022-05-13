@@ -31,6 +31,25 @@ var Canvas;
         drawCloud();
         drawCloud();
         drawCloud();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawBushes();
+        drawRocks();
         drawPalmLeaf();
         //console.log(crc2.canvas.height, crc2.canvas.width);
     }
@@ -94,19 +113,55 @@ var Canvas;
         let number = Math.floor(Math.random() * 800 + 600);
         return number;
     }
-    console.log(randomNumberCloudX());
     function randomNumberCloudY() {
         let number = Math.floor(Math.random() * 300);
         return number;
     }
-    console.log(randomNumberCloudY());
+    // Büsche
+    function drawBushes() {
+        let r = 30;
+        let gradient = crc2.createRadialGradient(0, 0, 1, 0, 0, r);
+        gradient.addColorStop(0, "rgba(0, 100, 0, 1)");
+        gradient.addColorStop(1, "rgba(0, 100, 0, 0)");
+        crc2.save();
+        crc2.translate(randomNumberBushX(), randomNumberBushY());
+        crc2.moveTo(randomNumberBushX(), randomNumberBushY());
+        crc2.fillStyle = gradient;
+        crc2.arc(0, 0, r, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.restore();
+    }
+    // Zufallszahlen für die Position der Büsche
+    function randomNumberBushX() {
+        let number = Math.floor(Math.random() * 1500);
+        return number;
+    }
+    function randomNumberBushY() {
+        let number = Math.floor(Math.random() * 150 + 750);
+        return number;
+    }
     function drawPalmLeaf() {
         crc2.beginPath();
         crc2.strokeStyle = "rgb(0, 100, 0)";
         let path = new Path2D();
-        path.arc(600, 800, 200, 180, 2 * Math.PI);
+        path.arc(400, 800, 200, 180, 2 * Math.PI);
         crc2.stroke(path);
         crc2.closePath();
     }
+    function drawRocks() {
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(0, 100, 0)";
+        crc2.moveTo(0, 650);
+        crc2.lineTo(30, 610);
+        crc2.lineTo(50, 600);
+        crc2.lineTo(70, 610);
+        crc2.lineTo(80, 630);
+        crc2.lineTo(100, 650);
+        crc2.stroke();
+        crc2.closePath();
+    }
+    //function drawShip(): void {}
+    //function drawPersonsAtBeach(): void {}
+    //function drawPersonsAtSea(): void {}
 })(Canvas || (Canvas = {}));
 //# sourceMappingURL=bay.js.map
