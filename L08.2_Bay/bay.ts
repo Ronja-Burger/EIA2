@@ -17,7 +17,8 @@ namespace Canvas {
         drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud();
         drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes();
         drawRocks();
-        drawPalmLeaf();
+        //drawPalmLeaf();
+        drawPersonAtBeach();
         //console.log(crc2.canvas.height, crc2.canvas.width);
     }
 
@@ -128,7 +129,7 @@ namespace Canvas {
 
     // Zufallszahlen für die Position der Büsche
     function randomNumberBushX(): number {
-        let number: number = Math.floor(Math.random() * 1500);
+        let number: number = Math.floor(Math.random() * 200);
         return number;
     }
     function randomNumberBushY(): number {
@@ -137,7 +138,7 @@ namespace Canvas {
     }
 
 
-
+/*
     function drawPalmLeaf(): void {
             crc2.beginPath();
             crc2.strokeStyle = "rgb(0, 100, 0)";
@@ -145,11 +146,11 @@ namespace Canvas {
             crc2.fill();
             crc2.closePath();
           }
-    
+    */
 
     function drawRocks(): void {
         crc2.beginPath();
-        crc2.fillStyle = "rgb(0, 100, 0)";
+        crc2.fillStyle = "rgb(99, 99, 99)";
         crc2.moveTo(0, 650);
         crc2.lineTo(30, 610);
         crc2.lineTo(50, 600);
@@ -160,9 +161,56 @@ namespace Canvas {
         crc2.closePath();
     }
 
+
+    function drawPersonAtBeach(): void {
+        let x: number = 30;
+        let y: number = 400;
+        crc2.beginPath();
+
+        //Kopf
+        crc2.arc(x + 5, y - 60, 11, 0, 2 * Math.PI);
+        crc2.fillStyle = "rgb(0, 0, 0)";
+
+        //Beine
+        crc2.moveTo(x - 10, y + 0);
+        crc2.lineTo(x + 5, y - 20);
+        crc2.lineTo(x + 20, y + 0);
+
+        //Körper
+        crc2.moveTo(x + 5, y - 20);
+        crc2.lineTo(x + 5, y - 50);
+
+        //Arm links
+        crc2.moveTo(x + 5, y - 45);
+        crc2.lineTo(x - 10, y - 30);
+
+        //Arm rechts
+        crc2.moveTo(x + 5, y - 45);
+        crc2.lineTo(x + 20, y - 30);
+
+        //Auge links
+        crc2.moveTo(x + 4, y - 65);
+        crc2.lineTo(x + 4, y - 61);
+
+        //Auge rechts
+        crc2.moveTo(x + 10, y - 65);
+        crc2.lineTo(x + 10, y - 61);
+
+        //Mund
+        crc2.moveTo(x + 10, y - 56);
+        crc2.lineTo(x + 4, y - 56);
+        crc2.lineTo(x + 2, y - 58);
+
+        crc2.stroke();
+
+        crc2.save();
+        crc2.restore();
+        crc2.translate( 1000, 400);
+    }
+
+
     //function drawShip(): void {}
 
-    //function drawPersonsAtBeach(): void {}
 
     //function drawPersonsAtSea(): void {}
     
