@@ -20,9 +20,15 @@ namespace Canvas {
         for (let index: number = 0; index < 10; index++) {
             drawBushes();
         }
-        drawRocks();
+        for (let index: number = 0; index < 10; index++) {
+            drawRocks();
+        }
+        for (let index: number = 0; index < 5; index++) {
+            drawPersonAtBeach();
+        }
         //drawPalmLeaf();
         drawPersonAtBeach();
+        drawSeagull(); drawSeagull(); drawSeagull();
         //console.log(crc2.canvas.height, crc2.canvas.width);
     }
 
@@ -133,11 +139,11 @@ namespace Canvas {
 
     // Zufallszahlen für die Position der Büsche
     function randomNumberBushX(): number {
-        let number: number = Math.floor(Math.random() * 200);
+        let number: number = Math.floor(Math.random() * 300);
         return number;
     }
     function randomNumberBushY(): number {
-        let number: number = Math.floor(Math.random() * 150 + 750);
+        let number: number = Math.floor(Math.random() * 150 + 700);
         return number;
     }
 
@@ -154,7 +160,7 @@ namespace Canvas {
 
     function drawRocks(): void {
         crc2.save();
-        crc2.translate( 1500, 400);
+        crc2.translate( randomNumberRockX(), randomNumberRockY());
         crc2.beginPath();
         crc2.fillStyle = "rgb(99, 99, 99)";
         crc2.moveTo(0, 650);
@@ -167,13 +173,22 @@ namespace Canvas {
         crc2.closePath();
         crc2.restore();
     }
+    // Zufallszahlen für die Position der Felsen
+    function randomNumberRockX(): number {
+        let number: number = Math.floor(Math.random() * 450 + 1000);
+        return number;
+    }
+    function randomNumberRockY(): number {
+        let number: number = Math.floor(Math.random() * 200);
+        return number;
+    }
 
 
     function drawPersonAtBeach(): void {
         let x: number = 30;
         let y: number = 400;
         crc2.save();
-        crc2.translate( 1000, 400);
+        crc2.translate( randomNumberPersonX(), randomNumberPersonY());
         crc2.beginPath();
 
         //Kopf
@@ -213,12 +228,38 @@ namespace Canvas {
         crc2.stroke();
         crc2.restore();
     }
+    // Zufallszahlen für die Position der Urlauber
+    function randomNumberPersonX(): number {
+        let number: number = Math.floor(Math.random() * 300 + 700);
+        return number;
+    }
+    function randomNumberPersonY(): number {
+        let number: number = Math.floor(Math.random() * 200 + 300);
+        return number;
+    }
 
+    function drawSeagull(): void {
+        crc2.save();
+        crc2.translate(randomNumberSeagullx(), randomNumberSeagully());
+        crc2.beginPath();
+        crc2.arc(100 + 0, 100, 8, 3, 0);
+        crc2.arc(100 + 16, 100, 8, 3, 0);
+        crc2.stroke();
+    }
+    // Zufallszahlen für die Position der Möven
+    function randomNumberSeagullx(): number {
+        let number: number = Math.floor(Math.random() * 800);
+        return number;
+    }
+    function randomNumberSeagully(): number {
+        let number: number = Math.floor(Math.random() * 100);
+        return number;
+    }
+    
+}
 
     //function drawShip(): void {}
 
 
     //function drawPersonsAtSea(): void {}
     
-
-}
