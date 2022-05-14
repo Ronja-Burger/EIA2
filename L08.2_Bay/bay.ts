@@ -14,8 +14,12 @@ namespace Canvas {
         drawSea();
         drawBeach();
         drawSun();
-        drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud(); drawCloud();
-        drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes(); drawBushes();
+        for (let index: number = 0; index < 20; index++) {
+            drawCloud();
+        }
+        for (let index: number = 0; index < 10; index++) {
+            drawBushes();
+        }
         drawRocks();
         //drawPalmLeaf();
         drawPersonAtBeach();
@@ -149,6 +153,8 @@ namespace Canvas {
     */
 
     function drawRocks(): void {
+        crc2.save();
+        crc2.translate( 1500, 400);
         crc2.beginPath();
         crc2.fillStyle = "rgb(99, 99, 99)";
         crc2.moveTo(0, 650);
@@ -159,12 +165,15 @@ namespace Canvas {
         crc2.lineTo(100, 650);
         crc2.fill();
         crc2.closePath();
+        crc2.restore();
     }
 
 
     function drawPersonAtBeach(): void {
         let x: number = 30;
         let y: number = 400;
+        crc2.save();
+        crc2.translate( 1000, 400);
         crc2.beginPath();
 
         //Kopf
@@ -202,10 +211,7 @@ namespace Canvas {
         crc2.lineTo(x + 2, y - 58);
 
         crc2.stroke();
-
-        crc2.save();
         crc2.restore();
-        crc2.translate( 1000, 400);
     }
 
 

@@ -13,42 +13,12 @@ var Canvas;
         drawSea();
         drawBeach();
         drawSun();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawCloud();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
-        drawBushes();
+        for (let index = 0; index < 20; index++) {
+            drawCloud();
+        }
+        for (let index = 0; index < 10; index++) {
+            drawBushes();
+        }
         drawRocks();
         //drawPalmLeaf();
         drawPersonAtBeach();
@@ -151,6 +121,8 @@ var Canvas;
               }
         */
     function drawRocks() {
+        crc2.save();
+        crc2.translate(1500, 400);
         crc2.beginPath();
         crc2.fillStyle = "rgb(99, 99, 99)";
         crc2.moveTo(0, 650);
@@ -161,10 +133,13 @@ var Canvas;
         crc2.lineTo(100, 650);
         crc2.fill();
         crc2.closePath();
+        crc2.restore();
     }
     function drawPersonAtBeach() {
         let x = 30;
         let y = 400;
+        crc2.save();
+        crc2.translate(1000, 400);
         crc2.beginPath();
         //Kopf
         crc2.arc(x + 5, y - 60, 11, 0, 2 * Math.PI);
@@ -193,9 +168,7 @@ var Canvas;
         crc2.lineTo(x + 4, y - 56);
         crc2.lineTo(x + 2, y - 58);
         crc2.stroke();
-        crc2.save();
         crc2.restore();
-        crc2.translate(1000, 400);
     }
     //function drawShip(): void {}
     //function drawPersonsAtSea(): void {}
