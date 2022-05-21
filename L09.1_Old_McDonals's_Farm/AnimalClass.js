@@ -45,7 +45,7 @@ var Farm;
             }
         }
         sing() {
-            alert("Old MACDONALD had a farm,", "E-I-E-I-O", "And on his farm he had a" + this.species + "E-I-E-I-O", "With a moo moo here And a moo moo there", "Here a moo, there a moo", "Everywhere a moo moo", "Old MacDonald had a farm", "E-I-E-I-O" + this.noise + "x");
+            alert("Old MACDONALD had a farm,", "E-I-E-I-O", "And on his farm he had a" + this.species + "E-I-E-I-O", "With a moo moo here And a moo moo there", "Here a moo, there a moo", "Everywhere a moo moo", "Old MacDonald had a farm", "E-I-E-I-O" + this.noise);
         }
     }
     Farm.Animal = Animal;

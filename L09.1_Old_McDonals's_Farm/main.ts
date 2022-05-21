@@ -1,7 +1,6 @@
 namespace Farm {
     window.addEventListener("load", startFarm);
 
-    let farmAnimals: Animal[] = [];
     export let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("div");
 
 
@@ -25,19 +24,14 @@ namespace Farm {
 
 // neue Tiere        
         let newhorse: Animal = new Animal("horse", "hay", "wiiha");
-        farmAnimals.push(newhorse);
 
         let newcow: Animal = new Animal("cow", "silage", "mooh");
-        farmAnimals.push(newcow);
 
         let newcat: Animal = new Animal("cat", "catfood", "meow");
-        farmAnimals.push(newcat);
 
         let newdog: Animal = new Animal("dog", "dogfood", "woof");
-        farmAnimals.push(newdog);
 
         let chicken: Animal = new Animal("chicken", "corn", "gack");
-        farmAnimals.push(chicken);
     
 
 // Hintergrund
@@ -55,17 +49,36 @@ namespace Farm {
 
 
 // Alerts        
-        horse.addEventListener("click", EatAndSing);
-        cow.addEventListener("click", EatAndSing);
-        cat.addEventListener("click", EatAndSing);
-        dog.addEventListener("click", EatAndSing);
-        rooster.addEventListener("click", EatAndSing);
+        horse.addEventListener("click", horseEatAndSing);
+        function horseEatAndSing(): void {
+            newhorse.eat();
+            newhorse.sing();
+    }
+
+        cow.addEventListener("click", cowEatAndSing);
+        function cowEatAndSing(): void {
+            newcow.eat();
+            newcow.sing();
+    }
+
+        cat.addEventListener("click", catEatAndSing);
+        function catEatAndSing(): void {
+            newcat.eat();
+            newcat.sing();
+    }
+
+        dog.addEventListener("click", dogEatAndSing);
+        function dogEatAndSing(): void {
+            newdog.eat();
+            newdog.sing();
+    }
+
+        rooster.addEventListener("click", chickenEatAndSing);
+        function chickenEatAndSing(): void {
+            chicken.eat();
+            chicken.sing();
+    }
+
     
-        function EatAndSing(): void {
-            for (let animal of farmAnimals) {
-                animal.eat();
-                animal.sing();
-            }
-        }
     }
 }

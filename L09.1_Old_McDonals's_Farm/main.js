@@ -2,7 +2,6 @@
 var Farm;
 (function (Farm) {
     window.addEventListener("load", startFarm);
-    let farmAnimals = [];
     Farm.span = document.querySelector("div");
     Farm.hay = 50;
     Farm.silage = 99;
@@ -19,15 +18,10 @@ var Farm;
         let rooster = document.getElementById("Rooster");
         // neue Tiere        
         let newhorse = new Farm.Animal("horse", "hay", "wiiha");
-        farmAnimals.push(newhorse);
         let newcow = new Farm.Animal("cow", "silage", "mooh");
-        farmAnimals.push(newcow);
         let newcat = new Farm.Animal("cat", "catfood", "meow");
-        farmAnimals.push(newcat);
         let newdog = new Farm.Animal("dog", "dogfood", "woof");
-        farmAnimals.push(newdog);
         let chicken = new Farm.Animal("chicken", "corn", "gack");
-        farmAnimals.push(chicken);
         // Hintergrund
         canvas = document.querySelector("canvas");
         crc2 = canvas.getContext("2d");
@@ -39,16 +33,30 @@ var Farm;
         crc2.stroke();
         crc2.closePath();
         // Alerts        
-        horse.addEventListener("click", EatAndSing);
-        cow.addEventListener("click", EatAndSing);
-        cat.addEventListener("click", EatAndSing);
-        dog.addEventListener("click", EatAndSing);
-        rooster.addEventListener("click", EatAndSing);
-        function EatAndSing() {
-            for (let animal of farmAnimals) {
-                animal.eat();
-                animal.sing();
-            }
+        horse.addEventListener("click", horseEatAndSing);
+        function horseEatAndSing() {
+            newhorse.eat();
+            newhorse.sing();
+        }
+        cow.addEventListener("click", cowEatAndSing);
+        function cowEatAndSing() {
+            newcow.eat();
+            newcow.sing();
+        }
+        cat.addEventListener("click", catEatAndSing);
+        function catEatAndSing() {
+            newcat.eat();
+            newcat.sing();
+        }
+        dog.addEventListener("click", dogEatAndSing);
+        function dogEatAndSing() {
+            newdog.eat();
+            newdog.sing();
+        }
+        rooster.addEventListener("click", chickenEatAndSing);
+        function chickenEatAndSing() {
+            chicken.eat();
+            chicken.sing();
         }
     }
 })(Farm || (Farm = {}));
