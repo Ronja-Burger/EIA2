@@ -16,35 +16,35 @@ namespace Farm {
                     hay -= 2;
                     if (hay == 0) {
                         alert("hay is empty");
-                        //haystorage.(hay);
+                        haystorage.innerHTML = "hay";
                     }
                     break;
                 case "silage":
                     silage -= 3;
                     if (silage == 0) {
                         alert("silage is empty");
-                        //console.log(silage);
+                        silagestorage.innerHTML = "silage";
                     }
                     break;
                 case "catfood":
                     catfood -= 1;
                     if (catfood == 0) {
                         alert("cat food is empty");
-                        //console.log(catfood);
+                        catfoodstorage.innerHTML = "catfood";
                     }
                     break;
                 case "dogfood":
                     dogfood -= 1;
                     if (dogfood == 0) {
                         alert("dog food is empty");
-                        //console.log(dogfood);
+                        dogfoodstorage.innerHTML = "dogfood";
                     }
                     break;
                 case "corn":
                     corn -= 1;
                     if (corn == 0) {
                         alert("corn is empty");
-                        //console.log(corn);
+                        cornstorage.innerHTML = "corn";
                     }
                     break;
             }

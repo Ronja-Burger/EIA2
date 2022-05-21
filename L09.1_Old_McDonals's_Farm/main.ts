@@ -1,7 +1,11 @@
 namespace Farm {
     window.addEventListener("load", startFarm);
 
-    //export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
+    export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
+    export let silagestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("silagestorage");
+    export let catfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("catfoodstorage");
+    export let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
+    export let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
 
     export let hay: number = 4;
     export let silage: number = 6;
