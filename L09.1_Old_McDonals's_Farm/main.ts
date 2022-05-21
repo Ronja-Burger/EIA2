@@ -4,11 +4,6 @@ namespace Farm {
     let farmAnimals: Animal[] = [];
     export let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("div");
 
-    let horse: HTMLImageElement = <HTMLImageElement>document.getElementById("#horse");
-    let cow: HTMLImageElement = <HTMLImageElement>document.getElementById("#cow");
-    let cat: HTMLImageElement = <HTMLImageElement>document.getElementById("#cat");
-    let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("#dog");
-    let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("#rooster");
 
     export let hay: number = 50;
     export let silage: number = 99;
@@ -18,32 +13,39 @@ namespace Farm {
 
 
     function startFarm(): void {
-        let horse: Animal = new Animal("horse", "hay", "wiiha");
-        farmAnimals.push(horse);
+        let horse: HTMLImageElement = <HTMLImageElement>document.getElementById("#horse");
+        let cow: HTMLImageElement = <HTMLImageElement>document.getElementById("#cow");
+        let cat: HTMLImageElement = <HTMLImageElement>document.getElementById("#cat");
+        let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("#dog");
+        let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("#rooster");
 
-        let cow: Animal = new Animal("cow", "silage", "mooh");
-        farmAnimals.push(cow);
 
-        let cat: Animal = new Animal("cat", "catfood", "meow");
-        farmAnimals.push(cat);
+        let newhorse: Animal = new Animal("horse", "hay", "wiiha");
+        farmAnimals.push(newhorse);
 
-        let dog: Animal = new Animal("dog", "dogfood", "woof");
-        farmAnimals.push(dog);
+        let newcow: Animal = new Animal("cow", "silage", "mooh");
+        farmAnimals.push(newcow);
+
+        let newcat: Animal = new Animal("cat", "catfood", "meow");
+        farmAnimals.push(newcat);
+
+        let newdog: Animal = new Animal("dog", "dogfood", "woof");
+        farmAnimals.push(newdog);
 
         let chicken: Animal = new Animal("chicken", "corn", "gack");
         farmAnimals.push(chicken);
+    
+        horse.addEventListener("click", EatAndSing);
+        cow.addEventListener("click", EatAndSing);
+        cat.addEventListener("click", EatAndSing);
+        dog.addEventListener("click", EatAndSing);
+        rooster.addEventListener("click", EatAndSing);
+    
+        function EatAndSing(): void {
+            for (let animal of farmAnimals) {
+                animal.eat();
+                animal.sing();
+            }
+        }
     }
-
-    horse.addEventListener("click", EatAndSing);
-    cow.addEventListener("click", EatAndSing);
-    cat.addEventListener("click", EatAndSing);
-    dog.addEventListener("click", EatAndSing);
-    rooster.addEventListener("click", EatAndSing);
-
-    function EatAndSing(): void {
-    for (let animal of farmAnimals) {
-        animal.eat();
-        animal.sing();
-    }
-}
 }

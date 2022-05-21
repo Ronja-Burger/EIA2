@@ -1,24 +1,30 @@
 #Horse {
-    position: relative;
+    position: absolute;
+    top: 200px;
+    left: 100px;
     width: 500px;
 }
 
 #Cow {
-    position: relative;
+    position: absolute;
+    top: 280px;
+    left: 800px;
     width: 500px;
 }
 
 #Cat {
-    position: relative;
+    position: absolute;
+    top: 20px;
+    left: 50px;
     width: 100px;
 }
 
 #Dog {
-    position: relative;
+    position: absolute;
     width: 120px;
 }
 
 #Rooster {
-    position: relative;
+    position: absolute;
     width: 130px;
 }
