@@ -1,0 +1,24 @@
+#Horse {
+    position: relative;
+    width: 500px;
+}
+
+#Cow {
+    position: relative;
+    width: 500px;
+}
+
+#Cat {
+    position: relative;
+    width: 100px;
+}
+
+#Dog {
+    position: relative;
+    width: 120px;
+}
+
+#Rooster {
+    position: relative;
+    width: 130px;
+}
