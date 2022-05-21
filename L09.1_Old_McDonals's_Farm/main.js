@@ -9,12 +9,15 @@ var Farm;
     Farm.catfood = 20;
     Farm.dogfood = 30;
     Farm.corn = 20;
+    let crc2;
+    let canvas;
     function startFarm() {
-        let horse = document.getElementById("#horse");
-        let cow = document.getElementById("#cow");
-        let cat = document.getElementById("#cat");
-        let dog = document.getElementById("#dog");
-        let rooster = document.getElementById("#rooster");
+        let horse = document.getElementById("Horse");
+        let cow = document.getElementById("Cow");
+        let cat = document.getElementById("Cat");
+        let dog = document.getElementById("Dog");
+        let rooster = document.getElementById("Rooster");
+        // neue Tiere        
         let newhorse = new Farm.Animal("horse", "hay", "wiiha");
         farmAnimals.push(newhorse);
         let newcow = new Farm.Animal("cow", "silage", "mooh");
@@ -25,6 +28,17 @@ var Farm;
         farmAnimals.push(newdog);
         let chicken = new Farm.Animal("chicken", "corn", "gack");
         farmAnimals.push(chicken);
+        // Hintergrund
+        canvas = document.querySelector("canvas");
+        crc2 = canvas.getContext("2d");
+        canvas.width = screen.width;
+        canvas.height = screen.height;
+        crc2.beginPath();
+        crc2.fillStyle = "lightblue";
+        crc2.fillRect(0, 0, canvas.width, canvas.height);
+        crc2.stroke();
+        crc2.closePath();
+        // Alerts        
         horse.addEventListener("click", EatAndSing);
         cow.addEventListener("click", EatAndSing);
         cat.addEventListener("click", EatAndSing);

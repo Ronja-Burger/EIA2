@@ -11,15 +11,19 @@ namespace Farm {
     export let dogfood: number = 30;
     export let corn: number = 20;
 
+    let crc2: CanvasRenderingContext2D;
+    let canvas: HTMLCanvasElement;
+
 
     function startFarm(): void {
-        let horse: HTMLImageElement = <HTMLImageElement>document.getElementById("#horse");
-        let cow: HTMLImageElement = <HTMLImageElement>document.getElementById("#cow");
-        let cat: HTMLImageElement = <HTMLImageElement>document.getElementById("#cat");
-        let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("#dog");
-        let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("#rooster");
+        let horse: HTMLImageElement = <HTMLImageElement>document.getElementById("Horse");
+        let cow: HTMLImageElement = <HTMLImageElement>document.getElementById("Cow");
+        let cat: HTMLImageElement = <HTMLImageElement>document.getElementById("Cat");
+        let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("Dog");
+        let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("Rooster");
 
 
+// neue Tiere        
         let newhorse: Animal = new Animal("horse", "hay", "wiiha");
         farmAnimals.push(newhorse);
 
@@ -35,6 +39,22 @@ namespace Farm {
         let chicken: Animal = new Animal("chicken", "corn", "gack");
         farmAnimals.push(chicken);
     
+
+// Hintergrund
+        canvas = <HTMLCanvasElement>document.querySelector("canvas");
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+        canvas.width = screen.width;
+        canvas.height = screen.height;
+
+        crc2.beginPath();
+        crc2.fillStyle = "lightblue";
+        crc2.fillRect(0, 0, canvas.width, canvas.height);
+        crc2.stroke();
+        crc2.closePath();
+
+
+
+// Alerts        
         horse.addEventListener("click", EatAndSing);
         cow.addEventListener("click", EatAndSing);
         cat.addEventListener("click", EatAndSing);
