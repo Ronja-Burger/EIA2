@@ -46,7 +46,7 @@ export class Animal {
     }
 
     sing(): void {
-        alert ("Old MACDONALD had a farm," + <br> + "E-I-E-I-O" + <br> + "And on his farm he had a" + this.species + + <br> + "E-I-E-I-O" + <br> + "With a" + this.noise + this.noise "here" "And a" + this.noise + this.noise "there" + <br> + "Here a " + this.noise", there a" + this.noise + <br> + "Everywhere a" + this.noise + this.noise + <br> + "Old MacDonald had a farm" + <br> + "E-I-E-I-O");
+        alert ("Old MACDONALD had a farm," + <br> + "E-I-E-I-O" + <br> + "And on his farm he had a" + this.species + <br> + "E-I-E-I-O" + <br> + "With a" + this.noise + this.noise "here" "And a" + this.noise + this.noise "there" + <br> + "Here a " + this.noise", there a" + this.noise + <br> + "Everywhere a" + this.noise + this.noise + <br> + "Old MacDonald had a farm" + <br> + "E-I-E-I-O");
     }
 }
 }

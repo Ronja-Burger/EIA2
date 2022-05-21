@@ -45,7 +45,7 @@ var Farm;
             }
         }
         sing() {
-            alert("Old MACDONALD had a farm," + +"E-I-E-I-O" + +"And on his farm he had a" + this.species + ++"E-I-E-I-O" + +"With a" + this.noise + this.noise, "here", "And a" + this.noise + this.noise, "there" + +"Here a " + this.noise, ", there a" + this.noise + +"Everywhere a" + this.noise + this.noise + +"Old MacDonald had a farm" + +"E-I-E-I-O");
+            alert("Old MACDONALD had a farm," + +"E-I-E-I-O" + +"And on his farm he had a" + this.species + +"E-I-E-I-O" + +"With a" + this.noise + this.noise, "here", "And a" + this.noise + this.noise, "there" + +"Here a " + this.noise, ", there a" + this.noise + +"Everywhere a" + this.noise + this.noise + +"Old MacDonald had a farm" + +"E-I-E-I-O");
         }
     }
     Farm.Animal = Animal;
