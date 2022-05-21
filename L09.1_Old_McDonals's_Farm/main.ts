@@ -28,16 +28,16 @@ namespace Farm {
         let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
         let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
 
-        hay = 4;
-        haystorage.innerHTML = "hay";
-        silage = 6;
-        silagestorage.innerHTML = "silage";
-        catfood = 3;
-        catfoodstorage.innerHTML = "catfood";
-        dogfood = 2;
-        dogfoodstorage.innerHTML = "dogfood";
-        corn = 3;
-        cornstorage.innerHTML = "corn";
+        hay = 10;
+        haystorage.innerHTML = String(hay);
+        silage = 15;
+        silagestorage.innerHTML = String(silage);
+        catfood = 5;
+        catfoodstorage.innerHTML = String(catfood);
+        dogfood = 5;
+        dogfoodstorage.innerHTML = String(dogfood);
+        corn = 5;
+        cornstorage.innerHTML = String(corn);
 
 
         // neue Tiere        
@@ -73,30 +73,34 @@ namespace Farm {
         function horseEatAndSing(): void {
             newhorse.eat();
             newhorse.sing();
-        }
+            haystorage.innerHTML = String(hay);        }
 
         cow.addEventListener("click", cowEatAndSing);
         function cowEatAndSing(): void {
             newcow.eat();
             newcow.sing();
+            silagestorage.innerHTML = String(silage);
         }
 
         cat.addEventListener("click", catEatAndSing);
         function catEatAndSing(): void {
             newcat.eat();
             newcat.sing();
+            catfoodstorage.innerHTML = String(catfood);
         }
 
         dog.addEventListener("click", dogEatAndSing);
         function dogEatAndSing(): void {
             newdog.eat();
             newdog.sing();
+            dogfoodstorage.innerHTML = String(dogfood);
         }
 
         rooster.addEventListener("click", chickenEatAndSing);
         function chickenEatAndSing(): void {
             chicken.eat();
             chicken.sing();
+            cornstorage.innerHTML = String(corn);
         }
     }
 }

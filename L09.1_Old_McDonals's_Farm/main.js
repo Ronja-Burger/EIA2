@@ -2,12 +2,6 @@
 var Farm;
 (function (Farm) {
     window.addEventListener("load", startFarm);
-    //export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
-    Farm.hay = 10;
-    Farm.silage = 15;
-    Farm.catfood = 5;
-    Farm.dogfood = 5;
-    Farm.corn = 5;
     let crc2;
     let canvas;
     function startFarm() {
@@ -16,6 +10,22 @@ var Farm;
         let cat = document.getElementById("Cat");
         let dog = document.getElementById("Dog");
         let rooster = document.getElementById("Rooster");
+        // Futter & Vorrat
+        let haystorage = document.getElementById("haystorage");
+        let silagestorage = document.getElementById("silagestorage");
+        let catfoodstorage = document.getElementById("catfoodstorage");
+        let dogfoodstorage = document.getElementById("dogfoodstorage");
+        let cornstorage = document.getElementById("cornstorage");
+        Farm.hay = 10;
+        haystorage.innerHTML = String(Farm.hay);
+        Farm.silage = 15;
+        silagestorage.innerHTML = String(Farm.silage);
+        Farm.catfood = 5;
+        catfoodstorage.innerHTML = String(Farm.catfood);
+        Farm.dogfood = 5;
+        dogfoodstorage.innerHTML = String(Farm.dogfood);
+        Farm.corn = 5;
+        cornstorage.innerHTML = String(Farm.corn);
         // neue Tiere        
         let newhorse = new Farm.Animal("horse", "hay", "wiiha");
         let newcow = new Farm.Animal("cow", "silage", "mooh");
@@ -41,26 +51,31 @@ var Farm;
         function horseEatAndSing() {
             newhorse.eat();
             newhorse.sing();
+            haystorage.innerHTML = String(Farm.hay);
         }
         cow.addEventListener("click", cowEatAndSing);
         function cowEatAndSing() {
             newcow.eat();
             newcow.sing();
+            silagestorage.innerHTML = String(Farm.silage);
         }
         cat.addEventListener("click", catEatAndSing);
         function catEatAndSing() {
             newcat.eat();
             newcat.sing();
+            catfoodstorage.innerHTML = String(Farm.catfood);
         }
         dog.addEventListener("click", dogEatAndSing);
         function dogEatAndSing() {
             newdog.eat();
             newdog.sing();
+            dogfoodstorage.innerHTML = String(Farm.dogfood);
         }
         rooster.addEventListener("click", chickenEatAndSing);
         function chickenEatAndSing() {
             chicken.eat();
             chicken.sing();
+            cornstorage.innerHTML = String(Farm.corn);
         }
     }
 })(Farm || (Farm = {}));
