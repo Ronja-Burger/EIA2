@@ -2,12 +2,12 @@
 var Farm;
 (function (Farm) {
     window.addEventListener("load", startFarm);
-    Farm.span = document.querySelector("div");
-    Farm.hay = 50;
-    Farm.silage = 99;
-    Farm.catfood = 20;
-    Farm.dogfood = 30;
-    Farm.corn = 20;
+    //export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
+    Farm.hay = 10;
+    Farm.silage = 15;
+    Farm.catfood = 5;
+    Farm.dogfood = 5;
+    Farm.corn = 5;
     let crc2;
     let canvas;
     function startFarm() {

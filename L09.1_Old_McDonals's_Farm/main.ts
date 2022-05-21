@@ -1,14 +1,13 @@
 namespace Farm {
     window.addEventListener("load", startFarm);
 
-    export let span: HTMLSpanElement = <HTMLSpanElement>document.querySelector("div");
+    //export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
 
-
-    export let hay: number = 50;
-    export let silage: number = 99;
-    export let catfood: number = 20;
-    export let dogfood: number = 30;
-    export let corn: number = 20;
+    export let hay: number = 10;
+    export let silage: number = 15;
+    export let catfood: number = 5;
+    export let dogfood: number = 5;
+    export let corn: number = 5;
 
     let crc2: CanvasRenderingContext2D;
     let canvas: HTMLCanvasElement;
@@ -84,7 +83,5 @@ namespace Farm {
             chicken.eat();
             chicken.sing();
     }
-
-    
-    }
+}
 }
