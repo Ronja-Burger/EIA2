@@ -41,11 +41,17 @@ namespace Farm {
         canvas.height = screen.height;
 
         crc2.beginPath();
-        crc2.fillStyle = "lightblue";
+
+        let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, "lightblue");
+        gradient.addColorStop(0.3, "white");
+        gradient.addColorStop(1, "darkgreen");
+
+
+        crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, canvas.width, canvas.height);
         crc2.stroke();
         crc2.closePath();
-
 
 
 // Alerts        
