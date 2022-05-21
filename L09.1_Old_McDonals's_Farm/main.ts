@@ -8,15 +8,10 @@ namespace Farm {
     let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
 
     export let hay: number = 4;
-    haystorage.innerHTML = "hay";
     export let silage: number = 6;
-    silagestorage.innerHTML = "silage";
     export let catfood: number = 3;
-    catfoodstorage.innerHTML = "catfood";
     export let dogfood: number = 2;
-    dogfoodstorage.innerHTML = "dogfood";
     export let corn: number = 3;
-    cornstorage.innerHTML = "corn";
 
 
     let crc2: CanvasRenderingContext2D;
@@ -29,6 +24,13 @@ namespace Farm {
         let cat: HTMLImageElement = <HTMLImageElement>document.getElementById("Cat");
         let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("Dog");
         let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("Rooster");
+
+        // Futtervorrat
+        haystorage.innerHTML = "hay";
+        silagestorage.innerHTML = "silage";
+        catfoodstorage.innerHTML = "catfood";
+        dogfoodstorage.innerHTML = "dogfood";
+        cornstorage.innerHTML = "corn";
 
 
         // neue Tiere        
