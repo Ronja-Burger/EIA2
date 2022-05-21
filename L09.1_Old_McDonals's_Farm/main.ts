@@ -1,17 +1,12 @@
 namespace Farm {
     window.addEventListener("load", startFarm);
 
-    let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
-    let silagestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("silagestorage");
-    let catfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("catfoodstorage");
-    let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
-    let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
 
-    export let hay: number = 4;
-    export let silage: number = 6;
-    export let catfood: number = 3;
-    export let dogfood: number = 2;
-    export let corn: number = 3;
+    export let hay: number;
+    export let silage: number;
+    export let catfood: number;
+    export let dogfood: number;
+    export let corn: number;
 
 
     let crc2: CanvasRenderingContext2D;
@@ -25,11 +20,23 @@ namespace Farm {
         let dog: HTMLImageElement = <HTMLImageElement>document.getElementById("Dog");
         let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("Rooster");
 
-        // Futtervorrat
+
+        // Futter & Vorrat
+        let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
+        let silagestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("silagestorage");
+        let catfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("catfoodstorage");
+        let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
+        let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
+
+        hay = 4;
         haystorage.innerHTML = "hay";
+        silage = 6;
         silagestorage.innerHTML = "silage";
+        catfood = 3;
         catfoodstorage.innerHTML = "catfood";
+        dogfood = 2;
         dogfoodstorage.innerHTML = "dogfood";
+        corn = 3;
         cornstorage.innerHTML = "corn";
 
 
