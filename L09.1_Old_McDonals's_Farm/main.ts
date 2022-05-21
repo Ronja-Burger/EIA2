@@ -1,17 +1,23 @@
 namespace Farm {
     window.addEventListener("load", startFarm);
 
-    export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
-    export let silagestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("silagestorage");
-    export let catfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("catfoodstorage");
-    export let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
-    export let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
+    let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
+    let silagestorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("silagestorage");
+    let catfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("catfoodstorage");
+    let dogfoodstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("dogfoodstorage");
+    let cornstorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("cornstorage");
 
     export let hay: number = 4;
+    haystorage.innerHTML = "hay";
     export let silage: number = 6;
+    silagestorage.innerHTML = "silage";
     export let catfood: number = 3;
+    catfoodstorage.innerHTML = "catfood";
     export let dogfood: number = 2;
+    dogfoodstorage.innerHTML = "dogfood";
     export let corn: number = 3;
+    cornstorage.innerHTML = "corn";
+
 
     let crc2: CanvasRenderingContext2D;
     let canvas: HTMLCanvasElement;
@@ -25,19 +31,15 @@ namespace Farm {
         let rooster: HTMLImageElement = <HTMLImageElement>document.getElementById("Rooster");
 
 
-// neue Tiere        
+        // neue Tiere        
         let newhorse: Animal = new Animal("horse", "hay", "wiiha");
-
         let newcow: Animal = new Animal("cow", "silage", "mooh");
-
         let newcat: Animal = new Animal("cat", "catfood", "meow");
-
         let newdog: Animal = new Animal("dog", "dogfood", "woof");
-
         let chicken: Animal = new Animal("chicken", "corn", "gack");
-    
 
-// Hintergrund
+
+        // Hintergrund
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         canvas.width = screen.width;
@@ -57,35 +59,35 @@ namespace Farm {
         crc2.closePath();
 
 
-// Alerts        
+        // Alerts        
         horse.addEventListener("click", horseEatAndSing);
         function horseEatAndSing(): void {
             newhorse.eat();
             newhorse.sing();
-    }
+        }
 
         cow.addEventListener("click", cowEatAndSing);
         function cowEatAndSing(): void {
             newcow.eat();
             newcow.sing();
-    }
+        }
 
         cat.addEventListener("click", catEatAndSing);
         function catEatAndSing(): void {
             newcat.eat();
             newcat.sing();
-    }
+        }
 
         dog.addEventListener("click", dogEatAndSing);
         function dogEatAndSing(): void {
             newdog.eat();
             newdog.sing();
-    }
+        }
 
         rooster.addEventListener("click", chickenEatAndSing);
         function chickenEatAndSing(): void {
             chicken.eat();
             chicken.sing();
+        }
     }
-}
 }
