@@ -3,11 +3,11 @@ namespace Farm {
 
     //export let haystorage: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById("haystorage");
 
-    export let hay: number = 10;
-    export let silage: number = 15;
-    export let catfood: number = 5;
-    export let dogfood: number = 5;
-    export let corn: number = 5;
+    export let hay: number = 4;
+    export let silage: number = 6;
+    export let catfood: number = 3;
+    export let dogfood: number = 2;
+    export let corn: number = 3;
 
     let crc2: CanvasRenderingContext2D;
     let canvas: HTMLCanvasElement;
