@@ -2,9 +2,7 @@
 var Canvas;
 (function (Canvas) {
     class Cloud {
-        translate;
-        fillstyle;
-        gradient; //let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, r);
+        gradient = Canvas.crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
         randomNumberX;
         randomNumberY;
         constructor() {
@@ -20,6 +18,10 @@ var Canvas;
             this.randomNumberY = Math.floor(Math.random() * 300);
             return this.randomNumberY;
         }
+        addgradient() {
+            this.gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
+            this.gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
+        }
         draw() {
             Canvas.crc2.save();
             Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
@@ -28,10 +30,6 @@ var Canvas;
             Canvas.crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             Canvas.crc2.fill();
             Canvas.crc2.restore();
-        }
-        addgradient() {
-            this.gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
-            this.gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
         }
     }
     Canvas.Cloud = Cloud;
