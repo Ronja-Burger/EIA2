@@ -10,10 +10,6 @@ var Canvas;
         drawSky();
         drawSea();
         drawBeach();
-        drawSun();
-        for (let index = 0; index < 10; index++) {
-            drawBushes();
-        }
         for (let index = 0; index < 5; index++) {
             drawPersonAtBeach();
         }
@@ -45,48 +41,6 @@ var Canvas;
         Canvas.crc2.stroke();
         Canvas.crc2.closePath();
         //console.log(canvas.height);
-    }
-    // Sonne
-    function drawSun() {
-        let r = 150;
-        let gradient = Canvas.crc2.createRadialGradient(0, 0, 60, 0, 0, r);
-        gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
-        gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
-        Canvas.crc2.save();
-        Canvas.crc2.translate(randomNumberSun(), randomNumberSun());
-        Canvas.crc2.fillStyle = gradient;
-        Canvas.crc2.arc(0, 0, r, 0, 2 * Math.PI);
-        Canvas.crc2.fill();
-        Canvas.crc2.restore();
-    }
-    // Zufallszahlen für die Position der Sonne
-    function randomNumberSun() {
-        let number = Math.floor(Math.random() * 150 + 150);
-        return number;
-    }
-    console.log(randomNumberSun());
-    // Büsche
-    function drawBushes() {
-        let r = 30;
-        let gradient = Canvas.crc2.createRadialGradient(0, 0, 1, 0, 0, r);
-        gradient.addColorStop(0, "rgba(0, 100, 0, 1)");
-        gradient.addColorStop(1, "rgba(0, 100, 0, 0)");
-        Canvas.crc2.save();
-        Canvas.crc2.translate(randomNumberBushX(), randomNumberBushY());
-        Canvas.crc2.moveTo(randomNumberBushX(), randomNumberBushY());
-        Canvas.crc2.fillStyle = gradient;
-        Canvas.crc2.arc(0, 0, r, 0, 2 * Math.PI);
-        Canvas.crc2.fill();
-        Canvas.crc2.restore();
-    }
-    // Zufallszahlen für die Position der Büsche
-    function randomNumberBushX() {
-        let number = Math.floor(Math.random() * 300);
-        return number;
-    }
-    function randomNumberBushY() {
-        let number = Math.floor(Math.random() * 150 + 700);
-        return number;
     }
     function drawPersonAtBeach() {
         let x = 30;

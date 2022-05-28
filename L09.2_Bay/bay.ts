@@ -13,10 +13,6 @@ namespace Canvas {
         drawSky();
         drawSea();
         drawBeach();
-        drawSun();
-        for (let index: number = 0; index < 10; index++) {
-            drawBushes();
-        }
         for (let index: number = 0; index < 5; index++) {
             drawPersonAtBeach();
         }
@@ -49,63 +45,6 @@ namespace Canvas {
         crc2.stroke();
         crc2.closePath();
         //console.log(canvas.height);
-    }
-
-
-
-    // Sonne
-
-    function drawSun(): void {
-        let r: number = 150;
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 60, 0, 0, r);
-
-        gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
-        gradient.addColorStop(1, "HSLA(60, 100%, 50%, 0)");
-
-        crc2.save();
-        crc2.translate(randomNumberSun(), randomNumberSun());
-        crc2.fillStyle = gradient;
-        crc2.arc(0, 0, r, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.restore();
-    }
-
-    // Zufallszahlen für die Position der Sonne
-    function randomNumberSun(): number {
-        let number: number = Math.floor(Math.random() * 150 + 150);
-        return number;
-    }
-    console.log(randomNumberSun());
-
-
-
-
-    // Büsche
-
-    function drawBushes(): void {
-        let r: number = 30;
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 1, 0, 0, r);
-
-        gradient.addColorStop(0, "rgba(0, 100, 0, 1)");
-        gradient.addColorStop(1, "rgba(0, 100, 0, 0)");
-
-        crc2.save();
-        crc2.translate(randomNumberBushX(), randomNumberBushY());
-        crc2.moveTo(randomNumberBushX(), randomNumberBushY());
-        crc2.fillStyle = gradient;
-        crc2.arc(0, 0, r, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.restore();
-    }
-
-    // Zufallszahlen für die Position der Büsche
-    function randomNumberBushX(): number {
-        let number: number = Math.floor(Math.random() * 300);
-        return number;
-    }
-    function randomNumberBushY(): number {
-        let number: number = Math.floor(Math.random() * 150 + 700);
-        return number;
     }
 
 
