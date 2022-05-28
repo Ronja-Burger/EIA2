@@ -1,9 +1,7 @@
 namespace Canvas {
     window.addEventListener("load", start);
-
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
-    
 
     function start(_event: Event): void {
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
