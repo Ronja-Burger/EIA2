@@ -2,24 +2,24 @@ namespace Canvas {
     export class Cloud {
         translate: number;
         fillstyle: string;
+        gradient: CanvasGradient; //let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, r);
+        
 
-    draw(): void {
+    draw(_r: number): void {
         crc2.save();
         crc2.translate(randomNumberCloudX(), randomNumberCloudY());
         crc2.moveTo(randomNumberCloudX(), randomNumberCloudY());
-        crc2.fillStyle = gradient;
+        crc2.fillStyle = this.gradient;
         crc2.arc(0, 0, r, 0, 2 * Math.PI);
         crc2.fill();
         crc2.restore();
     }
+    addgradient(): void {
+        this.gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
+        this.gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
+    }
 }
 }
-
-let r: number = 80;
-let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, r);
-
-gradient.addColorStop(0, "HSLA(0, 0%, 100%, 1)");
-gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
 
 
 
