@@ -22,8 +22,8 @@ namespace Canvas {
 
         draw(): void {
             crc2.save();
-            crc2.translate(randomNumberX(), randomNumberY());
-            crc2.moveTo(randomNumberX(), randomNumberY());
+            crc2.translate(this.randomNumberX, this.randomNumberY);
+            crc2.moveTo(this.randomNumberX, this.randomNumberY);
             crc2.fillStyle = this.gradient;
             crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             crc2.fill();

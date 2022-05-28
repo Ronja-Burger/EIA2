@@ -22,8 +22,8 @@ var Canvas;
         }
         draw() {
             Canvas.crc2.save();
-            Canvas.crc2.translate(randomNumberX(), randomNumberY());
-            Canvas.crc2.moveTo(randomNumberX(), randomNumberY());
+            Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
+            Canvas.crc2.moveTo(this.randomNumberX, this.randomNumberY);
             Canvas.crc2.fillStyle = this.gradient;
             Canvas.crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             Canvas.crc2.fill();
