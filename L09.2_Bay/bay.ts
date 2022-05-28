@@ -13,13 +13,7 @@ namespace Canvas {
         drawSky();
         drawSea();
         drawBeach();
-        for (let index: number = 0; index < 5; index++) {
-            drawPersonAtBeach();
-        }
-        //drawPalmLeaf();
-        drawPersonAtBeach();
         drawSeagull(); drawSeagull(); drawSeagull();
-        //console.log(crc2.canvas.height, crc2.canvas.width);
     }
 
     function drawSky(): void {
@@ -45,62 +39,6 @@ namespace Canvas {
         crc2.stroke();
         crc2.closePath();
         //console.log(canvas.height);
-    }
-
-
-
-    function drawPersonAtBeach(): void {
-        let x: number = 30;
-        let y: number = 400;
-        crc2.save();
-        crc2.translate( randomNumberPersonX(), randomNumberPersonY());
-        crc2.beginPath();
-
-        //Kopf
-        crc2.arc(x + 5, y - 60, 11, 0, 2 * Math.PI);
-        crc2.fillStyle = "rgb(0, 0, 0)";
-
-        //Beine
-        crc2.moveTo(x - 10, y + 0);
-        crc2.lineTo(x + 5, y - 20);
-        crc2.lineTo(x + 20, y + 0);
-
-        //Körper
-        crc2.moveTo(x + 5, y - 20);
-        crc2.lineTo(x + 5, y - 50);
-
-        //Arm links
-        crc2.moveTo(x + 5, y - 45);
-        crc2.lineTo(x - 10, y - 30);
-
-        //Arm rechts
-        crc2.moveTo(x + 5, y - 45);
-        crc2.lineTo(x + 20, y - 30);
-
-        //Auge links
-        crc2.moveTo(x + 4, y - 65);
-        crc2.lineTo(x + 4, y - 61);
-
-        //Auge rechts
-        crc2.moveTo(x + 10, y - 65);
-        crc2.lineTo(x + 10, y - 61);
-
-        //Mund
-        crc2.moveTo(x + 10, y - 56);
-        crc2.lineTo(x + 4, y - 56);
-        crc2.lineTo(x + 2, y - 58);
-
-        crc2.stroke();
-        crc2.restore();
-    }
-    // Zufallszahlen für die Position der Urlauber
-    function randomNumberPersonX(): number {
-        let number: number = Math.floor(Math.random() * 300 + 700);
-        return number;
-    }
-    function randomNumberPersonY(): number {
-        let number: number = Math.floor(Math.random() * 200 + 300);
-        return number;
     }
 
     function drawSeagull(): void {

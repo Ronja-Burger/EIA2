@@ -10,15 +10,9 @@ var Canvas;
         drawSky();
         drawSea();
         drawBeach();
-        for (let index = 0; index < 5; index++) {
-            drawPersonAtBeach();
-        }
-        //drawPalmLeaf();
-        drawPersonAtBeach();
         drawSeagull();
         drawSeagull();
         drawSeagull();
-        //console.log(crc2.canvas.height, crc2.canvas.width);
     }
     function drawSky() {
         Canvas.crc2.beginPath();
@@ -41,50 +35,6 @@ var Canvas;
         Canvas.crc2.stroke();
         Canvas.crc2.closePath();
         //console.log(canvas.height);
-    }
-    function drawPersonAtBeach() {
-        let x = 30;
-        let y = 400;
-        Canvas.crc2.save();
-        Canvas.crc2.translate(randomNumberPersonX(), randomNumberPersonY());
-        Canvas.crc2.beginPath();
-        //Kopf
-        Canvas.crc2.arc(x + 5, y - 60, 11, 0, 2 * Math.PI);
-        Canvas.crc2.fillStyle = "rgb(0, 0, 0)";
-        //Beine
-        Canvas.crc2.moveTo(x - 10, y + 0);
-        Canvas.crc2.lineTo(x + 5, y - 20);
-        Canvas.crc2.lineTo(x + 20, y + 0);
-        //Körper
-        Canvas.crc2.moveTo(x + 5, y - 20);
-        Canvas.crc2.lineTo(x + 5, y - 50);
-        //Arm links
-        Canvas.crc2.moveTo(x + 5, y - 45);
-        Canvas.crc2.lineTo(x - 10, y - 30);
-        //Arm rechts
-        Canvas.crc2.moveTo(x + 5, y - 45);
-        Canvas.crc2.lineTo(x + 20, y - 30);
-        //Auge links
-        Canvas.crc2.moveTo(x + 4, y - 65);
-        Canvas.crc2.lineTo(x + 4, y - 61);
-        //Auge rechts
-        Canvas.crc2.moveTo(x + 10, y - 65);
-        Canvas.crc2.lineTo(x + 10, y - 61);
-        //Mund
-        Canvas.crc2.moveTo(x + 10, y - 56);
-        Canvas.crc2.lineTo(x + 4, y - 56);
-        Canvas.crc2.lineTo(x + 2, y - 58);
-        Canvas.crc2.stroke();
-        Canvas.crc2.restore();
-    }
-    // Zufallszahlen für die Position der Urlauber
-    function randomNumberPersonX() {
-        let number = Math.floor(Math.random() * 300 + 700);
-        return number;
-    }
-    function randomNumberPersonY() {
-        let number = Math.floor(Math.random() * 200 + 300);
-        return number;
     }
     function drawSeagull() {
         Canvas.crc2.save();
