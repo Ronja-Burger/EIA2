@@ -7,21 +7,25 @@ var Canvas;
         gradient; //let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, r);
         randomNumberX;
         randomNumberY;
+        constructor() {
+            this.createRandomNumberX();
+            this.createRandomNumberY();
+        }
         // Zufallszahlen für die Position der Wolke
         createRandomNumberX() {
             this.randomNumberX = Math.floor(Math.random() * 800 + 600);
-            return randomNumberX;
+            return this.randomNumberX;
         }
         createRandomNumberY() {
             this.randomNumberY = Math.floor(Math.random() * 300);
-            return randomNumberY;
+            return this.randomNumberY;
         }
-        draw(_r) {
+        draw() {
             Canvas.crc2.save();
-            Canvas.crc2.translate(randomNumberCloudX(), randomNumberCloudY());
-            Canvas.crc2.moveTo(randomNumberCloudX(), randomNumberCloudY());
+            Canvas.crc2.translate(randomNumberX(), randomNumberY());
+            Canvas.crc2.moveTo(randomNumberX(), randomNumberY());
             Canvas.crc2.fillStyle = this.gradient;
-            Canvas.crc2.arc(0, 0, r, 0, 2 * Math.PI);
+            Canvas.crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             Canvas.crc2.fill();
             Canvas.crc2.restore();
         }

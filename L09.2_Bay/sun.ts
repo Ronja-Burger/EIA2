@@ -1,7 +1,6 @@
 namespace Canvas {
     export class Sun {
-        r: number = 150;
-        gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 60, 0, 0, r);
+        gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 60, 0, 0, 150);
 
         addgradient(): void {
             this.gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
@@ -12,7 +11,7 @@ namespace Canvas {
             crc2.save();
             crc2.translate(randomNumberSun(), randomNumberSun());
             crc2.fillStyle = this.gradient;
-            crc2.arc(0, 0, r, 0, 2 * Math.PI);
+            crc2.arc(0, 0, 150, 0, 2 * Math.PI);
             crc2.fill();
             crc2.restore();
         }

@@ -6,22 +6,26 @@ namespace Canvas {
         randomNumberX: number;
         randomNumberY: number;
 
+        constructor() {
+            this.createRandomNumberX(); 
+            this.createRandomNumberY(); }
+
         // Zufallszahlen für die Position der Wolke
         createRandomNumberX(): number {
             this.randomNumberX = Math.floor(Math.random() * 800 + 600);
-            return randomNumberX;
+            return this.randomNumberX;
         }
         createRandomNumberY(): number {
             this.randomNumberY = Math.floor(Math.random() * 300);
-            return randomNumberY;
+            return this.randomNumberY;
         }
 
-        draw(_r: number): void {
+        draw(): void {
             crc2.save();
-            crc2.translate(randomNumberCloudX(), randomNumberCloudY());
-            crc2.moveTo(randomNumberCloudX(), randomNumberCloudY());
+            crc2.translate(randomNumberX(), randomNumberY());
+            crc2.moveTo(randomNumberX(), randomNumberY());
             crc2.fillStyle = this.gradient;
-            crc2.arc(0, 0, r, 0, 2 * Math.PI);
+            crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             crc2.fill();
             crc2.restore();
         }
