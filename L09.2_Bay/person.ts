@@ -26,38 +26,38 @@ namespace Canvas {
             crc2.beginPath();
 
             //Kopf
-            crc2.arc(x + 5, y - 60, 11, 0, 2 * Math.PI);
+            crc2.arc(this.x + 5, this.y - 60, 11, 0, 2 * Math.PI);
             crc2.fillStyle = "rgb(0, 0, 0)";
 
             //Beine
-            crc2.moveTo(x - 10, y + 0);
-            crc2.lineTo(x + 5, y - 20);
-            crc2.lineTo(x + 20, y + 0);
+            crc2.moveTo(this.x - 10, this.y + 0);
+            crc2.lineTo(this.x + 5, this.y - 20);
+            crc2.lineTo(this.x + 20, this.y + 0);
 
             //Körper
-            crc2.moveTo(x + 5, y - 20);
-            crc2.lineTo(x + 5, y - 50);
+            crc2.moveTo(this.x + 5, this.y - 20);
+            crc2.lineTo(this.x + 5, this.y - 50);
 
             //Arm links
-            crc2.moveTo(x + 5, y - 45);
-            crc2.lineTo(x - 10, y - 30);
+            crc2.moveTo(this.x + 5, this.y - 45);
+            crc2.lineTo(this.x - 10, this.y - 30);
 
             //Arm rechts
-            crc2.moveTo(x + 5, y - 45);
-            crc2.lineTo(x + 20, y - 30);
+            crc2.moveTo(this.x + 5, this.y - 45);
+            crc2.lineTo(this.x + 20, this.y - 30);
 
             //Auge links
-            crc2.moveTo(x + 4, y - 65);
-            crc2.lineTo(x + 4, y - 61);
+            crc2.moveTo(this.x + 4, this.y - 65);
+            crc2.lineTo(this.x + 4, this.y - 61);
 
             //Auge rechts
-            crc2.moveTo(x + 10, y - 65);
-            crc2.lineTo(x + 10, y - 61);
+            crc2.moveTo(this.x + 10, this.y - 65);
+            crc2.lineTo(this.x + 10, this.y - 61);
 
             //Mund
-            crc2.moveTo(x + 10, y - 56);
-            crc2.lineTo(x + 4, y - 56);
-            crc2.lineTo(x + 2, y - 58);
+            crc2.moveTo(this.x + 10, this.y - 56);
+            crc2.lineTo(this.x + 4, this.y - 56);
+            crc2.lineTo(this.x + 2, this.y - 58);
 
             crc2.stroke();
             crc2.restore();

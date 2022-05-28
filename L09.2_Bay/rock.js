@@ -2,14 +2,24 @@
 var Canvas;
 (function (Canvas) {
     class Rock {
-        translate; //crc2.translate(randomNumberRockX(), randomNumberRockY());
-        fillstyle; //crc2.fillStyle = "rgb(99, 99, 99)";
-        constructor(_translate, _fillstyle) {
-            this.translate = _translate;
-            this.fillstyle = _fillstyle;
+        randomNumberX;
+        randomNumberY;
+        constructor() {
+            this.createRandomNumberX();
+            this.createRandomNumberY();
+        }
+        // Zufallszahlen für die Position der Felsen
+        createRandomNumberX() {
+            this.randomNumberX = Math.floor(Math.random() * 800 + 600);
+            return this.randomNumberX;
+        }
+        createRandomNumberY() {
+            this.randomNumberY = Math.floor(Math.random() * 300);
+            return this.randomNumberY;
         }
         draw() {
             Canvas.crc2.save();
+            Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
             Canvas.crc2.beginPath();
             Canvas.crc2.moveTo(0, 650);
             Canvas.crc2.lineTo(30, 610);
@@ -24,13 +34,4 @@ var Canvas;
     }
     Canvas.Rock = Rock;
 })(Canvas || (Canvas = {}));
-// Zufallszahlen für die Position der Felsen
-function randomNumberRockX() {
-    let number = Math.floor(Math.random() * 450 + 1000);
-    return number;
-}
-function randomNumberRockY() {
-    let number = Math.floor(Math.random() * 200);
-    return number;
-}
 //# sourceMappingURL=rock.js.map

@@ -13,7 +13,12 @@ namespace Canvas {
         drawSky();
         drawSea();
         drawBeach();
-        drawSeagull(); drawSeagull(); drawSeagull();
+        drawBushes();
+        drawClouds();
+        drawPersons();
+        drawRocks();
+        drawSeagulls();
+        drawSun();
     }
 
     function drawSky(): void {
@@ -38,31 +43,38 @@ namespace Canvas {
         crc2.fillRect(0, 650, canvas.width, canvas.height);
         crc2.stroke();
         crc2.closePath();
-        //console.log(canvas.height);
     }
 
-    function drawSeagull(): void {
-        crc2.save();
-        crc2.translate(randomNumberSeagullx(), randomNumberSeagully());
-        crc2.beginPath();
-        crc2.arc(100 + 0, 100, 8, 3, 0);
-        crc2.arc(100 + 16, 100, 8, 3, 0);
-        crc2.stroke();
+    // Objekte       
+    let bush: Bush = new Bush();
+    function drawBushes(): void {
+        bush.draw();
     }
-    // Zufallszahlen für die Position der Möven
-    function randomNumberSeagullx(): number {
-        let number: number = Math.floor(Math.random() * 800);
-        return number;
+
+    let cloud: Cloud = new Cloud();
+    function drawClouds(): void {
+        cloud.draw();
     }
-    function randomNumberSeagully(): number {
-        let number: number = Math.floor(Math.random() * 100);
-        return number;
+
+    let person: Person = new Person();
+    function drawPersons(): void {
+        person.draw();
     }
-    
+
+    let rock: Rock = new Rock();
+    function drawRocks(): void {
+        rock.draw();
+    }
+
+    let seagull: Seagull = new Seagull();
+    function drawSeagulls(): void {
+        seagull.draw();
+    }
+
+    let sun: Sun = new Sun();
+    function drawSun(): void {
+        sun.draw();
+    }
 }
 
-    //function drawShip(): void {}
-
-
-    //function drawPersonsAtSea(): void {}
     

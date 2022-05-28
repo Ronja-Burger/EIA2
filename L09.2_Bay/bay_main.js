@@ -10,6 +10,12 @@ var Canvas;
         drawSky();
         drawSea();
         drawBeach();
+        drawBushes();
+        drawClouds();
+        drawPersons();
+        drawRocks();
+        drawSeagulls();
+        drawSun();
     }
     function drawSky() {
         Canvas.crc2.beginPath();
@@ -32,5 +38,30 @@ var Canvas;
         Canvas.crc2.stroke();
         Canvas.crc2.closePath();
     }
+    // Objekte       
+    let bush = new Canvas.Bush();
+    function drawBushes() {
+        bush.draw();
+    }
+    let cloud = new Canvas.Cloud();
+    function drawClouds() {
+        cloud.draw();
+    }
+    let person = new Canvas.Person();
+    function drawPersons() {
+        person.draw();
+    }
+    let rock = new Canvas.Rock();
+    function drawRocks() {
+        rock.draw();
+    }
+    let seagull = new Canvas.Seagull();
+    function drawSeagulls() {
+        seagull.draw();
+    }
+    let sun = new Canvas.Sun();
+    function drawSun() {
+        sun.draw();
+    }
 })(Canvas || (Canvas = {}));
-//# sourceMappingURL=bay.js.map
+//# sourceMappingURL=bay_main.js.map
