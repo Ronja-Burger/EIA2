@@ -1,22 +1,18 @@
 namespace Canvas {
     export class Sun {
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 60, 0, 0, 150);
-        randomNumberX: number;
-        randomNumberY: number;
-
+        randomNumber: number;
+       
         constructor() {
-            this.createRandomNumberX(); 
-            this.createRandomNumberY(); }
+            this.createRandomNumber(); 
+           }
 
-        // Zufallszahlen für die Position der Wolke
-        createRandomNumberX(): number {
-            this.randomNumberX = Math.floor(Math.random() * 800 + 600);
-            return this.randomNumberX;
+        // Zufallszahl für die Position der Sonne
+        createRandomNumber(): number {
+            this.randomNumber = Math.floor(Math.random() * 150 + 150);
+            return this.randomNumber;
         }
-        createRandomNumberY(): number {
-            this.randomNumberY = Math.floor(Math.random() * 300);
-            return this.randomNumberY;
-        }
+    
 
         addgradient(): void {
             this.gradient.addColorStop(0, "HSLA(60, 100%, 90%, 1)");
@@ -25,7 +21,7 @@ namespace Canvas {
 
         draw(): void {
             crc2.save();
-            crc2.translate(this.randomNumberX, this.randomNumberY);
+            crc2.translate(this.randomNumber, this.randomNumber);
             crc2.fillStyle = this.gradient;
             crc2.arc(0, 0, 150, 0, 2 * Math.PI);
             crc2.fill();
