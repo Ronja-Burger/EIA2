@@ -3,7 +3,12 @@ var Bay;
 (function (Bay) {
     window.addEventListener("load", start);
     let imageData; //brauch ich in function update nochmal
+    let sun;
+    let rock;
+    let bush;
     let cloud;
+    let person;
+    let seagull;
     let moveables = [];
     function start(_event) {
         Bay.canvas = document.querySelector("canvas");
@@ -15,14 +20,14 @@ var Bay;
         drawSea();
         drawBeach();
         // Objekte  
-        let sun = new Bay.Sun();
+        sun = new Bay.Sun();
         sun.draw();
         for (let index = 8; index > 0; index--) {
-            let rock = new Bay.Rock();
+            rock = new Bay.Rock();
             rock.draw();
         }
         for (let index = 10; index > 0; index--) {
-            let bush = new Bay.Bush();
+            bush = new Bay.Bush();
             bush.draw();
         }
         // Hintergrund speichern
@@ -33,12 +38,12 @@ var Bay;
             moveables.push(cloud);
         }
         for (let index = 3; index > 0; index--) {
-            let person = new Bay.Person();
+            person = new Bay.Person();
             person.draw();
             moveables.push(person);
         }
         for (let index = 3; index > 0; index--) {
-            let seagull = new Bay.Seagull();
+            seagull = new Bay.Seagull();
             seagull.draw();
             moveables.push(seagull);
         }
@@ -65,15 +70,13 @@ var Bay;
         Bay.crc2.stroke();
         Bay.crc2.closePath();
     }
-    // Animationen
-    for (let moveable of moveables) {
-        moveable.move();
-        moveable.draw();
-    }
+    // Animation
     function update() {
         Bay.crc2.putImageData(imageData, 0, 0);
-        cloud.move();
-        cloud.draw();
+        for (let moveable of moveables) {
+            moveable.move();
+            moveable.draw();
+        }
     }
 })(Bay || (Bay = {}));
 //# sourceMappingURL=bay_main.js.map

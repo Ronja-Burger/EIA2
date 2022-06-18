@@ -3,7 +3,12 @@ namespace Bay {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
     let imageData: ImageData; //brauch ich in function update nochmal
+    let sun: Sun;
+    let rock: Rock;
+    let bush: Bush;
     let cloud: Cloud;
+    let person: Person;
+    let seagull: Seagull;
     let moveables: Movable[] = [];
 
 
@@ -18,36 +23,36 @@ namespace Bay {
         drawBeach();
 
         // Objekte  
-        let sun: Sun = new Sun();
+        sun = new Sun();
         sun.draw();
 
         for (let index: number = 8; index > 0; index--) {
-        let rock: Rock = new Rock();
-        rock.draw();
+            rock = new Rock();
+            rock.draw();
         }
 
         for (let index: number = 10; index > 0; index--) {
-        let bush: Bush = new Bush();
-        bush.draw();
+            bush = new Bush();
+            bush.draw();
         }
 
         // Hintergrund speichern
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let index: number = 10; index > 0; index--) {
-        cloud = new Cloud();
-        cloud.draw();
-        moveables.push(cloud);
+            cloud = new Cloud();
+            cloud.draw();
+            moveables.push(cloud);
         }
 
         for (let index: number = 3; index > 0; index--) {
-        let person: Person = new Person();
-        person.draw();
-        moveables.push(person);
+            person = new Person();
+            person.draw();
+            moveables.push(person);
         }
 
         for (let index: number = 3; index > 0; index--) {
-            let seagull: Seagull = new Seagull();
+            seagull = new Seagull();
             seagull.draw();
             moveables.push(seagull);
         }
@@ -80,16 +85,13 @@ namespace Bay {
     }
 
 
-    // Animationen
-    for (let moveable of moveables) {
-        moveable.move();
-        moveable.draw();
-    }
-
+    // Animation
     function update(): void {
         crc2.putImageData(imageData, 0, 0);
-        cloud.move();
-        cloud.draw();
+        for (let moveable of moveables) {
+            moveable.move();
+            moveable.draw();
+        }
     }
 }
 
