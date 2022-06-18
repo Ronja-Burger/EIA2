@@ -3,6 +3,7 @@ namespace Bay {
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
 
         constructor() {
+            super();
             this.addgradient();
             //console.log(this.randomNumberX, this.randomNumberY, canvas.width);
         }
@@ -13,7 +14,7 @@ namespace Bay {
             return this.randomNumberX;
         }
         createRandomNumberY(): number {
-            this.randomNumberY = Math.floor(Math.random() * 300);
+            this.randomNumberY = Math.floor(Math.random() * 200);
             return this.randomNumberY;
         }
 

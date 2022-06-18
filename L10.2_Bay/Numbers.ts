@@ -1,9 +1,10 @@
 namespace Bay {
-    export class Numbers extends Object {
+    export class Numbers extends Motives {
         randomNumberX: number;
         randomNumberY: number;
 
         constructor() {
+            super();
             this.createRandomNumberX(); 
             this.createRandomNumberY();
         }

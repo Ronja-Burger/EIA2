@@ -1,9 +1,10 @@
 namespace Bay {
-    export class Sun extends Object {
+    export class Sun extends Motives {
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 60, 0, 0, 150);
         randomNumber: number;
 
         constructor() {
+            super();
             this.createRandomNumber();
             this.addgradient();
         }

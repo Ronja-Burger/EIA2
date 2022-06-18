@@ -1,10 +1,11 @@
 "use strict";
 var Bay;
 (function (Bay) {
-    class Sun extends Bay.Object {
+    class Sun extends Bay.Motives {
         gradient = Bay.crc2.createRadialGradient(0, 0, 60, 0, 0, 150);
         randomNumber;
         constructor() {
+            super();
             this.createRandomNumber();
             this.addgradient();
         }

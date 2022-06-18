@@ -17,6 +17,7 @@ var Bay;
             Bay.crc2.beginPath();
             Bay.crc2.arc(100 + 0, 100, 8, 3, 0);
             Bay.crc2.arc(100 + 16, 100, 8, 3, 0);
+            Bay.crc2.strokeStyle = "#000000";
             Bay.crc2.stroke();
         }
     }

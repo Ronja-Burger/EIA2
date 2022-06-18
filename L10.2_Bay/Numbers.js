@@ -1,10 +1,11 @@
 "use strict";
 var Bay;
 (function (Bay) {
-    class Numbers extends Bay.Object {
+    class Numbers extends Bay.Motives {
         randomNumberX;
         randomNumberY;
         constructor() {
+            super();
             this.createRandomNumberX();
             this.createRandomNumberY();
         }

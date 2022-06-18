@@ -53,6 +53,7 @@ namespace Bay {
             crc2.lineTo(this.x + 4, this.y - 56);
             crc2.lineTo(this.x + 2, this.y - 58);
 
+            crc2.strokeStyle = "#000000";
             crc2.stroke();
             crc2.restore();
         }

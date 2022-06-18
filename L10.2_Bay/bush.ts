@@ -3,6 +3,7 @@ namespace Bay {
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 1, 0, 0, 30);
 
         constructor() {
+            super();
             this.addgradient(); 
         }
 

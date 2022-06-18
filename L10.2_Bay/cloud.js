@@ -4,6 +4,7 @@ var Bay;
     class Cloud extends Bay.Movable {
         gradient = Bay.crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
         constructor() {
+            super();
             this.addgradient();
             //console.log(this.randomNumberX, this.randomNumberY, canvas.width);
         }
@@ -13,7 +14,7 @@ var Bay;
             return this.randomNumberX;
         }
         createRandomNumberY() {
-            this.randomNumberY = Math.floor(Math.random() * 300);
+            this.randomNumberY = Math.floor(Math.random() * 200);
             return this.randomNumberY;
         }
         addgradient() {

@@ -43,6 +43,7 @@ var Bay;
             Bay.crc2.moveTo(this.x + 10, this.y - 56);
             Bay.crc2.lineTo(this.x + 4, this.y - 56);
             Bay.crc2.lineTo(this.x + 2, this.y - 58);
+            Bay.crc2.strokeStyle = "#000000";
             Bay.crc2.stroke();
             Bay.crc2.restore();
         }

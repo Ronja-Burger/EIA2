@@ -2,16 +2,17 @@ namespace Bay {
     window.addEventListener("load", start);
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
-    let imageData: ImageData; //brauch ich in finction update nochmal
+    let imageData: ImageData; //brauch ich in function update nochmal
     let cloud: Cloud;
+    let moveables: Movable[] = [];
 
-    //Array vom Typ Superklasse
 
     function start(_event: Event): void {
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         canvas.width = screen.width;
         canvas.height = screen.height;
+        console.log(canvas.width, canvas.height);
         drawSky();
         drawSea();
         drawBeach();
@@ -20,23 +21,36 @@ namespace Bay {
         let sun: Sun = new Sun();
         sun.draw();
 
+        for (let index: number = 8; index > 0; index--) {
         let rock: Rock = new Rock();
         rock.draw();
+        }
 
+        for (let index: number = 10; index > 0; index--) {
         let bush: Bush = new Bush();
         bush.draw();
+        }
 
         // Hintergrund speichern
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
+        for (let index: number = 10; index > 0; index--) {
         cloud = new Cloud();
         cloud.draw();
+        moveables.push(cloud);
+        }
 
+        for (let index: number = 3; index > 0; index--) {
         let person: Person = new Person();
         person.draw();
+        moveables.push(person);
+        }
 
-        let seagull: Seagull = new Seagull();
-        seagull.draw();
+        for (let index: number = 3; index > 0; index--) {
+            let seagull: Seagull = new Seagull();
+            seagull.draw();
+            moveables.push(seagull);
+        }
 
         setInterval(update, 1000 / 24);
     }
@@ -67,7 +81,7 @@ namespace Bay {
 
 
     // Animationen
-    for (let moveable of Moveables) {
+    for (let moveable of moveables) {
         moveable.move();
         moveable.draw();
     }

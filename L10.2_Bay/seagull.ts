@@ -18,6 +18,7 @@ namespace Bay {
             crc2.beginPath();
             crc2.arc(100 + 0, 100, 8, 3, 0);
             crc2.arc(100 + 16, 100, 8, 3, 0);
+            crc2.strokeStyle = "#000000";
             crc2.stroke();
         }
 }

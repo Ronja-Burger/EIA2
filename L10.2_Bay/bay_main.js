@@ -2,32 +2,46 @@
 var Bay;
 (function (Bay) {
     window.addEventListener("load", start);
-    let imageData; //brauch ich in finction update nochmal
+    let imageData; //brauch ich in function update nochmal
     let cloud;
-    //Array vom Typ Superklasse
+    let moveables = [];
     function start(_event) {
         Bay.canvas = document.querySelector("canvas");
         Bay.crc2 = Bay.canvas.getContext("2d");
         Bay.canvas.width = screen.width;
         Bay.canvas.height = screen.height;
+        console.log(Bay.canvas.width, Bay.canvas.height);
         drawSky();
         drawSea();
         drawBeach();
         // Objekte  
         let sun = new Bay.Sun();
         sun.draw();
-        let rock = new Bay.Rock();
-        rock.draw();
-        let bush = new Bay.Bush();
-        bush.draw();
+        for (let index = 8; index > 0; index--) {
+            let rock = new Bay.Rock();
+            rock.draw();
+        }
+        for (let index = 10; index > 0; index--) {
+            let bush = new Bay.Bush();
+            bush.draw();
+        }
         // Hintergrund speichern
         imageData = Bay.crc2.getImageData(0, 0, Bay.canvas.width, Bay.canvas.height);
-        cloud = new Bay.Cloud();
-        cloud.draw();
-        let person = new Bay.Person();
-        person.draw();
-        let seagull = new Bay.Seagull();
-        seagull.draw();
+        for (let index = 10; index > 0; index--) {
+            cloud = new Bay.Cloud();
+            cloud.draw();
+            moveables.push(cloud);
+        }
+        for (let index = 3; index > 0; index--) {
+            let person = new Bay.Person();
+            person.draw();
+            moveables.push(person);
+        }
+        for (let index = 3; index > 0; index--) {
+            let seagull = new Bay.Seagull();
+            seagull.draw();
+            moveables.push(seagull);
+        }
         setInterval(update, 1000 / 24);
     }
     function drawSky() {
@@ -52,7 +66,7 @@ var Bay;
         Bay.crc2.closePath();
     }
     // Animationen
-    for (let moveable of Moveables) {
+    for (let moveable of moveables) {
         moveable.move();
         moveable.draw();
     }
