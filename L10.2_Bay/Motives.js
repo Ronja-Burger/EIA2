@@ -2,7 +2,7 @@
 var Bay;
 (function (Bay) {
     class Motives {
-        draw() { }
+        draw() { } //was soll ich hier machen?
     }
     Bay.Motives = Motives;
 })(Bay || (Bay = {}));
