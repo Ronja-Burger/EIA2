@@ -1,16 +1,15 @@
-namespace Canvas {
-    export class Cloud {
+namespace Bay {
+    export class Cloud extends Movable {
         gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
-        randomNumberX: number;
-        randomNumberY: number;
 
         constructor() {
-            this.createRandomNumberX(); 
-            this.createRandomNumberY(); }
+            this.addgradient();
+            //console.log(this.randomNumberX, this.randomNumberY, canvas.width);
+        }
 
         // Zufallszahlen für die Position der Wolke
         createRandomNumberX(): number {
-            this.randomNumberX = Math.floor(Math.random() * 800 + 600);
+            this.randomNumberX = Math.floor(Math.random() * 800);
             return this.randomNumberX;
         }
         createRandomNumberY(): number {
@@ -26,11 +25,11 @@ namespace Canvas {
         draw(): void {
             crc2.save();
             crc2.translate(this.randomNumberX, this.randomNumberY);
-            crc2.moveTo(this.randomNumberX, this.randomNumberY);
+            //crc2.moveTo(this.randomNumberX, this.randomNumberY);
             crc2.fillStyle = this.gradient;
             crc2.arc(0, 0, 80, 0, 2 * Math.PI);
             crc2.fill();
             crc2.restore();
         }
+        }
     }
-}

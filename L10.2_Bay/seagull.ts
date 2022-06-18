@@ -1,12 +1,6 @@
-namespace Canvas {
-    export class Seagull {
-        randomNumberX: number;
-        randomNumberY: number;
+namespace Bay {
+    export class Seagull extends Movable {
 
-        constructor() {
-            this.createRandomNumberX();
-            this.createRandomNumberY();
-        }
 
         // Zufallszahlen für die Position der Möwen
         createRandomNumberX(): number {

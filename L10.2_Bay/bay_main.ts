@@ -1,7 +1,11 @@
-namespace Canvas {
+namespace Bay {
     window.addEventListener("load", start);
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
+    let imageData: ImageData; //brauch ich in finction update nochmal
+    let cloud: Cloud;
+
+    //Array vom Typ Superklasse
 
     function start(_event: Event): void {
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
@@ -11,12 +15,30 @@ namespace Canvas {
         drawSky();
         drawSea();
         drawBeach();
-        drawBushes();
-        drawClouds();
-        drawPersons();
-        drawRocks();
-        drawSeagulls();
-        drawSun();
+
+        // Objekte  
+        let sun: Sun = new Sun();
+        sun.draw();
+
+        let rock: Rock = new Rock();
+        rock.draw();
+
+        let bush: Bush = new Bush();
+        bush.draw();
+
+        // Hintergrund speichern
+        imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+
+        cloud = new Cloud();
+        cloud.draw();
+
+        let person: Person = new Person();
+        person.draw();
+
+        let seagull: Seagull = new Seagull();
+        seagull.draw();
+
+        setInterval(update, 1000 / 24);
     }
 
     function drawSky(): void {
@@ -43,36 +65,17 @@ namespace Canvas {
         crc2.closePath();
     }
 
-    // Objekte       
-    let bush: Bush = new Bush();
-    function drawBushes(): void {
-        bush.draw();
+
+    // Animationen
+    for (let moveable of Moveables) {
+        moveable.move();
+        moveable.draw();
     }
 
-    let cloud: Cloud = new Cloud();
-    function drawClouds(): void {
+    function update(): void {
+        crc2.putImageData(imageData, 0, 0);
+        cloud.move();
         cloud.draw();
-    }
-
-    let person: Person = new Person();
-    function drawPersons(): void {
-        person.draw();
-    }
-
-    let rock: Rock = new Rock();
-    function drawRocks(): void {
-        rock.draw();
-    }
-
-    let seagull: Seagull = new Seagull();
-    function drawSeagulls(): void {
-        seagull.draw();
-    }
-
-    let sun: Sun = new Sun();
-    function drawSun(): void {
-        sun.draw();
     }
 }
 
-    

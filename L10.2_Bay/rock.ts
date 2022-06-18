@@ -1,11 +1,6 @@
-namespace Canvas {
-    export class Rock {
-        randomNumberX: number;
-        randomNumberY: number;
+namespace Bay {
+    export class Rock extends Numbers {
 
-        constructor() {
-            this.createRandomNumberX(); 
-            this.createRandomNumberY(); }
 
         // Zufallszahlen für die Position der Felsen
         createRandomNumberX(): number {

@@ -1,13 +1,7 @@
 "use strict";
-var Canvas;
-(function (Canvas) {
-    class Rock {
-        randomNumberX;
-        randomNumberY;
-        constructor() {
-            this.createRandomNumberX();
-            this.createRandomNumberY();
-        }
+var Bay;
+(function (Bay) {
+    class Rock extends Bay.Numbers {
         // Zufallszahlen für die Position der Felsen
         createRandomNumberX() {
             this.randomNumberX = Math.floor(Math.random() * 800 + 600);
@@ -18,20 +12,20 @@ var Canvas;
             return this.randomNumberY;
         }
         draw() {
-            Canvas.crc2.save();
-            Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
-            Canvas.crc2.beginPath();
-            Canvas.crc2.moveTo(0, 650);
-            Canvas.crc2.lineTo(30, 610);
-            Canvas.crc2.lineTo(50, 600);
-            Canvas.crc2.lineTo(70, 610);
-            Canvas.crc2.lineTo(80, 630);
-            Canvas.crc2.lineTo(100, 650);
-            Canvas.crc2.fill();
-            Canvas.crc2.closePath();
-            Canvas.crc2.restore();
+            Bay.crc2.save();
+            Bay.crc2.translate(this.randomNumberX, this.randomNumberY);
+            Bay.crc2.beginPath();
+            Bay.crc2.moveTo(0, 650);
+            Bay.crc2.lineTo(30, 610);
+            Bay.crc2.lineTo(50, 600);
+            Bay.crc2.lineTo(70, 610);
+            Bay.crc2.lineTo(80, 630);
+            Bay.crc2.lineTo(100, 650);
+            Bay.crc2.fill();
+            Bay.crc2.closePath();
+            Bay.crc2.restore();
         }
     }
-    Canvas.Rock = Rock;
-})(Canvas || (Canvas = {}));
+    Bay.Rock = Rock;
+})(Bay || (Bay = {}));
 //# sourceMappingURL=rock.js.map

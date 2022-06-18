@@ -1,14 +1,8 @@
-namespace Canvas {
-    export class Person {
+namespace Bay {
+    export class Person extends Movable {
         x: number = 30;
         y: number = 400;
-        randomNumberX: number;
-        randomNumberY: number;
 
-        constructor() {
-            this.createRandomNumberX();
-            this.createRandomNumberY();
-        }
 
         // Zufallszahlen für die Position der Personen
         createRandomNumberX(): number {

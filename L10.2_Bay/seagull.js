@@ -1,13 +1,7 @@
 "use strict";
-var Canvas;
-(function (Canvas) {
-    class Seagull {
-        randomNumberX;
-        randomNumberY;
-        constructor() {
-            this.createRandomNumberX();
-            this.createRandomNumberY();
-        }
+var Bay;
+(function (Bay) {
+    class Seagull extends Bay.Movable {
         // Zufallszahlen für die Position der Möwen
         createRandomNumberX() {
             this.randomNumberX = Math.floor(Math.random() * 800);
@@ -18,14 +12,14 @@ var Canvas;
             return this.randomNumberY;
         }
         draw() {
-            Canvas.crc2.save();
-            Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
-            Canvas.crc2.beginPath();
-            Canvas.crc2.arc(100 + 0, 100, 8, 3, 0);
-            Canvas.crc2.arc(100 + 16, 100, 8, 3, 0);
-            Canvas.crc2.stroke();
+            Bay.crc2.save();
+            Bay.crc2.translate(this.randomNumberX, this.randomNumberY);
+            Bay.crc2.beginPath();
+            Bay.crc2.arc(100 + 0, 100, 8, 3, 0);
+            Bay.crc2.arc(100 + 16, 100, 8, 3, 0);
+            Bay.crc2.stroke();
         }
     }
-    Canvas.Seagull = Seagull;
-})(Canvas || (Canvas = {}));
+    Bay.Seagull = Seagull;
+})(Bay || (Bay = {}));
 //# sourceMappingURL=seagull.js.map

@@ -1,17 +1,15 @@
 "use strict";
-var Canvas;
-(function (Canvas) {
-    class Cloud {
-        gradient = Canvas.crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
-        randomNumberX;
-        randomNumberY;
+var Bay;
+(function (Bay) {
+    class Cloud extends Bay.Movable {
+        gradient = Bay.crc2.createRadialGradient(0, 0, 10, 0, 0, 80);
         constructor() {
-            this.createRandomNumberX();
-            this.createRandomNumberY();
+            this.addgradient();
+            //console.log(this.randomNumberX, this.randomNumberY, canvas.width);
         }
         // Zufallszahlen für die Position der Wolke
         createRandomNumberX() {
-            this.randomNumberX = Math.floor(Math.random() * 800 + 600);
+            this.randomNumberX = Math.floor(Math.random() * 800);
             return this.randomNumberX;
         }
         createRandomNumberY() {
@@ -23,15 +21,15 @@ var Canvas;
             this.gradient.addColorStop(1, "HSLA(0, 0%, 100%, 0)");
         }
         draw() {
-            Canvas.crc2.save();
-            Canvas.crc2.translate(this.randomNumberX, this.randomNumberY);
-            Canvas.crc2.moveTo(this.randomNumberX, this.randomNumberY);
-            Canvas.crc2.fillStyle = this.gradient;
-            Canvas.crc2.arc(0, 0, 80, 0, 2 * Math.PI);
-            Canvas.crc2.fill();
-            Canvas.crc2.restore();
+            Bay.crc2.save();
+            Bay.crc2.translate(this.randomNumberX, this.randomNumberY);
+            //crc2.moveTo(this.randomNumberX, this.randomNumberY);
+            Bay.crc2.fillStyle = this.gradient;
+            Bay.crc2.arc(0, 0, 80, 0, 2 * Math.PI);
+            Bay.crc2.fill();
+            Bay.crc2.restore();
         }
     }
-    Canvas.Cloud = Cloud;
-})(Canvas || (Canvas = {}));
+    Bay.Cloud = Cloud;
+})(Bay || (Bay = {}));
 //# sourceMappingURL=cloud.js.map
