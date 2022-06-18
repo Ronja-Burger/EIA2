@@ -21,7 +21,7 @@ var Bay;
             Bay.crc2.lineTo(70, 610);
             Bay.crc2.lineTo(80, 630);
             Bay.crc2.lineTo(100, 650);
-            Bay.crc2.fill();
+            Bay.crc2.fillStyle = "gray";
             Bay.crc2.closePath();
             Bay.crc2.restore();
         }
