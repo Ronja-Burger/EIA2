@@ -16,12 +16,14 @@ var garden;
     }
     // create fields
     function createFields() {
-        for (let index = 0; index < 7; index++) { //iterate through rows
-            for (let index = 0; index < 7; index++) { //create 7 fields in a row
+        //iterate through rows
+        for (let index = 0; index < 7; index++) {
+            document.querySelector("row" + index);
+            let rows = document.getElementById("row" + index);
+            //create 7 fields in a row
+            for (let index = 0; index < 7; index++) {
                 let field = document.createElement("div");
-                document.querySelector("row" + index);
-                let rows = document.getElementById("row" + index);
-                rows.classList.add("field");
+                field.classList.add("field");
                 rows.appendChild(field);
             }
         }
