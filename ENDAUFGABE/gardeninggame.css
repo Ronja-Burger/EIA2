@@ -1,0 +1,104 @@
+h1 {
+    font-family: 'Georgia';
+    grid-column: span 7;
+    text-align: center;
+    }
+    
+#Screen1 {
+    font-family: 'Helvetica';
+    font-size: 0.8em;
+    text-align: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 8em;
+    justify-content: center;
+    display: grid;
+}
+#form {
+    background-color: rgba(242, 235, 235, 0.683);
+    border-radius: 0.5em;
+    width: 400px;
+    height: 170px;
+}
+fieldset {
+    border-radius: 0.5em;
+    width:300px;
+    height: 50px;
+}
+
+
+
+
+#Screen2{
+    display: none;
+}
+#deck {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: darkblue;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    font-family: sans-serif;
+}
+#garden {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: darkblue;
+    background-color: antiquewhite;
+    height: 640px;
+    width: 900px;
+    margin-right: 10px;
+}
+.row {
+    height: 80px;
+    width: 900px;
+    border: 1px solid black;
+}
+.field {
+    margin: 5px;
+    height: 50px;
+    width: 50px;
+    background-color: brown;
+}
+#info {
+    position: absolute;
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: darkblue;
+    background-color: antiquewhite;
+    margin-left: 920px;
+    height: 620px;
+    width: 500px;
+    padding: 10px;
+}
+#storage {
+    border-style: solid;
+    border-color: darkblue;
+    border-radius: 0.5em;
+    background-color: white;
+    height: 200px;
+    width: 490px;
+    margin-bottom: 10px;
+}
+#market {
+    border-style: solid;
+    border-radius: 0.5em;
+    border-color: darkblue;
+    background-color: white;
+    height: 400px;
+    width: 490px;
+}
+p {
+    margin: 10px;
+}
+.items {
+    display: flex;
+    flex-direction: row;
+}
+img {
+    height: 50px;
+    width: 50px;
+}
