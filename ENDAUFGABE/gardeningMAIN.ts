@@ -23,7 +23,7 @@ namespace garden {
             let rows: HTMLDivElement = <HTMLDivElement>document.getElementById("row" + index);
 
 
-            //create 7 fields in a row
+            //create 7 fields in a row 
             for (let index: number = 0; index < 7; index++) {
                 let field: HTMLDivElement = <HTMLDivElement>document.createElement("div");
                 field.classList.add("field");
