@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="gardeninggame.css">
+    <!--<script src="Plant.js"></script>-->
     <script src="gardeningMAIN.js"></script>
     <title>your garden</title>
 </head>
@@ -16,14 +17,18 @@
 
             <div id="form">
                 <fieldset class="fsAdjustment">
-                <legend>Variation of price</legend>
-                <input type="radio" name="LowPrice" id="1-3">
+                
+                
+                    <legend>Variation of price</legend>
+                <input type="radio" name="Price" id="1-3">
                 <label for="1-3">1 - 3€</label>
-                <input type="radio" name="HighPrice" id="1-5">
+                <input type="radio" name="Price" id="1-5">
                 <label for="1-5">1 - 5€</label>
                 </fieldset>
                 <fieldset>
-                <legend>Start capital</legend>
+                
+                
+                    <legend>Start capital</legend>
                 <span id="slider">
                 10€
                 <input type="range" name="Startcapital" id="startcapital" min="10" max="100" step="10"
@@ -52,6 +57,13 @@
             <div id="info">
                 <div id="storage">
                     <p>your storage</p>
+                    <div id="capital"></div>
+                    <!--plant in own storage for drag & drop-->
+                    <img src="Emojis/veggies/carrot_1f955.png" id="carrot1" alt="carrot">
+                        <img src="Emojis/veggies/Eggplant Emoji.png" id="eggplant1" alt="eggplant">
+                        <img src="Emojis/veggies/garlic_1f9c4.png" id="garlic1" alt="garlic">
+                        <img src="Emojis/veggies/leafy-green_1f96c.png" id="salad1" alt="salad">
+                        <img src="Emojis/veggies/potato_1f954.png" id="potato1" alt="potato">
                     <div class="items">
                         <!-- hier kommen die Items rein, div ist nicht sichtbar-->
                     </div>
@@ -59,11 +71,11 @@
                 <div id="market">
                     <p>marketplace</p>
                     <div class="items">
-                        <img src="Emojis/veggies/carrot_1f955.png" alt="">
-                        <img src="Emojis/veggies/Eggplant Emoji.png" alt="">
-                        <img src="Emojis/veggies/garlic_1f9c4.png" alt="">
-                        <img src="Emojis/veggies/leafy-green_1f96c.png" alt="">
-                        <img src="Emojis/veggies/potato_1f954.png" alt="">
+                        <img src="Emojis/veggies/carrot_1f955.png" id="carrot" alt="carrot">
+                        <img src="Emojis/veggies/Eggplant Emoji.png" id="eggplant" alt="eggplant">
+                        <img src="Emojis/veggies/garlic_1f9c4.png" id="garlic" alt="garlic">
+                        <img src="Emojis/veggies/leafy-green_1f96c.png" id="salad" alt="salad">
+                        <img src="Emojis/veggies/potato_1f954.png" id="potato" alt="potato">
                     </div>
                 </div>
             </div>
