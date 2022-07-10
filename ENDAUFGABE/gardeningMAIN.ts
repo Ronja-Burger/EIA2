@@ -49,18 +49,15 @@ namespace garden {
                 case "priceVariation":
                     priceVariation = Number(entry[1]);
                     break;
-                case "capital":
-                    capital = entry[1].toString();
+                case "Startcapital":
+                    capital = Number(entry[1]);
             }
         }
         // show entry in div
         let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
-        capitalDiv.innerHTML = capital;
+        capitalDiv.innerHTML = capital.toString();
         console.log(capital);
     }
-
-
-
 
 
     // EVENTLISTENER on vegetables

@@ -97,6 +97,21 @@ fieldset {
     width: 490px;
     margin-bottom: 10px;
 }
+.items {
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid rgb(139,90,43);
+    border-radius: 5px;
+}
+.counter {
+    /*in einer Reihe und die Counter rechts oben*/
+    height: 20px;
+    width: 20px;
+    background-color: rgb(139,90,43);
+    border-radius: 5px;
+}
 #market {
     border-style: solid;
     border-radius: 0.5em;
@@ -107,10 +122,6 @@ fieldset {
 }
 p {
     margin: 10px;
-}
-.items {
-    display: flex;
-    flex-direction: row;
 }
 img {
     height: 50px;
