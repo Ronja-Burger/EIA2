@@ -32,40 +32,78 @@ var garden;
         }
         readData();
     }
-    // Variables for formdata
-    let priceVariation;
-    let capital;
     // read formdata
     function readData() {
         let formdata = new FormData(document.forms[0]);
         for (let entry of formdata.entries()) {
             switch (entry[0]) {
                 case "priceVariation":
-                    priceVariation = Number(entry[1]);
+                    garden.priceVariation = Number(entry[1]);
+                    console.log(garden.priceVariation); //funktioniert nicht?
                     break;
                 case "Startcapital":
-                    capital = Number(entry[1]);
+                    garden.capital = Number(entry[1]);
             }
         }
         // show entry in div
         let capitalDiv = document.getElementById("capital");
-        capitalDiv.innerHTML = capital.toString();
-        console.log(capital);
+        capitalDiv.innerHTML = garden.capital.toString();
     }
-    // EVENTLISTENER on vegetables
+    // EVENTLISTENER on vegetables in market
     let carrot = document.getElementById("carrot");
     let eggplant = document.getElementById("eggplant");
     let garlic = document.getElementById("garlic");
     let salad = document.getElementById("salad");
     let potato = document.getElementById("potato");
-    carrot.addEventListener("click", buy);
-    eggplant.addEventListener("click", buy);
-    garlic.addEventListener("click", buy);
-    salad.addEventListener("click", buy);
-    potato.addEventListener("click", buy);
-    // function to buy vegetables
-    function buy() {
-        // Nummer erhöhen
+    // call functions to buy vegetables
+    carrot.addEventListener("click", buyCarrot);
+    eggplant.addEventListener("click", buyEggplant);
+    garlic.addEventListener("click", buyGarlic);
+    salad.addEventListener("click", buySalad);
+    potato.addEventListener("click", buyPotato);
+    // functions to buy vegetables
+    function buyCarrot() {
+        let counter = 0;
+        let carrotcounter = document.getElementById("carrotCounter");
+        carrotcounter.innerHTML = counter.toString();
+        counter++;
     }
+    /*     // Instanzierung - drag'n'drop?
+        let startCapital: number = 0;
+        let minPrice: number = 0;
+        let maxPrice: number = 0;
+    
+        let seedlings: {[name: string]: object} = {};
+        let cropProducts: {[name: string]: object} = {};
+        let plants: {[name: string]: object} = {};
+    
+        seedlings.Salad = new Product("Salad", minPrice, maxPrice);
+        cropProducts.Salad = new Product("Salad", minPrice, maxPrice);
+        plants.Salad = new Salad();
+        
+        seedlings.Potato = new Product("Potato", minPrice, maxPrice);
+        cropProducts.Potato = new Product("Potato", minPrice, maxPrice);
+        plants.Potato = new Potato();
+    
+        seedlings.Carrot = new Product("Carrot", minPrice, maxPrice);
+        cropProducts.Carrot = new Product("Carrot", minPrice, maxPrice);
+        plants.Carrot = new Carrot();
+    
+        seedlings.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        cropProducts.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        plants.Aubergine = new Aubergine();
+    
+        seedlings.Garlic = new Product("Garlic", minPrice, maxPrice);
+        cropProducts.Garlic = new Product("Garlic", minPrice, maxPrice);
+        plants.Garlic = new Garlic();
+    
+    
+        let dung: object = new Product("Dung", minPrice, maxPrice);
+        let pesticide: object = new Product("Pesticide", minPrice, maxPrice);
+        let market: object = new Market(startCapital, seedlings, cropProducts, dung, pesticide);
+        let fields: object[] = [];
+    
+    
+        setInterval(market.changePrices, 30000); */
 })(garden || (garden = {}));
 //# sourceMappingURL=gardeningMAIN.js.map

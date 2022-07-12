@@ -37,8 +37,10 @@ namespace garden {
     }
 
     // Variables for formdata
-    let priceVariation: number;
-    let capital: number;
+    export let priceVariation: number;
+    // let variationPrice: HTMLInputElement = <HTMLInputElement>document.querySelector("input"); // Gibt nur ein Value aus, wie muss ich selektieren, dass beide Ausgegeben werden?
+
+    export let capital: number;
 
     // read formdata
     function readData(): void {
@@ -48,6 +50,7 @@ namespace garden {
             switch (entry[0]) {
                 case "priceVariation":
                     priceVariation = Number(entry[1]);
+                    console.log(priceVariation); //funktioniert nicht?
                     break;
                 case "Startcapital":
                     capital = Number(entry[1]);
@@ -56,25 +59,68 @@ namespace garden {
         // show entry in div
         let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
         capitalDiv.innerHTML = capital.toString();
-        console.log(capital);
     }
 
 
-    // EVENTLISTENER on vegetables
+    // EVENTLISTENER on vegetables in market
     let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
     let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
     let garlic: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic");
     let salad: HTMLImageElement = <HTMLImageElement>document.getElementById("salad");
     let potato: HTMLImageElement = <HTMLImageElement>document.getElementById("potato");
 
-    carrot.addEventListener("click", buy);
-    eggplant.addEventListener("click", buy);
-    garlic.addEventListener("click", buy);
-    salad.addEventListener("click", buy);
-    potato.addEventListener("click", buy);
+    // call functions to buy vegetables
+    carrot.addEventListener("click", buyCarrot);
+    eggplant.addEventListener("click", buyEggplant);
+    garlic.addEventListener("click", buyGarlic);
+    salad.addEventListener("click", buySalad);
+    potato.addEventListener("click", buyPotato);
 
-    // function to buy vegetables
-    function buy(): void {
-        // Nummer erhöhen
+    // functions to buy vegetables
+    function buyCarrot(): void {
+        let counter: number = 0;
+        let carrotcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+        carrotcounter.innerHTML = counter.toString();
+        counter ++;
     }
+
+/*     // Instanzierung - drag'n'drop?
+    let startCapital: number = 0;
+    let minPrice: number = 0;
+    let maxPrice: number = 0;
+
+    let seedlings: {[name: string]: object} = {};
+    let cropProducts: {[name: string]: object} = {};
+    let plants: {[name: string]: object} = {};
+
+    seedlings.Salad = new Product("Salad", minPrice, maxPrice);
+    cropProducts.Salad = new Product("Salad", minPrice, maxPrice);
+    plants.Salad = new Salad();
+    
+    seedlings.Potato = new Product("Potato", minPrice, maxPrice);
+    cropProducts.Potato = new Product("Potato", minPrice, maxPrice);
+    plants.Potato = new Potato();
+
+    seedlings.Carrot = new Product("Carrot", minPrice, maxPrice);
+    cropProducts.Carrot = new Product("Carrot", minPrice, maxPrice);
+    plants.Carrot = new Carrot();
+
+    seedlings.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+    cropProducts.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+    plants.Aubergine = new Aubergine();
+
+    seedlings.Garlic = new Product("Garlic", minPrice, maxPrice);
+    cropProducts.Garlic = new Product("Garlic", minPrice, maxPrice);
+    plants.Garlic = new Garlic();
+
+
+    let dung: object = new Product("Dung", minPrice, maxPrice);
+    let pesticide: object = new Product("Pesticide", minPrice, maxPrice);
+    let market: object = new Market(startCapital, seedlings, cropProducts, dung, pesticide);
+    let fields: object[] = [];
+
+
+    setInterval(market.changePrices, 30000); */
+
+    
 } 

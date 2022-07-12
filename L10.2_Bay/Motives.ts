@@ -1,5 +1,5 @@
 namespace Bay {
-    export class Motives {
+    export abstract class Motives {
         draw(): void {} //was soll ich hier machen?
     }
 }
