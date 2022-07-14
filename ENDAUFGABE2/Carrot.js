@@ -4,8 +4,6 @@ var garden;
     class Carrot extends class Plant {
         name = "Carrot";
         growthTime = 180;
-        waterNeed = 3;
-        dungNeed = 2;
     } {
     }
     garden.Carrot = Carrot;

@@ -4,6 +4,8 @@ namespace garden {
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         start.addEventListener("click", hideScreen1);
 
+        // alles hier in class Storage?
+
         // EVENTLISTENER on vegetables in market
         let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
         let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
@@ -51,79 +53,61 @@ namespace garden {
                 field.appendChild(state);
             }
         }
-        readData();
     }
 
-    // Variables for formdata
-    export let priceVariation: number;
-    export let capital: number;
 
-    // read formdata
-    function readData(): void {
-        let formdata: FormData = new FormData(document.forms[0]);
-        for (let entry of formdata.entries()) {
-                case "Startcapital":
-            capital = Number(entry[1]);
-        }
+    // Variables for the vegetables counters
+    let counterCarrot: number = 0;
+    let counterEggplant: number = 0;
+    let counterGarlic: number = 0;
+    let counterSalad: number = 0;
+    let counterPotato: number = 0;
+    let counterDung: number = 0;
+    let counterPesticide: number = 0;
+
+
+    // functions to buy vegetables doesn't work!!!!
+    function buyCarrot(): void {
+        let carrotcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+        counterCarrot++;
+        carrotcounter.innerHTML = counterCarrot.toString();
     }
-    // show entry in div
-    let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
-    capitalDiv.innerHTML = "TOTAL: " + capital.toString();
-}
 
+    function buyEggplant(): void {
+        let eggplantcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
+        counterEggplant++;
+        eggplantcounter.innerHTML = counterEggplant.toString();
+    }
 
-// Variables for the vegetables counters
-let counterCarrot: number = 0;
-let counterEggplant: number = 0;
-let counterGarlic: number = 0;
-let counterSalad: number = 0;
-let counterPotato: number = 0;
-let counterDung: number = 0;
-let counterPesticide: number = 0;
+    function buyGarlic(): void {
+        let garliccounter: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
+        counterGarlic++;
+        garliccounter.innerHTML = counterGarlic.toString();
+    }
 
+    function buySalad(): void {
+        let saladcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
+        counterSalad++;
+        saladcounter.innerHTML = counterSalad.toString();
+    }
 
-// functions to buy vegetables doesn't work!!!!
-function buyCarrot(): void {
-    let carrotcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
-    counterCarrot++;
-    carrotcounter.innerHTML = counterCarrot.toString();
-}
+    function buyPotato(): void {
+        let potatocounter: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
+        counterPotato++;
+        potatocounter.innerHTML = counterPotato.toString();
+    }
 
-function buyEggplant(): void {
-    let eggplantcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
-    counterEggplant++;
-    eggplantcounter.innerHTML = counterEggplant.toString();
-}
+    function buyDung(): void {
+        let dungcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("dungCounter");
+        counterDung++;
+        dungcounter.innerHTML = counterDung.toString();
+    }
 
-function buyGarlic(): void {
-    let garliccounter: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
-    counterGarlic++;
-    garliccounter.innerHTML = counterGarlic.toString();
-}
-
-function buySalad(): void {
-    let saladcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
-    counterSalad++;
-    saladcounter.innerHTML = counterSalad.toString();
-}
-
-function buyPotato(): void {
-    let potatocounter: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
-    counterPotato++;
-    potatocounter.innerHTML = counterPotato.toString();
-}
-
-function buyDung(): void {
-    let dungcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("dungCounter");
-    counterDung++;
-    dungcounter.innerHTML = counterDung.toString();
-}
-
-function buyPesticide(): void {
-    let pesticidecounter: HTMLDivElement = <HTMLDivElement>document.getElementById("pesticideCounter");
-    counterPesticide++;
-    pesticidecounter.innerHTML = counterPesticide.toString();
-}
+    function buyPesticide(): void {
+        let pesticidecounter: HTMLDivElement = <HTMLDivElement>document.getElementById("pesticideCounter");
+        counterPesticide++;
+        pesticidecounter.innerHTML = counterPesticide.toString();
+    }
 
     /*     // Instanzierung - drag'n'drop?
         let startCapital: number = 0;

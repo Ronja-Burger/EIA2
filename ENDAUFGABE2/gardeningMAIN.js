@@ -5,6 +5,7 @@ var garden;
     function hndLoad() {
         let start = document.getElementById("start");
         start.addEventListener("click", hideScreen1);
+        // alles hier in class Storage?
         // EVENTLISTENER on vegetables in market
         let carrot = document.getElementById("carrot");
         let eggplant = document.getElementById("eggplant");
@@ -46,62 +47,87 @@ var garden;
                 field.appendChild(state);
             }
         }
-        readData();
     }
-    // read formdata
-    function readData() {
-        let formdata = new FormData(document.forms[0]);
-        for (let entry of formdata.entries()) {
-            "Startcapital";
-            garden.capital = Number(entry[1]);
-        }
+    // Variables for the vegetables counters
+    let counterCarrot = 0;
+    let counterEggplant = 0;
+    let counterGarlic = 0;
+    let counterSalad = 0;
+    let counterPotato = 0;
+    let counterDung = 0;
+    let counterPesticide = 0;
+    // functions to buy vegetables doesn't work!!!!
+    function buyCarrot() {
+        let carrotcounter = document.getElementById("carrotCounter");
+        counterCarrot++;
+        carrotcounter.innerHTML = counterCarrot.toString();
     }
-    // show entry in div
-    let capitalDiv = document.getElementById("capital");
-    capitalDiv.innerHTML = "TOTAL: " + garden.capital.toString();
+    function buyEggplant() {
+        let eggplantcounter = document.getElementById("eggplantCounter");
+        counterEggplant++;
+        eggplantcounter.innerHTML = counterEggplant.toString();
+    }
+    function buyGarlic() {
+        let garliccounter = document.getElementById("garlicCounter");
+        counterGarlic++;
+        garliccounter.innerHTML = counterGarlic.toString();
+    }
+    function buySalad() {
+        let saladcounter = document.getElementById("saladCounter");
+        counterSalad++;
+        saladcounter.innerHTML = counterSalad.toString();
+    }
+    function buyPotato() {
+        let potatocounter = document.getElementById("potatoCounter");
+        counterPotato++;
+        potatocounter.innerHTML = counterPotato.toString();
+    }
+    function buyDung() {
+        let dungcounter = document.getElementById("dungCounter");
+        counterDung++;
+        dungcounter.innerHTML = counterDung.toString();
+    }
+    function buyPesticide() {
+        let pesticidecounter = document.getElementById("pesticideCounter");
+        counterPesticide++;
+        pesticidecounter.innerHTML = counterPesticide.toString();
+    }
+    /*     // Instanzierung - drag'n'drop?
+        let startCapital: number = 0;
+        let minPrice: number = 0;
+        let maxPrice: number = 0;
+    
+        let seedlings: {[name: string]: object} = {};
+        let cropProducts: {[name: string]: object} = {};
+        let plants: {[name: string]: object} = {};
+    
+        seedlings.Salad = new Product("Salad", minPrice, maxPrice);
+        cropProducts.Salad = new Product("Salad", minPrice, maxPrice);
+        plants.Salad = new Salad();
+        
+        seedlings.Potato = new Product("Potato", minPrice, maxPrice);
+        cropProducts.Potato = new Product("Potato", minPrice, maxPrice);
+        plants.Potato = new Potato();
+    
+        seedlings.Carrot = new Product("Carrot", minPrice, maxPrice);
+        cropProducts.Carrot = new Product("Carrot", minPrice, maxPrice);
+        plants.Carrot = new Carrot();
+    
+        seedlings.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        cropProducts.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        plants.Aubergine = new Aubergine();
+    
+        seedlings.Garlic = new Product("Garlic", minPrice, maxPrice);
+        cropProducts.Garlic = new Product("Garlic", minPrice, maxPrice);
+        plants.Garlic = new Garlic();
+    
+    
+        let dung: object = new Product("Dung", minPrice, maxPrice);
+        let pesticide: object = new Product("Pesticide", minPrice, maxPrice);
+        let market: object = new Market(startCapital, seedlings, cropProducts, dung, pesticide);
+        let fields: object[] = [];
+    
+    
+        setInterval(market.changePrices, 30000); */
 })(garden || (garden = {}));
-// Variables for the vegetables counters
-let counterCarrot = 0;
-let counterEggplant = 0;
-let counterGarlic = 0;
-let counterSalad = 0;
-let counterPotato = 0;
-let counterDung = 0;
-let counterPesticide = 0;
-// functions to buy vegetables doesn't work!!!!
-function buyCarrot() {
-    let carrotcounter = document.getElementById("carrotCounter");
-    counterCarrot++;
-    carrotcounter.innerHTML = counterCarrot.toString();
-}
-function buyEggplant() {
-    let eggplantcounter = document.getElementById("eggplantCounter");
-    counterEggplant++;
-    eggplantcounter.innerHTML = counterEggplant.toString();
-}
-function buyGarlic() {
-    let garliccounter = document.getElementById("garlicCounter");
-    counterGarlic++;
-    garliccounter.innerHTML = counterGarlic.toString();
-}
-function buySalad() {
-    let saladcounter = document.getElementById("saladCounter");
-    counterSalad++;
-    saladcounter.innerHTML = counterSalad.toString();
-}
-function buyPotato() {
-    let potatocounter = document.getElementById("potatoCounter");
-    counterPotato++;
-    potatocounter.innerHTML = counterPotato.toString();
-}
-function buyDung() {
-    let dungcounter = document.getElementById("dungCounter");
-    counterDung++;
-    dungcounter.innerHTML = counterDung.toString();
-}
-function buyPesticide() {
-    let pesticidecounter = document.getElementById("pesticideCounter");
-    counterPesticide++;
-    pesticidecounter.innerHTML = counterPesticide.toString();
-}
 //# sourceMappingURL=gardeningMAIN.js.map

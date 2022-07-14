@@ -2,12 +2,32 @@
 var garden;
 (function (garden) {
     class Plant extends class Product {
-        name;
+        field;
         growthTime;
-        waterNeed;
-        waterNeedTime = 30;
-        dungNeed;
-        dungNeedTime = 60;
+        waterNeedTime = 60;
+        dungNeedTime = 120;
+        maxCareTime = 30;
+        currentCareTime = 0;
+        grow() {
+            //Bildchen sollen größer werden
+        }
+        waterPlant() {
+            //Wasser dragOver?
+        }
+        dungPlant() {
+            //Dünger dragOver?
+        }
+        cropPlant() {
+            //Feld leer
+            //capital + price -> capital auch als Eigenschaft?
+        }
+        die() {
+            //Feld leer
+            // extra Bildchen anzeigen?
+        }
+        fightPest() {
+            // pesticide dragOver?
+        }
     } {
     }
     garden.Plant = Plant;

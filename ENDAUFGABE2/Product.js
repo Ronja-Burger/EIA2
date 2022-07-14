@@ -4,8 +4,9 @@ var garden;
     class Product {
         name;
         price; // das Gleiche wie MaxPrice?
-        maxPrice = garden.priceVariation; // 3 oder 5 - warum findet der das nicht?
+        maxPrice; // 3 oder 5?
         minPrice = 1;
+        priceVariation;
         constructor(name, _minPrice, _maxPrice) {
             this.name = name;
             this.minPrice = _minPrice;
@@ -16,8 +17,8 @@ var garden;
             for (let entry of formdata.entries()) {
                 switch (entry[0]) {
                     case "Price":
-                        garden.priceVariation = Number(entry[1]);
-                        console.log(garden.priceVariation); //funktioniert nicht?
+                        this.priceVariation = Number(entry[1]);
+                        console.log(this.priceVariation); //funktioniert nicht?
                 }
             }
         }

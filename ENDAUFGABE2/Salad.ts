@@ -4,8 +4,5 @@ namespace garden {
  
     name: string = "Salad";
     growthTime: number = 90;
-    waterNeed: number = 1;
-    dungNeed: number = 1;
-
     }
 }

@@ -4,8 +4,6 @@ namespace garden {
  
     name: string = "Potato";
     growthTime: number = 120;
-    waterNeed: number = 2;
-    dungNeed: number = 1;
 
     }
 }
