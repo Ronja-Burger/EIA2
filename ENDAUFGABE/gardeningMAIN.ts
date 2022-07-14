@@ -3,6 +3,22 @@ namespace garden {
     function hndLoad(): void {
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         start.addEventListener("click", hideScreen1);
+
+        // EVENTLISTENER on vegetables in market
+        let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
+        let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
+        let garlic: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic");
+        let salad: HTMLImageElement = <HTMLImageElement>document.getElementById("salad");
+        let potato: HTMLImageElement = <HTMLImageElement>document.getElementById("potato");
+        let dung: HTMLImageElement = <HTMLImageElement>document.getElementById("dung");
+
+        // call functions to buy vegetables
+        carrot.addEventListener("click", buyCarrot);
+        eggplant.addEventListener("click", buyEggplant);
+        garlic.addEventListener("click", buyGarlic);
+        salad.addEventListener("click", buySalad);
+        potato.addEventListener("click", buyPotato);
+        dung.addEventListener("click", buyDung);
     }
 
     // hide screen 1 and show screen 2
@@ -48,7 +64,7 @@ namespace garden {
 
         for (let entry of formdata.entries()) {
             switch (entry[0]) {
-                case "priceVariation":
+                case "Price":
                     priceVariation = Number(entry[1]);
                     console.log(priceVariation); //funktioniert nicht?
                     break;
@@ -58,69 +74,93 @@ namespace garden {
         }
         // show entry in div
         let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
-        capitalDiv.innerHTML = capital.toString();
+        capitalDiv.innerHTML = "TOTAL: " + capital.toString();
     }
 
 
-    // EVENTLISTENER on vegetables in market
-    let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
-    let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
-    let garlic: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic");
-    let salad: HTMLImageElement = <HTMLImageElement>document.getElementById("salad");
-    let potato: HTMLImageElement = <HTMLImageElement>document.getElementById("potato");
+    // Variables für the vegetables counters
+    let counterCarrot: number = 0;
+    let counterEggplant: number = 0;
+    let counterGarlic: number = 0;
+    let counterSalad: number = 0;
+    let counterPotato: number = 0;
+    let counterDung: number = 0;
 
-    // call functions to buy vegetables
-    carrot.addEventListener("click", buyCarrot);
-    eggplant.addEventListener("click", buyEggplant);
-    garlic.addEventListener("click", buyGarlic);
-    salad.addEventListener("click", buySalad);
-    potato.addEventListener("click", buyPotato);
 
     // functions to buy vegetables
     function buyCarrot(): void {
-        let counter: number = 0;
         let carrotcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
-        carrotcounter.innerHTML = counter.toString();
-        counter ++;
+        counterCarrot++;
+        carrotcounter.innerHTML = counterCarrot.toString();
     }
 
-/*     // Instanzierung - drag'n'drop?
-    let startCapital: number = 0;
-    let minPrice: number = 0;
-    let maxPrice: number = 0;
+    function buyEggplant(): void {
+        let eggplantcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
+        counterEggplant++;
+        eggplantcounter.innerHTML = counterCarrot.toString();
+    }
 
-    let seedlings: {[name: string]: object} = {};
-    let cropProducts: {[name: string]: object} = {};
-    let plants: {[name: string]: object} = {};
+    function buyGarlic(): void {
+        let garliccounter: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
+        counterGarlic++;
+        garliccounter.innerHTML = counterCarrot.toString();
+    }
 
-    seedlings.Salad = new Product("Salad", minPrice, maxPrice);
-    cropProducts.Salad = new Product("Salad", minPrice, maxPrice);
-    plants.Salad = new Salad();
+    function buySalad(): void {
+        let saladcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
+        counterSalad++;
+        saladcounter.innerHTML = counterCarrot.toString();
+    }
+
+    function buyPotato(): void {
+        let potatocounter: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
+        counterPotato++;
+        potatocounter.innerHTML = counterCarrot.toString();
+    }
+
+    function buyDung(): void {
+        let dungcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
+        counterDung++;
+        dungcounter.innerHTML = counterCarrot.toString();
+    }
+
+    /*     // Instanzierung - drag'n'drop?
+        let startCapital: number = 0;
+        let minPrice: number = 0;
+        let maxPrice: number = 0;
     
-    seedlings.Potato = new Product("Potato", minPrice, maxPrice);
-    cropProducts.Potato = new Product("Potato", minPrice, maxPrice);
-    plants.Potato = new Potato();
-
-    seedlings.Carrot = new Product("Carrot", minPrice, maxPrice);
-    cropProducts.Carrot = new Product("Carrot", minPrice, maxPrice);
-    plants.Carrot = new Carrot();
-
-    seedlings.Aubergine = new Product("Aubergine", minPrice, maxPrice);
-    cropProducts.Aubergine = new Product("Aubergine", minPrice, maxPrice);
-    plants.Aubergine = new Aubergine();
-
-    seedlings.Garlic = new Product("Garlic", minPrice, maxPrice);
-    cropProducts.Garlic = new Product("Garlic", minPrice, maxPrice);
-    plants.Garlic = new Garlic();
-
-
-    let dung: object = new Product("Dung", minPrice, maxPrice);
-    let pesticide: object = new Product("Pesticide", minPrice, maxPrice);
-    let market: object = new Market(startCapital, seedlings, cropProducts, dung, pesticide);
-    let fields: object[] = [];
-
-
-    setInterval(market.changePrices, 30000); */
-
+        let seedlings: {[name: string]: object} = {};
+        let cropProducts: {[name: string]: object} = {};
+        let plants: {[name: string]: object} = {};
     
+        seedlings.Salad = new Product("Salad", minPrice, maxPrice);
+        cropProducts.Salad = new Product("Salad", minPrice, maxPrice);
+        plants.Salad = new Salad();
+        
+        seedlings.Potato = new Product("Potato", minPrice, maxPrice);
+        cropProducts.Potato = new Product("Potato", minPrice, maxPrice);
+        plants.Potato = new Potato();
+    
+        seedlings.Carrot = new Product("Carrot", minPrice, maxPrice);
+        cropProducts.Carrot = new Product("Carrot", minPrice, maxPrice);
+        plants.Carrot = new Carrot();
+    
+        seedlings.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        cropProducts.Aubergine = new Product("Aubergine", minPrice, maxPrice);
+        plants.Aubergine = new Aubergine();
+    
+        seedlings.Garlic = new Product("Garlic", minPrice, maxPrice);
+        cropProducts.Garlic = new Product("Garlic", minPrice, maxPrice);
+        plants.Garlic = new Garlic();
+    
+    
+        let dung: object = new Product("Dung", minPrice, maxPrice);
+        let pesticide: object = new Product("Pesticide", minPrice, maxPrice);
+        let market: object = new Market(startCapital, seedlings, cropProducts, dung, pesticide);
+        let fields: object[] = [];
+    
+    
+        setInterval(market.changePrices, 30000); */
+
+
 } 

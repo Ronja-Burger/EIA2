@@ -1,11 +1,11 @@
-namespace farm {
+namespace garden {
 
     export class Product {
 
         name: string;
         currentPrice: number; // das Gleiche wie MaxPrice?
         maxPrice: number = priceVariation; // 3 oder 5 - warum findet der das nicht?
-        minPrice: number = 1; // wie greifen wir hier den eingestellten maximumpreis ab?
+        minPrice: number = 1; 
         amount: number = 0;
 
         constructor(name: string, _minPrice: number, _maxPrice: number) {

@@ -5,6 +5,20 @@ var garden;
     function hndLoad() {
         let start = document.getElementById("start");
         start.addEventListener("click", hideScreen1);
+        // EVENTLISTENER on vegetables in market
+        let carrot = document.getElementById("carrot");
+        let eggplant = document.getElementById("eggplant");
+        let garlic = document.getElementById("garlic");
+        let salad = document.getElementById("salad");
+        let potato = document.getElementById("potato");
+        let dung = document.getElementById("dung");
+        // call functions to buy vegetables
+        carrot.addEventListener("click", buyCarrot);
+        eggplant.addEventListener("click", buyEggplant);
+        garlic.addEventListener("click", buyGarlic);
+        salad.addEventListener("click", buySalad);
+        potato.addEventListener("click", buyPotato);
+        dung.addEventListener("click", buyDung);
     }
     // hide screen 1 and show screen 2
     function hideScreen1() {
@@ -37,7 +51,7 @@ var garden;
         let formdata = new FormData(document.forms[0]);
         for (let entry of formdata.entries()) {
             switch (entry[0]) {
-                case "priceVariation":
+                case "Price":
                     garden.priceVariation = Number(entry[1]);
                     console.log(garden.priceVariation); //funktioniert nicht?
                     break;
@@ -47,26 +61,45 @@ var garden;
         }
         // show entry in div
         let capitalDiv = document.getElementById("capital");
-        capitalDiv.innerHTML = garden.capital.toString();
+        capitalDiv.innerHTML = "TOTAL: " + garden.capital.toString();
     }
-    // EVENTLISTENER on vegetables in market
-    let carrot = document.getElementById("carrot");
-    let eggplant = document.getElementById("eggplant");
-    let garlic = document.getElementById("garlic");
-    let salad = document.getElementById("salad");
-    let potato = document.getElementById("potato");
-    // call functions to buy vegetables
-    carrot.addEventListener("click", buyCarrot);
-    eggplant.addEventListener("click", buyEggplant);
-    garlic.addEventListener("click", buyGarlic);
-    salad.addEventListener("click", buySalad);
-    potato.addEventListener("click", buyPotato);
+    // Variables für the vegetables counters
+    let counterCarrot = 0;
+    let counterEggplant = 0;
+    let counterGarlic = 0;
+    let counterSalad = 0;
+    let counterPotato = 0;
+    let counterDung = 0;
     // functions to buy vegetables
     function buyCarrot() {
-        let counter = 0;
         let carrotcounter = document.getElementById("carrotCounter");
-        carrotcounter.innerHTML = counter.toString();
-        counter++;
+        counterCarrot++;
+        carrotcounter.innerHTML = counterCarrot.toString();
+    }
+    function buyEggplant() {
+        let eggplantcounter = document.getElementById("eggplantCounter");
+        counterEggplant++;
+        eggplantcounter.innerHTML = counterCarrot.toString();
+    }
+    function buyGarlic() {
+        let garliccounter = document.getElementById("garlicCounter");
+        counterGarlic++;
+        garliccounter.innerHTML = counterCarrot.toString();
+    }
+    function buySalad() {
+        let saladcounter = document.getElementById("saladCounter");
+        counterSalad++;
+        saladcounter.innerHTML = counterCarrot.toString();
+    }
+    function buyPotato() {
+        let potatocounter = document.getElementById("potatoCounter");
+        counterPotato++;
+        potatocounter.innerHTML = counterCarrot.toString();
+    }
+    function buyDung() {
+        let dungcounter = document.getElementById("potatoCounter");
+        counterDung++;
+        dungcounter.innerHTML = counterCarrot.toString();
     }
     /*     // Instanzierung - drag'n'drop?
         let startCapital: number = 0;

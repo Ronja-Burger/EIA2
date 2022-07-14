@@ -1,6 +1,6 @@
 "use strict";
-var farm;
-(function (farm) {
+var garden;
+(function (garden) {
     class Market {
         totalCapital;
         seedlings; // assoziatives Array
@@ -28,7 +28,10 @@ var farm;
         }
         // counts down amount of seedlings in your storage
         decreaseSeedling(_name) {
-            this.seedlings[_name].amount -= 1;
+            for (let entry of this.seedlings) { // iterates trough the array "seedlings" in which our bought seedlings are stored
+                if (entry.name == _name) // if entry in array is a plant, decrease the amount of that plant (comparison by names)
+                    entry.amount -= 1;
+            }
         }
         // counts down amount of dung in your storage
         decreaseDung() {
@@ -51,6 +54,6 @@ var farm;
             _product.amount -= 1;
         }
     }
-    farm.Market = Market;
-})(farm || (farm = {}));
+    garden.Market = Market;
+})(garden || (garden = {}));
 //# sourceMappingURL=Market.js.map

@@ -1,6 +1,6 @@
 "use strict";
-var farm;
-(function (farm) {
+var garden;
+(function (garden) {
     class Field {
         market;
         plants;
@@ -65,7 +65,7 @@ var farm;
         }
         // nur der Preis soll auf das capital draufgerechnet werden, nicht die Pflanzen gesammelt
         cropPlant() {
-            this.market.addProduct(this.plant.name); // was passiert hier?
+            this.market.sellProduct(this.plant.price); // was passiert hier?
             this.resetField(); // empties the field
         }
         pestFight() {
@@ -73,7 +73,7 @@ var farm;
             this.pestAttack = false; // pest is gone
         }
         resetField() {
-            this.plant = null; // was für einen Wert denn dann?
+            this.plant = null;
             this.growthProzss = 0;
             this.pestAttack = false;
             this.pestTime = 0;
@@ -85,6 +85,6 @@ var farm;
             this.currentCareTime = 0;
         }
     }
-    farm.Field = Field;
-})(farm || (farm = {}));
+    garden.Field = Field;
+})(garden || (garden = {}));
 //# sourceMappingURL=Field.js.map

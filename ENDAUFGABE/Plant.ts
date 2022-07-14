@@ -1,6 +1,6 @@
 namespace farm {
 
-    export abstract class Plant {
+    export abstract class Plant extends class Product {
 
     name: string;
     growthTime: number;

@@ -1,15 +1,15 @@
-namespace farm {
+namespace garden {
 
     export class Market { // brauchen wir diese Klasse tatsächlich?
 
         totalCapital: number;
-        seedlings: {[name: string]: Product}; // assoziatives Array
-        cropProducts: {[name: string]: Product}; // brauchen wir das? -> zeigt Ernte im Markt an?
+        seedlings: Product[]; // assoziatives Array
+        cropProducts: Product[]; // brauchen wir das? -> zeigt Ernte im Markt an?
         dung: Product;
         pesticide: Product;
-        
 
-        constructor(_totalCapital: number, _seeldings: {[name: string]: Product}, _cropProducts: {[name: string]: Product}, _dung: Product, _pesticide: Product) {
+
+        constructor(_totalCapital: number, _seeldings: Product[], _cropProducts: Product[], _dung: Product, _pesticide: Product) {
             this.totalCapital = _totalCapital;
             this.seedlings = _seeldings;
             this.cropProducts = _cropProducts;
@@ -26,13 +26,16 @@ namespace farm {
             for (var cropProduct of this.cropProducts) {
                 cropProduct.changePrice();
             }
-            this.dung.changePrice(); 
+            this.dung.changePrice();
             this.pesticide.changePrice(); // calls function from class "Product"
         }
 
         // counts down amount of seedlings in your storage
         decreaseSeedling(_name: string): void {
-            this.seedlings[_name].amount -= 1;
+            for (let entry of this.seedlings) { // iterates trough the array "seedlings" in which our bought seedlings are stored
+                if (entry.name == _name) // if entry in array is a plant, decrease the amount of that plant (comparison by names)
+                    entry.amount -= 1;
+            }
         }
 
         // counts down amount of dung in your storage

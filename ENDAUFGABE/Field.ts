@@ -1,10 +1,10 @@
-namespace farm {
+namespace garden {
 
     export class Field {
 
         market: Market;
         plants: object;
-        plant: Plant;
+        plant: Plant | null;
         growthProzss: number = 0;
         pestAttack: boolean;
         pestTime: number;
@@ -70,7 +70,7 @@ namespace farm {
 
         // nur der Preis soll auf das capital draufgerechnet werden, nicht die Pflanzen gesammelt
         cropPlant(): void {
-            this.market.addProduct(this.plant.name); // was passiert hier?
+            this.market.sellProduct(this.plant.price); // was passiert hier?
             this.resetField(); // empties the field
         }
 
@@ -80,7 +80,7 @@ namespace farm {
         }
 
         resetField(): void { // empties the field
-            this.plant = null; // was für einen Wert denn dann?
+            this.plant = null;
             this.growthProzss = 0;
             this.pestAttack = false;
             this.pestTime = 0;
