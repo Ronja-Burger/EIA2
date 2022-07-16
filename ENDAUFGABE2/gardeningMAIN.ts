@@ -66,7 +66,7 @@ namespace garden {
     let counterPesticide: number = 0;
 
 
-    // functions to buy vegetables doesn't work!!!!
+    // functions to buy vegetables
     function buyCarrot(): void {
         let carrotcounter: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
         counterCarrot++;

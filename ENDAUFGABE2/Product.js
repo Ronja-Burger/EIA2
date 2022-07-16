@@ -3,7 +3,7 @@ var garden;
 (function (garden) {
     class Product {
         name;
-        price; // das Gleiche wie MaxPrice?
+        price;
         maxPrice; // 3 oder 5?
         minPrice = 1;
         priceVariation;

@@ -56,7 +56,7 @@ var garden;
     let counterPotato = 0;
     let counterDung = 0;
     let counterPesticide = 0;
-    // functions to buy vegetables doesn't work!!!!
+    // functions to buy vegetables
     function buyCarrot() {
         let carrotcounter = document.getElementById("carrotCounter");
         counterCarrot++;

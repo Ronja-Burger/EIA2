@@ -1,10 +1,9 @@
 "use strict";
 var garden;
 (function (garden) {
-    class Aubergine extends class Plant {
+    class Aubergine extends garden.Plant {
         name = "Aubergine";
         growthTime = 240;
-    } {
     }
     garden.Aubergine = Aubergine;
 })(garden || (garden = {}));

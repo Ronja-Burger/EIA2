@@ -1,12 +1,12 @@
 "use strict";
 var garden;
 (function (garden) {
-    class Dung extends class Product {
+    class Dung extends garden.Product {
         name = "Dung";
         price = this.price;
-    }, super.buyProduct() {
     }
     garden.Dung = Dung;
+    super.buyProduct();
     void {
     //buy dung
     };

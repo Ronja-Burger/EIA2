@@ -3,7 +3,7 @@ namespace garden {
     export class Product {
 
         name: string; 
-        price: number; // das Gleiche wie MaxPrice?
+        price: number; 
         maxPrice: number; // 3 oder 5?
         minPrice: number = 1;
         priceVariation: number;
