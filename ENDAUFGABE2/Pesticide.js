@@ -1,12 +1,9 @@
-"use strict";
 var garden;
 (function (garden) {
     class Pesticide extends garden.Product {
-        name = "Dung";
+        name = "pesticide";
         price = this.price;
-        buyProduct() {
-            //buy pesticide
-        }
     }
+    garden.Pesticide = Pesticide;
 })(garden || (garden = {}));
 //# sourceMappingURL=Pesticide.js.map

@@ -1,10 +1,7 @@
 namespace garden {
-    class Pesticide extends Product {
-        name: string = "Dung";
+    export class Pesticide extends Product {
+        name: string = "pesticide";
         price: number = this.price;
 
-        buyProduct (): void {
-            //buy pesticide
-        }
     }
 }

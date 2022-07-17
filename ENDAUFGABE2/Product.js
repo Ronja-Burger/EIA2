@@ -1,32 +1,22 @@
-"use strict";
 var garden;
 (function (garden) {
     class Product {
         name;
         price;
-        maxPrice; // 3 oder 5?
-        minPrice = 1;
-        priceVariation;
-        constructor(name, _minPrice, _maxPrice) {
-            this.name = name;
-            this.minPrice = _minPrice;
-            this.maxPrice = _maxPrice;
-        }
-        readFormData1() {
-            let formdata = new FormData(document.forms[0]);
-            for (let entry of formdata.entries()) {
-                switch (entry[0]) {
-                    case "Price":
-                        this.priceVariation = Number(entry[1]);
-                        console.log(this.priceVariation); //funktioniert nicht?
-                }
-            }
-        }
-        changePrice() {
-            this.price = Math.floor(Math.random() * this.maxPrice + this.minPrice); // ändert alle Preise auf einmal?
+        constructor(_name, _price) {
+            this.name = _name;
+            this.price = _price;
         }
         buyProduct() {
-            //vom capital price abziehen
+            //console.log("geklicktes Produkt: " + this.name, this.price);
+            garden.capital -= this.price;
+            //console.log("Kapital nach Kauf:" + capital);
+            // show entry in div
+            let capitalDiv = document.getElementById("capital");
+            capitalDiv.innerHTML = "CAPITAL" + " " + garden.capital.toString() + "$";
+            //let stack: HTMLDivElement = <HTMLDivElement>document.getElementById(this.name + "Counter");
+            //console.log(stack);
+            //this.name + ("Stack").innerHTML = this.name + ("Counter").toString();
         }
     }
     garden.Product = Product;

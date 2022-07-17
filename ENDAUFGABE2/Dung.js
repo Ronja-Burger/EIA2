@@ -1,4 +1,3 @@
-"use strict";
 var garden;
 (function (garden) {
     class Dung extends garden.Product {
@@ -6,9 +5,5 @@ var garden;
         price = this.price;
     }
     garden.Dung = Dung;
-    super.buyProduct();
-    void {
-    //buy dung
-    };
 })(garden || (garden = {}));
 //# sourceMappingURL=Dung.js.map

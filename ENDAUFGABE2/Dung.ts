@@ -4,8 +4,4 @@ namespace garden {
         name: string = "Dung";
         price: number = this.price;
     }
-
-    super.buyProduct(): void {
-        //buy dung
-    }
 }

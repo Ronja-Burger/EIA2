@@ -1,4 +1,3 @@
-"use strict";
 var garden;
 (function (garden) {
     class Salad extends garden.Plant {
