@@ -21,7 +21,6 @@ var garden;
         potato.addEventListener("click", buyProduct);
         dung.addEventListener("click", buyProduct);
         pesticide.addEventListener("click", buyProduct);
-        let target = _event.target;
         //set basic counters to zero
         garden.capital = 0;
         //console.log("Kapital nach load:" + capital);
@@ -129,14 +128,17 @@ var garden;
     }
     //functions to buy vegetables
     function buyProduct(_event) {
+        let target = _event.target;
+        let id = target.id;
         if (garden.capital > 0) {
-            switch (target) {
+            switch (id) {
                 case "carrot":
                     let carrot = new garden.Carrot("carrot", carrotPrice);
                     garden.carrotCounter++;
                     carrot.buyProduct();
                     let carrotStack = document.getElementById("carrotCounter");
                     carrotStack.innerHTML = garden.carrotCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "eggplant":
                     let eggplant = new garden.Eggplant("eggplant", eggplantPrice);
@@ -144,6 +146,7 @@ var garden;
                     eggplant.buyProduct();
                     let eggplantStack = document.getElementById("eggplantCounter");
                     eggplantStack.innerHTML = garden.eggplantCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "salad":
                     let salad = new garden.Salad("salad", saladPrice);
@@ -151,6 +154,7 @@ var garden;
                     salad.buyProduct();
                     let saladStack = document.getElementById("saladCounter");
                     saladStack.innerHTML = garden.saladCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "potato":
                     let potato = new garden.Potato("potato", potatoPrice);
@@ -158,6 +162,7 @@ var garden;
                     potato.buyProduct();
                     let potatoStack = document.getElementById("potatoCounter");
                     potatoStack.innerHTML = garden.potatoCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "garlic":
                     let garlic = new garden.Garlic("garlic", garlicPrice);
@@ -165,6 +170,7 @@ var garden;
                     garlic.buyProduct();
                     let garlicStack = document.getElementById("garlicCounter");
                     garlicStack.innerHTML = garden.garlicCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "dung":
                     let dung = new garden.Dung("dung", dungPrice);
@@ -172,6 +178,7 @@ var garden;
                     dung.buyProduct();
                     let dungStack = document.getElementById("dungCounter");
                     dungStack.innerHTML = garden.dungCounter.toString();
+                    console.log("bought " + id);
                     break;
                 case "pesticide":
                     let pesticide = new garden.Pesticide("pesticide", pesticidePrice);
@@ -179,6 +186,7 @@ var garden;
                     pesticide.buyProduct();
                     let pesticideStack = document.getElementById("pesticideCounter");
                     pesticideStack.innerHTML = garden.pesticideCounter.toString();
+                    console.log("bought " + id);
                     break;
             }
         }
