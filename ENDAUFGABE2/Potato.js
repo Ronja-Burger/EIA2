@@ -2,7 +2,6 @@ var garden;
 (function (garden) {
     class Potato extends garden.Plant {
         name = "Potato";
-        growthTime = 120;
         grow(parent) {
             this.field = parent; //give clicked element to field
             console.log("grow");

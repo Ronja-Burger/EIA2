@@ -3,7 +3,6 @@ namespace garden {
     export class Garlic extends Plant {
  
     name: string = "Garlic";
-    growthTime: number = 300;
 
     grow(parent: HTMLDivElement): void {
         this.field = parent; //give clicked element to field

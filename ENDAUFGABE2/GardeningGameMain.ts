@@ -151,11 +151,11 @@ namespace garden {
     let pesticidePrice: number;
 
 // variables for different prices (sell)
-    let carrotSellPrice: number;
-    let eggplantSellPrice: number;
-    let saladSellPrice: number;
-    let potatoSellPrice: number;
-    let garlicSellPrice: number;
+    export let carrotSellPrice: number;
+    export let eggplantSellPrice: number;
+    export let saladSellPrice: number;
+    export let potatoSellPrice: number;
+    export let garlicSellPrice: number;
 
     function changePrices(): void {
         carrotPrice = Math.floor(Math.random() * maxPrice + 1);
@@ -357,8 +357,10 @@ namespace garden {
                 }
             case "water":
                 console.log("you want to water the plant");
-                Plant.waterPlant();
+                //Plant.waterPlant();
                 break;
+            default:
+                return;
         }
     }
 

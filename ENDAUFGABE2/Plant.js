@@ -2,21 +2,16 @@ var garden;
 (function (garden) {
     class Plant extends garden.Product {
         field;
-        growthTime;
-        growthProcess = 0;
-        time = 10;
         waterNeedTime = 60;
         dungNeedTime = 120;
         maxCareTime = 30;
         currentCareTime = 0;
         pestAttack;
         image;
+        sellPrice;
+        //constructor (_sellPrice: number) { super(); this.sellPrice = _sellPrice;}
         waterPlant() {
             //water plant
-        }
-        harvestPlant() {
-            //empty field
-            // ad Price
         }
         die() {
             //emptyField

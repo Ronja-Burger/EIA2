@@ -122,12 +122,6 @@ var garden;
     let garlicPrice;
     let dungPrice;
     let pesticidePrice;
-    // variables for different prices (sell)
-    let carrotSellPrice;
-    let eggplantSellPrice;
-    let saladSellPrice;
-    let potatoSellPrice;
-    let garlicSellPrice;
     function changePrices() {
         carrotPrice = Math.floor(Math.random() * garden.maxPrice + 1);
         eggplantPrice = Math.floor(Math.random() * garden.maxPrice + 2);
@@ -137,11 +131,11 @@ var garden;
         dungPrice = Math.floor(Math.random() * garden.maxPrice + 4);
         pesticidePrice = Math.floor(Math.random() * garden.maxPrice + 5);
         //console.log("aktuelle Kaufpreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
-        carrotSellPrice = Math.floor(Math.random() * garden.maxPrice + 1 + 2);
-        eggplantSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
-        saladSellPrice = Math.floor(Math.random() * garden.maxPrice + 3 + 2);
-        potatoSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
-        garlicSellPrice = Math.floor(Math.random() * garden.maxPrice + 8 + 2);
+        garden.carrotSellPrice = Math.floor(Math.random() * garden.maxPrice + 1 + 2);
+        garden.eggplantSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
+        garden.saladSellPrice = Math.floor(Math.random() * garden.maxPrice + 3 + 2);
+        garden.potatoSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
+        garden.garlicSellPrice = Math.floor(Math.random() * garden.maxPrice + 8 + 2);
         //console.log("aktuelle Verkaufspreise: " + carrotSellPrice + eggplantSellPrice + saladSellPrice + potatoSellPrice + garlicSellPrice);
         // show prices (buy)
         let carrotBuy = document.getElementById("carrotPrice");
@@ -160,15 +154,15 @@ var garden;
         pesticideBuy.innerHTML = pesticidePrice.toString() + "$";
         //show prices (sell)
         let carrotSell = document.getElementById("carrotSellPrice");
-        carrotSell.innerHTML = carrotSellPrice.toString() + "$";
+        carrotSell.innerHTML = garden.carrotSellPrice.toString() + "$";
         let eggplantSell = document.getElementById("eggplantSellPrice");
-        eggplantSell.innerHTML = eggplantSellPrice.toString() + "$";
+        eggplantSell.innerHTML = garden.eggplantSellPrice.toString() + "$";
         let saladSell = document.getElementById("saladSellPrice");
-        saladSell.innerHTML = saladSellPrice.toString() + "$";
+        saladSell.innerHTML = garden.saladSellPrice.toString() + "$";
         let potatoSell = document.getElementById("potatoSellPrice");
-        potatoSell.innerHTML = potatoSellPrice.toString() + "$";
+        potatoSell.innerHTML = garden.potatoSellPrice.toString() + "$";
         let garlicSell = document.getElementById("garlicSellPrice");
-        garlicSell.innerHTML = garlicSellPrice.toString() + "$";
+        garlicSell.innerHTML = garden.garlicSellPrice.toString() + "$";
     }
     //function to buy vegetables
     function buyProduct(_event) {
@@ -320,8 +314,10 @@ var garden;
                 }
             case "water":
                 console.log("you want to water the plant");
-                garden.Plant.waterPlant();
+                //Plant.waterPlant();
                 break;
+            default:
+                return;
         }
     }
 })(garden || (garden = {}));
