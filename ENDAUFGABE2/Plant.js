@@ -1,7 +1,6 @@
 var garden;
 (function (garden) {
     class Plant extends garden.Product {
-        // Bilder bei drag duplizieren?
         field;
         growthTime;
         growthProcess = 0;
@@ -10,6 +9,20 @@ var garden;
         dungNeedTime = 120;
         maxCareTime = 30;
         currentCareTime = 0;
+        pestAttack;
+        grow() {
+            console.log("grow");
+        }
+        waterPlant() { }
+        ;
+        dungPlant() { }
+        ;
+        cropPlant() { }
+        ;
+        die() { }
+        ;
+        fightPest() { }
+        ;
     }
     garden.Plant = Plant;
 })(garden || (garden = {}));

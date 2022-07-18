@@ -17,7 +17,29 @@ namespace garden {
         let start: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
         start.addEventListener("click", hideScreen1);
 
-        // EVENTLISTENER on vegetables in market
+
+        // EVENTLISTENER on vegetables in storage to get them planted
+        let carrot1: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot1");
+        let eggplant1: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant1");
+        let garlic1: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic1");
+        let salad1: HTMLImageElement = <HTMLImageElement>document.getElementById("salad1");
+        let potato1: HTMLImageElement = <HTMLImageElement>document.getElementById("potato1");
+        let dung1: HTMLImageElement = <HTMLImageElement>document.getElementById("dung1");
+        let pesticide1: HTMLImageElement = <HTMLImageElement>document.getElementById("pesticide1");
+        let water: HTMLImageElement = <HTMLImageElement>document.getElementById("water");
+
+        // call function to get the target.id of the clicked vegetable
+        carrot1.addEventListener("click", getTarget);
+        eggplant1.addEventListener("click", getTarget);
+        garlic1.addEventListener("click", getTarget);
+        salad1.addEventListener("click", getTarget);
+        potato1.addEventListener("click", getTarget);
+        dung1.addEventListener("click", getTarget);
+        pesticide1.addEventListener("click", getTarget);
+        water.addEventListener("click", getTarget);
+
+
+        // EVENTLISTENER on vegetables in market to get an Evntlistener on
         let carrot: HTMLImageElement = <HTMLImageElement>document.getElementById("carrot");
         let eggplant: HTMLImageElement = <HTMLImageElement>document.getElementById("eggplant");
         let garlic: HTMLImageElement = <HTMLImageElement>document.getElementById("garlic");
@@ -34,7 +56,7 @@ namespace garden {
         potato.addEventListener("click", buyProduct);
         dung.addEventListener("click", buyProduct);
         pesticide.addEventListener("click", buyProduct);
-        
+
 
         //set basic counters to zero
         capital = 0;
@@ -67,15 +89,18 @@ namespace garden {
             //create 9 fields in a row
             for (let index: number = 0; index < 9; index++) {                               //for loop with index = 9
                 let field: HTMLDivElement = <HTMLDivElement>document.createElement("div");  //declaration of field and create new div element for it
-                field.classList.add("field");                                               //add field to 
+                field.classList.add("field");                                               //add classnamne
+                field.addEventListener("click", fieldClick);                                // add eventListener
                 rows.appendChild(field);                                                    // parent field to row
                 let state: HTMLDivElement = <HTMLDivElement>document.createElement("div");  //declaration of state and create new div elemtn for it
-                state.classList.add("pbar");                                                //add process bar to state
+                state.classList.add("pbar");                                                //add classnamne
                 field.appendChild(state);                                                   //parent state to field
             }
         }
         readFormData();
     }
+
+
     function readFormData(): void {
         let formdata: FormData = new FormData(document.forms[0]);
         //console.log(formdata);
@@ -90,7 +115,7 @@ namespace garden {
                 //console.log("Kapital:" + capital);
             }
 
-            // show entry in div
+            // show entry for capital in div
             let capitalDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("capital");
             capitalDiv.innerHTML = "CAPITAL" + " " + capital.toString() + "$";
 
@@ -110,10 +135,13 @@ namespace garden {
             let pesticideStack: HTMLDivElement = <HTMLDivElement>document.getElementById("pesticideCounter");
             pesticideStack.innerHTML = pesticideCounter.toString();
 
+            // call function to change prices frequently
             changePrices();
             setInterval(changePrices, 10000);
         }
     }
+
+    // variables for different prices (buy)
     let carrotPrice: number;
     let eggplantPrice: number;
     let saladPrice: number;
@@ -132,7 +160,7 @@ namespace garden {
         pesticidePrice = Math.floor(Math.random() * maxPrice + 5);
         //console.log("aktuelle Verkaufspreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
 
-        //buy prices
+        // show prices (buy)
         let carrotBuy: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("carrotPrice");
         carrotBuy.innerHTML = carrotPrice.toString() + "$";
         let eggplantBuy: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById("eggplantPrice");
@@ -149,7 +177,7 @@ namespace garden {
         pesticideBuy.innerHTML = pesticidePrice.toString() + "$";
     }
 
-    //functions to buy vegetables
+    //function to buy vegetables
     function buyProduct(_event: MouseEvent): void {
         let target: HTMLElement = <HTMLElement>_event.target;
         let id: string = target.id;
@@ -217,5 +245,97 @@ namespace garden {
             alert("you're broke!");
         }
     }
+
+
+    // this function selects the id of the clicked vegetable in the storage and is supposed to remember it, 
+    // so that the id can be used when a field is clicked to create a new class of that vegetable
+    export let clickedVegetable: string; // must be global so that getTarget(), fieldClick() and grow() have access
+    function getTarget(_event: MouseEvent): void {
+        let target: HTMLElement = <HTMLElement>_event.target;
+        clickedVegetable = target.id;
+    }
+    // this function checks out id an plant that plant on the clicked field and all that stuff around it ...
+    function fieldClick(): void { // is called every time a field is clicked
+        console.log("you've clicked on a field");
+        switch (clickedVegetable) { // switch case loop checks out which value clickedVegetable has
+            case "carrot1":
+                if (carrotCounter > 0) { // only works when we HAVE carrots
+                    let carrot: Plant = new Carrot("carrot", carrotPrice);
+                    console.log("you want to plant a carrot");
+                    carrot.grow();
+                    carrotCounter--; // devcrease counter bc we planted one carrot
+                    let carrotStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter"); // gets the div für counter
+                    carrotStack.innerHTML = carrotCounter.toString(); // writes new counter in that div
+                    break;
+                }
+            case "eggplant1":
+                if (eggplantCounter > 0) {
+                    let eggplant: Plant = new Eggplant("carrot", carrotPrice);
+                    console.log("you want to plant an eggplant");
+                    eggplant.grow();
+                    eggplantCounter--;
+                    let eggplantStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    eggplantStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "garlic1":
+                if (garlicCounter > 0) {
+                    let garlic: Plant = new Garlic("carrot", carrotPrice);
+                    console.log("you want to plant a carrot");
+                    garlic.grow();
+                    garlicCounter--;
+                    let garlicStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    garlicStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "salad1":
+                if (saladCounter > 0) {
+                    let salad: Plant = new Salad("carrot", carrotPrice);
+                    console.log("you want to plant a salad");
+                    salad.grow();
+                    saladCounter--;
+                    let saladStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    saladStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "potato1":
+                if (potatoCounter > 0) {
+                    let potato: Plant = new Potato("carrot", carrotPrice);
+                    console.log("you want to plant a potato");
+                    potato.grow();
+                    potatoCounter--;
+                    let potatoStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    potatoStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "dung1":
+                if (dungCounter > 0) {
+                    let dung: Product = new Dung("carrot", carrotPrice);
+                    console.log("you want to use dung");
+                    //dung.dungPlant();
+                    dungCounter--;
+                    let dungStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    dungStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "pesticide1":
+                if (pesticideCounter > 0) {
+                    let pesticide: Product = new Pesticide("carrot", carrotPrice);
+                    console.log("you want to use pesticide");
+                    // pesticide.fightPest();
+                    pesticideCounter--;
+                    let pesticideStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
+                    pesticideStack.innerHTML = carrotCounter.toString();
+                    break;
+                }
+            case "water":
+                console.log("you want to water the plant");
+                //Plant.waterPlant();
+                break;
+        }
+    }
+
+
+
 
 }

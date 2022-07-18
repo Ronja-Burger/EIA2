@@ -85,7 +85,7 @@ fieldset {
     background-color: antiquewhite;
     margin-left: 920px;
     height: 620px;
-    width: 500px;
+    width: 530px;
     padding: 10px;
 }
 #storage {
@@ -95,7 +95,7 @@ fieldset {
     background-image: url("Store.jpg");
     border-radius: 0.5em;
     color: white;
-    height: 200px;
+    height: 230px;
     width: 490px;
     margin-bottom: 10px;
 }
@@ -139,7 +139,7 @@ fieldset {
 }
 #table1 {
     margin: 10px;
-    width: 98%;
+    width: 40%;
 }
 
 th {
