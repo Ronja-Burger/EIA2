@@ -122,6 +122,12 @@ var garden;
     let garlicPrice;
     let dungPrice;
     let pesticidePrice;
+    // variables for different prices (sell)
+    let carrotSellPrice;
+    let eggplantSellPrice;
+    let saladSellPrice;
+    let potatoSellPrice;
+    let garlicSellPrice;
     function changePrices() {
         carrotPrice = Math.floor(Math.random() * garden.maxPrice + 1);
         eggplantPrice = Math.floor(Math.random() * garden.maxPrice + 2);
@@ -130,7 +136,13 @@ var garden;
         garlicPrice = Math.floor(Math.random() * garden.maxPrice + 8);
         dungPrice = Math.floor(Math.random() * garden.maxPrice + 4);
         pesticidePrice = Math.floor(Math.random() * garden.maxPrice + 5);
-        //console.log("aktuelle Verkaufspreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
+        //console.log("aktuelle Kaufpreise: " + carrotPrice + eggplantPrice + saladPrice + potatoPrice + garlicPrice + dungPrice + pesticidePrice);
+        carrotSellPrice = Math.floor(Math.random() * garden.maxPrice + 1 + 2);
+        eggplantSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
+        saladSellPrice = Math.floor(Math.random() * garden.maxPrice + 3 + 2);
+        potatoSellPrice = Math.floor(Math.random() * garden.maxPrice + 2 + 2);
+        garlicSellPrice = Math.floor(Math.random() * garden.maxPrice + 8 + 2);
+        //console.log("aktuelle Verkaufspreise: " + carrotSellPrice + eggplantSellPrice + saladSellPrice + potatoSellPrice + garlicSellPrice);
         // show prices (buy)
         let carrotBuy = document.getElementById("carrotPrice");
         carrotBuy.innerHTML = carrotPrice.toString() + "$";
@@ -146,6 +158,17 @@ var garden;
         dungBuy.innerHTML = dungPrice.toString() + "$";
         let pesticideBuy = document.getElementById("pesticidePrice");
         pesticideBuy.innerHTML = pesticidePrice.toString() + "$";
+        //show prices (sell)
+        let carrotSell = document.getElementById("carrotSellPrice");
+        carrotSell.innerHTML = carrotSellPrice.toString() + "$";
+        let eggplantSell = document.getElementById("eggplantSellPrice");
+        eggplantSell.innerHTML = eggplantSellPrice.toString() + "$";
+        let saladSell = document.getElementById("saladSellPrice");
+        saladSell.innerHTML = saladSellPrice.toString() + "$";
+        let potatoSell = document.getElementById("potatoSellPrice");
+        potatoSell.innerHTML = potatoSellPrice.toString() + "$";
+        let garlicSell = document.getElementById("garlicSellPrice");
+        garlicSell.innerHTML = garlicSellPrice.toString() + "$";
     }
     //function to buy vegetables
     function buyProduct(_event) {
@@ -213,6 +236,7 @@ var garden;
         }
         else {
             alert("you're broke!");
+            //Capital geht z.T. ins Minus, weil er Käufe zulässt, wenn capital > 1, aber die meisten Sachen kosten mehr als 1 und so geht es ins Minus
         }
     }
     function getTarget(_event) {
@@ -220,14 +244,15 @@ var garden;
         garden.clickedVegetable = target.id;
     }
     // this function checks out id an plant that plant on the clicked field and all that stuff around it ...
-    function fieldClick() {
+    function fieldClick(_event) {
+        let target = _event.target;
         console.log("you've clicked on a field");
         switch (garden.clickedVegetable) { // switch case loop checks out which value clickedVegetable has
             case "carrot1":
                 if (garden.carrotCounter > 0) { // only works when we HAVE carrots
                     let carrot = new garden.Carrot("carrot", carrotPrice);
                     console.log("you want to plant a carrot");
-                    carrot.grow();
+                    carrot.grow(target);
                     garden.carrotCounter--; // devcrease counter bc we planted one carrot
                     let carrotStack = document.getElementById("carrotCounter"); // gets the div für counter
                     carrotStack.innerHTML = garden.carrotCounter.toString(); // writes new counter in that div
@@ -235,67 +260,67 @@ var garden;
                 }
             case "eggplant1":
                 if (garden.eggplantCounter > 0) {
-                    let eggplant = new garden.Eggplant("carrot", carrotPrice);
+                    let eggplant = new garden.Eggplant("eggplant", eggplantPrice);
                     console.log("you want to plant an eggplant");
-                    eggplant.grow();
+                    eggplant.grow(target);
                     garden.eggplantCounter--;
-                    let eggplantStack = document.getElementById("carrotCounter");
-                    eggplantStack.innerHTML = garden.carrotCounter.toString();
+                    let eggplantStack = document.getElementById("eggplantCounter");
+                    eggplantStack.innerHTML = garden.eggplantCounter.toString();
                     break;
                 }
             case "garlic1":
                 if (garden.garlicCounter > 0) {
-                    let garlic = new garden.Garlic("carrot", carrotPrice);
+                    let garlic = new garden.Garlic("garlic", garlicPrice);
                     console.log("you want to plant a carrot");
-                    garlic.grow();
+                    garlic.grow(target);
                     garden.garlicCounter--;
-                    let garlicStack = document.getElementById("carrotCounter");
-                    garlicStack.innerHTML = garden.carrotCounter.toString();
+                    let garlicStack = document.getElementById("garlicCounter");
+                    garlicStack.innerHTML = garden.garlicCounter.toString();
                     break;
                 }
             case "salad1":
                 if (garden.saladCounter > 0) {
-                    let salad = new garden.Salad("carrot", carrotPrice);
+                    let salad = new garden.Salad("salad", saladPrice);
                     console.log("you want to plant a salad");
-                    salad.grow();
+                    salad.grow(target);
                     garden.saladCounter--;
-                    let saladStack = document.getElementById("carrotCounter");
-                    saladStack.innerHTML = garden.carrotCounter.toString();
+                    let saladStack = document.getElementById("saladCounter");
+                    saladStack.innerHTML = garden.saladCounter.toString();
                     break;
                 }
             case "potato1":
                 if (garden.potatoCounter > 0) {
-                    let potato = new garden.Potato("carrot", carrotPrice);
+                    let potato = new garden.Potato("potato", potatoPrice);
                     console.log("you want to plant a potato");
-                    potato.grow();
+                    potato.grow(target);
                     garden.potatoCounter--;
-                    let potatoStack = document.getElementById("carrotCounter");
-                    potatoStack.innerHTML = garden.carrotCounter.toString();
+                    let potatoStack = document.getElementById("potatoCounter");
+                    potatoStack.innerHTML = garden.potatoCounter.toString();
                     break;
                 }
             case "dung1":
                 if (garden.dungCounter > 0) {
-                    let dung = new garden.Dung("carrot", carrotPrice);
+                    let dung = new garden.Dung("dung", dungPrice);
                     console.log("you want to use dung");
-                    //dung.dungPlant();
+                    dung.dungPlant();
                     garden.dungCounter--;
-                    let dungStack = document.getElementById("carrotCounter");
-                    dungStack.innerHTML = garden.carrotCounter.toString();
+                    let dungStack = document.getElementById("dungCounter");
+                    dungStack.innerHTML = garden.dungCounter.toString();
                     break;
                 }
             case "pesticide1":
                 if (garden.pesticideCounter > 0) {
-                    let pesticide = new garden.Pesticide("carrot", carrotPrice);
+                    let pesticide = new garden.Pesticide("pesticide", pesticidePrice);
                     console.log("you want to use pesticide");
-                    // pesticide.fightPest();
+                    pesticide.fightPest();
                     garden.pesticideCounter--;
-                    let pesticideStack = document.getElementById("carrotCounter");
-                    pesticideStack.innerHTML = garden.carrotCounter.toString();
+                    let pesticideStack = document.getElementById("pesticideCounter");
+                    pesticideStack.innerHTML = garden.pesticideCounter.toString();
                     break;
                 }
             case "water":
                 console.log("you want to water the plant");
-                //Plant.waterPlant();
+                garden.Plant.waterPlant();
                 break;
         }
     }

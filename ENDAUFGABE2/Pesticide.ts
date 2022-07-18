@@ -3,5 +3,11 @@ namespace garden {
         name: string = "pesticide";
         price: number = this.price;
 
+
+
+        fightPest(): void {
+            //fightPest
+        }
+
     }
 }

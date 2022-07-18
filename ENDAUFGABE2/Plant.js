@@ -10,19 +10,17 @@ var garden;
         maxCareTime = 30;
         currentCareTime = 0;
         pestAttack;
-        grow() {
-            console.log("grow");
+        image;
+        waterPlant() {
+            //water plant
         }
-        waterPlant() { }
-        ;
-        dungPlant() { }
-        ;
-        cropPlant() { }
-        ;
-        die() { }
-        ;
-        fightPest() { }
-        ;
+        harvestPlant() {
+            //empty field
+            // ad Price
+        }
+        die() {
+            //emptyField
+        }
     }
     garden.Plant = Plant;
 })(garden || (garden = {}));

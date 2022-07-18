@@ -3,5 +3,13 @@ namespace garden {
 
         name: string = "Dung";
         price: number = this.price;
+
+
+
+        dungPlant(): void {
+            //dungPlant
+        }
     }
+
+    
 }

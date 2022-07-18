@@ -11,15 +11,21 @@ namespace garden {
         maxCareTime: number = 30;
         currentCareTime: number = 0;
         pestAttack: boolean;
+        image: HTMLImageElement;
 
-        grow(): void {
-            console.log("grow");
+        
+
+        waterPlant(): void {
+            //water plant
+        }
+    
+        harvestPlant(): void {
+            //empty field
+            // ad Price
         }
 
-        waterPlant(): void { };
-        dungPlant(): void { };
-        cropPlant(): void { };
-        die(): void { };
-        fightPest(): void { };
+        die(): void {
+            //emptyField
+        }
     }
 }
