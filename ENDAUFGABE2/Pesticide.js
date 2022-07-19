@@ -4,7 +4,7 @@ var garden;
         name = "pesticide";
         price = this.price;
         fightPest() {
-            //fightPest
+            //fightPest - remove little pic from pbar
         }
     }
     garden.Pesticide = Pesticide;

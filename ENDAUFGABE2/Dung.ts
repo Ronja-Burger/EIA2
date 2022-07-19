@@ -7,7 +7,7 @@ namespace garden {
 
 
         dungPlant(): void {
-            //dungPlant
+            //dungPlant - remove little pic from pbar
         }
     }
 

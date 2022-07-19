@@ -9,9 +9,9 @@ var garden;
         pestAttack;
         image;
         sellPrice;
-        //constructor (_sellPrice: number) { super(); this.sellPrice = _sellPrice;}
-        waterPlant() {
-            //water plant
+        constructor(_name, _price, _sellPrice) {
+            super(_name, _price);
+            this.sellPrice = _sellPrice;
         }
         die() {
             //emptyField

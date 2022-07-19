@@ -150,7 +150,7 @@ namespace garden {
     let dungPrice: number;
     let pesticidePrice: number;
 
-// variables for different prices (sell)
+    // variables for different prices (sell)
     export let carrotSellPrice: number;
     export let eggplantSellPrice: number;
     export let saladSellPrice: number;
@@ -209,7 +209,7 @@ namespace garden {
         if (capital > 0) {
             switch (id) {
                 case "carrot":
-                    let carrot: Plant = new Carrot("carrot", carrotPrice);
+                    let carrot: Plant = new Carrot("carrot", carrotPrice, carrotSellPrice);
                     carrotCounter++;
                     carrot.buyProduct();
                     let carrotStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter");
@@ -217,7 +217,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "eggplant":
-                    let eggplant: Plant = new Eggplant("eggplant", eggplantPrice);
+                    let eggplant: Plant = new Eggplant("eggplant", eggplantPrice, eggplantSellPrice);
                     eggplantCounter++;
                     eggplant.buyProduct();
                     let eggplantStack: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
@@ -225,7 +225,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "salad":
-                    let salad: Plant = new Salad("salad", saladPrice);
+                    let salad: Plant = new Salad("salad", saladPrice, saladSellPrice);
                     saladCounter++;
                     salad.buyProduct();
                     let saladStack: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
@@ -233,7 +233,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "potato":
-                    let potato: Plant = new Potato("potato", potatoPrice);
+                    let potato: Plant = new Potato("potato", potatoPrice, potatoSellPrice);
                     potatoCounter++;
                     potato.buyProduct();
                     let potatoStack: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
@@ -241,7 +241,7 @@ namespace garden {
                     console.log("bought " + id);
                     break;
                 case "garlic":
-                    let garlic: Plant = new Garlic("garlic", garlicPrice);
+                    let garlic: Plant = new Garlic("garlic", garlicPrice, garlicSellPrice);
                     garlicCounter++;
                     garlic.buyProduct();
                     let garlicStack: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
@@ -287,54 +287,54 @@ namespace garden {
         switch (clickedVegetable) { // switch case loop checks out which value clickedVegetable has
             case "carrot1":
                 if (carrotCounter > 0) { // only works when we HAVE carrots
-                    let carrot: Carrot = new Carrot("carrot", carrotPrice);
+                    let carrot: Carrot = new Carrot("carrot", carrotPrice, carrotSellPrice);
                     console.log("you want to plant a carrot");
                     carrot.grow(target);
                     carrotCounter--; // devcrease counter bc we planted one carrot
                     let carrotStack: HTMLDivElement = <HTMLDivElement>document.getElementById("carrotCounter"); // gets the div für counter
                     carrotStack.innerHTML = carrotCounter.toString(); // writes new counter in that div
-                    break;
                 }
+                break;
             case "eggplant1":
                 if (eggplantCounter > 0) {
-                    let eggplant: Eggplant = new Eggplant("eggplant", eggplantPrice);
+                    let eggplant: Eggplant = new Eggplant("eggplant", eggplantPrice, eggplantSellPrice);
                     console.log("you want to plant an eggplant");
                     eggplant.grow(target);
                     eggplantCounter--;
                     let eggplantStack: HTMLDivElement = <HTMLDivElement>document.getElementById("eggplantCounter");
                     eggplantStack.innerHTML = eggplantCounter.toString();
-                    break;
                 }
+                break;
             case "garlic1":
                 if (garlicCounter > 0) {
-                    let garlic: Garlic = new Garlic("garlic", garlicPrice);
+                    let garlic: Garlic = new Garlic("garlic", garlicPrice, garlicSellPrice);
                     console.log("you want to plant a carrot");
                     garlic.grow(target);
                     garlicCounter--;
                     let garlicStack: HTMLDivElement = <HTMLDivElement>document.getElementById("garlicCounter");
                     garlicStack.innerHTML = garlicCounter.toString();
-                    break;
                 }
+                break;
             case "salad1":
                 if (saladCounter > 0) {
-                    let salad: Salad = new Salad("salad", saladPrice);
+                    let salad: Salad = new Salad("salad", saladPrice, saladSellPrice);
                     console.log("you want to plant a salad");
                     salad.grow(target);
                     saladCounter--;
                     let saladStack: HTMLDivElement = <HTMLDivElement>document.getElementById("saladCounter");
                     saladStack.innerHTML = saladCounter.toString();
-                    break;
                 }
+                break;
             case "potato1":
                 if (potatoCounter > 0) {
-                    let potato: Potato = new Potato("potato", potatoPrice);
+                    let potato: Potato = new Potato("potato", potatoPrice, potatoSellPrice);
                     console.log("you want to plant a potato");
                     potato.grow(target);
                     potatoCounter--;
                     let potatoStack: HTMLDivElement = <HTMLDivElement>document.getElementById("potatoCounter");
                     potatoStack.innerHTML = potatoCounter.toString();
-                    break;
                 }
+                break;
             case "dung1":
                 if (dungCounter > 0) {
                     let dung: Dung = new Dung("dung", dungPrice);
@@ -343,8 +343,8 @@ namespace garden {
                     dungCounter--;
                     let dungStack: HTMLDivElement = <HTMLDivElement>document.getElementById("dungCounter");
                     dungStack.innerHTML = dungCounter.toString();
-                    break;
                 }
+                break;
             case "pesticide1":
                 if (pesticideCounter > 0) {
                     let pesticide: Pesticide = new Pesticide("pesticide", pesticidePrice);
@@ -353,12 +353,15 @@ namespace garden {
                     pesticideCounter--;
                     let pesticideStack: HTMLDivElement = <HTMLDivElement>document.getElementById("pesticideCounter");
                     pesticideStack.innerHTML = pesticideCounter.toString();
-                    break;
                 }
-            case "water":
-                console.log("you want to water the plant");
-                //Plant.waterPlant();
                 break;
+           /*  case "water":
+                console.log("you want to water the plant");
+                let image: HTMLImageElement = <HTMLImageElement>_event.target; // waterdrops
+                console.log(image);
+                let thisImage: HTMLDivElement = <HTMLDivElement>image.parentElement; // grab parent element
+                thisImage.removeChild(image); // remove waterdrops
+                break; */
             default:
                 return;
         }

@@ -11,14 +11,13 @@ namespace garden {
         image: HTMLImageElement;
         sellPrice: number;
 
-        //constructor (_sellPrice: number) { super(); this.sellPrice = _sellPrice;}
+        constructor(_name: string, _price: number, _sellPrice: number) {
+            super(_name, _price);
+            this.sellPrice = _sellPrice;
 
-        
-
-        waterPlant(): void {
-            //water plant
         }
-    
+
+
 
         die(): void {
             //emptyField

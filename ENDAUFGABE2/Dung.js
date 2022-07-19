@@ -4,7 +4,7 @@ var garden;
         name = "Dung";
         price = this.price;
         dungPlant() {
-            //dungPlant
+            //dungPlant - remove little pic from pbar
         }
     }
     garden.Dung = Dung;

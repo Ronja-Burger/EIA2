@@ -6,7 +6,7 @@ namespace garden {
 
 
         fightPest(): void {
-            //fightPest
+            //fightPest - remove little pic from pbar
         }
 
     }
