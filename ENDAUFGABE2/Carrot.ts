@@ -6,7 +6,7 @@ namespace garden {
 
 
         grow(parent: HTMLDivElement): void {
-            this.field = parent; //give clicked element to field
+            this.field = parent; // grab parentelement
             console.log("grow");
             this.image = <HTMLImageElement>document.createElement("img"); // create new Image
             this.image.setAttribute("src", "Emojis/veggies/carrot_1f955.png"); // define which image
@@ -42,7 +42,7 @@ namespace garden {
             console.log("you want to harvest the plant");
             this.image = <HTMLImageElement>_event.target; // get target (the vegetable)
             //console.log(_event.target);
-            let thisImage: HTMLDivElement = <HTMLDivElement>this.image.parentElement; // get parentElement
+            let thisImage: HTMLDivElement = <HTMLDivElement>this.image.parentElement; // get parent Element
             thisImage.removeChild(this.image); // remove pic (of the vegetable)
 
 
